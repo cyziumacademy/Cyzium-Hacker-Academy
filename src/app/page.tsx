@@ -21,13 +21,16 @@ function Hero() {
           {/* 🔥 Animated Heading */}
          <motion.h2
   className="text-[52px] md:text-[85px] font-extrabold leading-tight -mt-7 -ml-40"
-  initial={{ opacity: 0, scale: 0.6 }}
-  whileInView={{ opacity: 1, scale: 1 }}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true }}
 >
-  Build Advanced Hacking skills
+  <div>Build</div>
+  <div>AI-Powered</div>
+  <div>Hacking Skills</div>
 </motion.h2>
+
 
 <motion.p
   className="mt-6 text-2xl font-semibold ml-[-155px] max-w-xl"
@@ -68,42 +71,6 @@ function Hero() {
   );
 }
 
-// ✅ CoursesSection
-function CoursesSection() {
-  return (
-    <motion.section
-      id="courses"
-      className="max-w-7xl mx-auto px-6 py-16"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <h3 className="text-4xl font-bold">
-        Choose your{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
-          Career
-        </span>
-      </h3>
-      <p className="mt-2">Start with one track and progress to advanced topics.</p>
-
-      <div className="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-        {sampleCourses.map((c, i) => (
-          <CourseCard key={c.id} course={c} index={i} />
-        ))}
-
-        {/* ✅ View More Courses card */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="flex flex-col items-center justify-center rounded-3xl backdrop-blur-lg bg-white/10 text-white shadow-lg p-6 text-center cursor-pointer hover:bg-white/20 transition-all duration-300"
-        >
-          <span className="text-2xl font-bold">+ View More Courses</span>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
-}
 
 type Course = {
   id: string;
@@ -144,22 +111,26 @@ const sampleCourses: Course[] = [
     seatsLeft: 20,
     shortDescription:
       "Logs, alerts, SIEM basics and incident triage using free tools.",
-    image: "/images/soc.jpg",
+    image: "/course3.webp",
   },
 ];
 
-// ✅ CourseCard
 function CourseCard({ course, index }: { course: Course; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ delay: index * 0.2, duration: 0.6, ease: "easeOut" }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{
+        scale: 1.05,
+        transition: { type: "spring", stiffness: 300, damping: 20 },
+      }}
       whileTap={{ scale: 0.97 }}
-      className="flex flex-col overflow-hidden rounded-3xl backdrop-blur-lg bg-white/10 shadow-lg hover:shadow-2xl transition-all duration-300"
+      style={{ willChange: "transform" }}
+      className="flex flex-col overflow-hidden rounded-3xl backdrop-blur-lg bg-white/10 shadow-lg hover:shadow-red-500/50"
     >
-      {/* Top image section (no text inside) */}
+      {/* Top image */}
       <div
         className="h-32 w-full"
         style={{
@@ -167,9 +138,9 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-      ></div>
+      />
 
-      {/* Bottom info section */}
+      {/* Bottom info */}
       <div className="flex flex-col flex-1 justify-between p-6">
         <div>
           <h4 className="text-lg font-semibold text-white">{course.title}</h4>
@@ -185,7 +156,6 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
           </span>
         </div>
 
-        {/* ✅ Animated Button */}
         <motion.button
           whileTap={{ scale: 0.92 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -198,6 +168,43 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
   );
 }
 
+export function CoursesSection() {
+  return (
+    <motion.section
+      id="courses"
+      className="max-w-7xl mx-auto px-6 py-16"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <h3 className="text-6xl -mt-5 font-bold">
+        Choose your{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
+          Career
+        </span>
+      </h3>
+      <p className="mt-2">Start with one track and progress to advanced topics.</p>
+
+      <div className="mt-15 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        {sampleCourses.map((c, i) => (
+          <CourseCard key={c.id} course={c} index={i} />
+        ))}
+
+        {/* View More Courses card */}
+<motion.div
+  whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(255,255,255,0.3)" }}
+  whileTap={{ scale: 0.97 }}
+  transition={{ duration: 0.2, ease: "easeOut" }}
+  className="flex items-center justify-center rounded-2xl backdrop-blur-md bg-white/10 text-white shadow-md p-6 cursor-pointer border border-white/20 hover:border-white/40"
+>
+  <span className="text-lg font-medium">+ View More Courses</span>
+</motion.div>
+
+      </div>
+    </motion.section>
+  );
+}
 
 // ✅ Main LandingPage (ONLY default export)
 export default function LandingPage() {

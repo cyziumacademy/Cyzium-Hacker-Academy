@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Phone, Send } from "lucide-react";
+import { User, Mail, Send, Phone, Book } from "lucide-react";
 
 type FormInputProps = {
   icon: React.ReactNode;
@@ -9,14 +9,23 @@ type FormInputProps = {
   placeholder: string;
   name: string;
   delay: number;
+  fullWidth?: boolean;
 };
 
-function FormInput({ icon, type, placeholder, name, delay }: FormInputProps) {
+function FormInput({
+  icon,
+  type,
+  placeholder,
+  name,
+  delay,
+  fullWidth = false,
+}: FormInputProps) {
   return (
     <motion.div
-      className="relative"
+      className={`relative ${fullWidth ? "md:col-span-2" : ""}`}
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7, delay }}
     >
       <div className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400">
@@ -26,7 +35,9 @@ function FormInput({ icon, type, placeholder, name, delay }: FormInputProps) {
         type={type}
         name={name}
         placeholder={placeholder}
-        className="w-full bg-black/20 border border-white/20 rounded-lg py-2 pl-10 pr-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
+        className="w-full h-12 bg-black/20 border border-white/20 rounded-lg 
+                   pl-10 pr-3 text-white placeholder-gray-500 text-base
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
         required
       />
     </motion.div>
@@ -51,17 +62,23 @@ function ContactCard() {
     >
       <main className="relative z-10 flex items-center justify-center min-h-screen p-8">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
-          
-          {/* Landscape Contact Card */}
+          {/* Form Card */}
           <motion.div
             className="relative w-full max-w-4xl bg-black/30 backdrop-blur-xl 
-                       border border-white/20 shadow-2xl rounded-[20px] p-8 
+                       border border-white/20 shadow-2xl rounded-[60px] p-8 
                        overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="text-center mb-6">
+            <motion.div
+              className="text-center mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8 }}
+            >
               <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
                 Start Your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
@@ -72,9 +89,9 @@ function ContactCard() {
                 Have questions or ready to enroll? Fill out the form below, and
                 our admissions team will get back to you shortly.
               </p>
-            </div>
+            </motion.div>
 
-            {/* ✅ Properly aligned grid form */}
+            {/* Form */}
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormInput
                 icon={<User />}
@@ -84,31 +101,36 @@ function ContactCard() {
                 delay={0.3}
               />
               <FormInput
-                icon={<Mail />}
-                type="email"
-                placeholder="Email Address (Optional)"
-                name="email"
+                icon={<Phone />}
+                type="text"
+                placeholder="Phone Number"
+                name="email_phone"
                 delay={0.4}
               />
               <FormInput
-                icon={<Phone />}
-                type="tel"
-                placeholder="Phone Number"
-                name="phone"
+                icon={<Book />}
+                type="text"
+                placeholder="Qualification"
+                name="qualification"
                 delay={0.5}
+                fullWidth
               />
 
               <motion.div
                 className="relative md:col-span-2"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
               >
                 <select
                   name="course"
-                  className="w-full bg-black/20 border border-white/20 rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all appearance-none"
+                  defaultValue=""
+                  className="w-full h-12 bg-black/20 border border-white/20 rounded-lg 
+                             px-3 text-white text-base
+                             focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all appearance-none"
                 >
-                  <option disabled selected>
+                  <option value="" disabled>
                     Select a Course of Interest
                   </option>
                   {courses.map((course) => (
@@ -122,22 +144,26 @@ function ContactCard() {
               <motion.div
                 className="relative md:col-span-2"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: 0.7 }}
               >
                 <textarea
                   name="message"
                   placeholder="Your message or question..."
                   rows={3}
-                  className="w-full bg-black/20 border border-white/20 rounded-lg py-2 px-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
+                  className="w-full min-h-[120px] bg-black/20 border border-white/20 
+                             rounded-lg px-3 py-2 text-white placeholder-gray-500 text-base
+                             focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all resize-none"
                 ></textarea>
               </motion.div>
 
               <motion.button
                 type="submit"
-                className="md:col-span-2 w-full flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-all duration-300 text-base active:scale-95"
+                className="md:col-span-2 w-full flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3 rounded-[15px] hover:bg-red-700 transition-all duration-300 text-base active:scale-95"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: 0.8 }}
               >
                 <Send size={18} />
@@ -148,7 +174,8 @@ function ContactCard() {
             <motion.p
               className="text-center text-xs text-gray-400 pt-4"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 0.9 }}
             >
               Note: Our team will review your submission and contact you
@@ -157,17 +184,28 @@ function ContactCard() {
           </motion.div>
 
           {/* Right side paragraph */}
-          <div className="max-w-md text-gray-300">
-            <h2 className="text-2xl font-bold mb-3 text-cyan-400">
-              Why Choose Us?
+          <motion.div
+            className="max-w-md text-gray-300"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-6xl mt-12 font-extrabold mb-3 text-gray-100 leading-snug max-w-xl">
+              Ready to Hack Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
+                  Future
+                </span>?
             </h2>
-            <p className="text-base leading-relaxed">
-              We don’t just teach theory — we provide hands-on labs, real-world
-              projects, and mentorship to help you build a strong foundation in
-              cybersecurity. Join our community of learners who are passionate
-              about breaking into the industry and making an impact.
+
+            <p className="text-xl md:text-xl mt-13 leading-relaxed">
+              🔐 Learn practical hacking skills with real-world labs and live projects.  
+              Get guidance from experts who’ve been in the trenches of cybersecurity.  
+              Don’t just study — build, break, defend, and level up your career.
             </p>
-          </div>
+            <p className="text-xl mt-10  md:text-1xl font-semibold text-white">
+              Fill the form and let us help you get started today!
+            </p>
+          </motion.div>
         </div>
       </main>
     </div>
