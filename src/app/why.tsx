@@ -18,7 +18,7 @@ function FeatureCard({ icon, title, description, delay, className = "" }: Featur
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.7, delay }}
+      transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.05 }}
     >
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -37,12 +37,12 @@ function FeatureCard({ icon, title, description, delay, className = "" }: Featur
 
 function WhyChooseUsPage() {
   const features = [
-    { icon: <Target size={32} className="text-red-500" />, title: "Hands-On Labs", description: "Work on Splunk, Wireshark, ELK & real attack simulations.", delay: 0.2, className: "md:col-span-1" },
-    { icon: <Users size={32} className="text-red-500" />, title: "Expert Mentors", description: "Learn from elite practitioners with years of real-world SOC and pentesting experience.", delay: 0.3, className: "md:col-span-2" },
-    { icon: <Briefcase size={32} className="text-red-500" />, title: "Placement Assistance", description: "We provide resume prep, interview coaching, and placement support.", delay: 0.4, className: "md:col-span-3" },
-    { icon: <BrainCircuit size={32} className="text-red-500" />, title: "Practical Learning", description: "We focus on job-ready skills employers are looking for.", delay: 0.5, className: "md:col-span-1" },
-    { icon: <ShieldCheck size={32} className="text-red-500" />, title: "Community & Support", description: "Gain access to our private Discord and Telegram channels.", delay: 0.6, className: "md:col-span-1" },
-    { icon: <Zap size={32} className="text-red-500" />, title: "Cutting-Edge Curriculum", description: "Our syllabus is constantly updated with latest threats, tools, and techniques.", delay: 0.7, className: "md:col-span-1" },
+    { icon: <Target size={32} className="text-red-500" />, title: "Hands-On Labs", description: "Work on Splunk, Wireshark, ELK & real attack simulations.", delay: 0.1, className: "md:col-span-1" },
+    { icon: <Users size={32} className="text-red-500" />, title: "Ai & Cloud Specialized", description: "Learn from elite practitioners with years of real-world SOC and pentesting experience.", delay: 0.1, className: "md:col-span-2" },
+    { icon: <Briefcase size={32} className="text-red-500" />, title: "Placement Assistance", description: "We provide resume prep, interview coaching, and placement support.", delay: 0.1, className: "md:col-span-3" },
+    { icon: <BrainCircuit size={32} className="text-red-500" />, title: "Practical Learning", description: "We focus on job-ready skills employers are looking for.", delay: 0.1, className: "md:col-span-1" },
+    { icon: <ShieldCheck size={32} className="text-red-500" />, title: "Community & Support", description: "Gain access to our private Discord and Telegram channels.", delay: 0.1, className: "md:col-span-1" },
+    { icon: <Zap size={32} className="text-red-500" />, title: "Cutting-Edge Curriculum", description: "Our syllabus is constantly updated with latest threats, tools, and techniques.", delay: 0.1, className: "md:col-span-1" },
   ];
 
   return (
@@ -57,7 +57,7 @@ function WhyChooseUsPage() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight">
             Why Choose  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
