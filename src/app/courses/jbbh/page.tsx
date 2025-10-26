@@ -1,27 +1,13 @@
 "use client";
-import React, { useState, useEffect, useCallback, ReactNode } from "react";
+import React, { useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlobeLock,  FlaskConical, Bug } from "lucide-react";
 import {
-  Clock,
-  BarChart2,
   CheckCircle,
-  ChevronDown,
   Award,
-  Users,
-  Code,
   Shield,
-  Briefcase,
   GraduationCap,
-  Code2,
-  Target,
-  Zap,
-  ChevronsRight,
-  ArrowLeft,
   HelpCircle,
-  Network,
-  Router,
-  Server,
 } from "lucide-react";
 import Navbar from '@/app/navbar';
 import Footer from "@/app/footer"; 

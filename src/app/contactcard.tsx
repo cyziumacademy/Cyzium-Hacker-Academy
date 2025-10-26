@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Send, Phone, Book } from "lucide-react";
+import { User, Send, Phone, Book } from "lucide-react";
 
 type FormInputProps = {
   icon: React.ReactNode;

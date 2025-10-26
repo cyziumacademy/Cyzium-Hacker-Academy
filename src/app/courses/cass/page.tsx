@@ -1,14 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, ArrowLeft, HelpCircle } from "lucide-react";
+import { GlobeLock,  FlaskConical, Bug } from "lucide-react";
+import {
+  CheckCircle,
+  Award,
+  Shield,
+  GraduationCap,
+  HelpCircle,
+} from "lucide-react";
 import Navbar from '@/app/navbar';
 import Footer from "@/app/footer"; 
 import Float from "@/app/float";
+import ContactCard from "@/app/contact";
+import Link from "next/link";
 
 // --- TYPES ---
 interface SectionProps {
-  children: React.ReactNode;
+  children: ReactNode;
   id?: string;
   className?: string;
 }
@@ -19,25 +28,20 @@ interface FaqCardProps {
   delay?: number;
 }
 
-interface Module {
-  title: string;
-  content: string;
-}
-
-interface CareerPath {
-  title: string;
-  image: string;
-}
-
-interface CASSCoursePageProps {
+interface JBBHCoursePageProps {
   onBack?: () => void;
 }
+
+interface ContactProps {
+  onClose: () => void;
+}
+
 
 // --- SECTION COMPONENT ---
 const Section: React.FC<SectionProps> = ({ children, id, className = "" }) => (
   <motion.section
     id={id}
-    className={`py-16 px-8 ${className}`}
+    className={`py-16 px-6 sm:px-8 ${className}`}
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, ease: "easeOut" }}
@@ -47,13 +51,15 @@ const Section: React.FC<SectionProps> = ({ children, id, className = "" }) => (
   </motion.section>
 );
 
-// --- FAQ CARD ---
-const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay }) => {
+
+
+// --- FAQ CARD COMPONENT ---
+const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <motion.div
-      className="w-full h-72 rounded-2xl cursor-pointer"
+      className="w-full h-64 sm:h-72 rounded-2xl cursor-pointer"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay }}
@@ -68,328 +74,332 @@ const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay }) => {
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
       >
-        {/* Front */}
+        {/* Front of the card */}
         <div
-          className="absolute w-full h-full bg-black/30 backdrop-blur-xl border border-white/20 rounded-2xl p-6 flex flex-col justify-center items-center text-center"
+          className="absolute w-full h-full bg-black/30 backdrop-blur-xl border border-white/20 rounded-[50px] p-4 sm:p-6 flex flex-col justify-center items-center text-center"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <HelpCircle size={32} className="text-red-500 mb-4" />
-          <h3 className="text-xl font-bold text-white">{question}</h3>
+          <HelpCircle size={28} className="text-blue-500 mb-3 sm:mb-4" />
+          <h3 className="text-lg sm:text-xl font-bold text-white">{question}</h3>
         </div>
-        {/* Back */}
+        {/* Back of the card */}
         <div
-          className="absolute w-full h-full bg-red-600/10 backdrop-blur-xl border border-red-500/50 rounded-2xl p-6 flex items-center justify-center text-center"
+          className="absolute w-full h-full bg-red-600/10 backdrop-blur-xl border border-red-500/50 rounded-2xl p-4 sm:p-6 flex items-center justify-center text-center"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <p className="text-white leading-relaxed">{answer}</p>
+          <p className="text-sm sm:text-base text-white leading-relaxed">{answer}</p>
         </div>
       </motion.div>
     </motion.div>
   );
 };
 
-// --- MAIN COURSE PAGE ---
-const CASSCoursePage: React.FC<CASSCoursePageProps> = ({ onBack }) => {
-  const curriculumModules: Module[] = [
+// --- MAIN COMPONENT ---
+const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({ onBack }) => {
+    const [showContact, setShowContact] = useState(false);
+  const curriculumModules = [
     {
-      title: "Module 01: Foundations of AI & ML Security",
+      title: "Introduction to Bug Bounty Hunting",
       content:
-        "Understanding the AI threat landscape, attack surfaces, and secure AI principles.",
+        "Understand what bug bounty hunting is, how platforms like Bugcrowd and HackerOne work, and the overall process of finding and reporting vulnerabilities ethically.",
     },
     {
-      title: "Module 02: Adversarial Machine Learning",
+      title: "Networking Fundamentals",
       content:
-        "Hands-on labs on evasion attacks, data poisoning, and model inversion.",
+        "Learn essential networking concepts such as TCP/IP, DNS, HTTP, and ports — the backbone knowledge required to understand how data travels across the web.",
     },
     {
-      title: "Module 03: Securing ML Pipelines (MLSecOps)",
+      title: "Linux & Kali Essentials for Bug Bounty",
       content:
-        "Integrating security into the end-to-end machine learning lifecycle.",
+        "Get hands-on with Linux commands, terminal operations, and Kali Linux tools that are crucial for recon, scanning, and exploitation during bug bounty testing.",
     },
     {
-      title: "Module 04: Data Privacy & Protection in AI",
+      title: "Web Application Concepts for Hackers",
       content:
-        "Techniques like differential privacy, federated learning, and homomorphic encryption.",
+        "Dive into how web applications work — from requests, responses, and cookies to APIs and authentication — to build a hacker’s understanding of web architecture.",
     },
     {
-      title: "Module 05: Large Language Model (LLM) Security",
+      title: "Web Security Vulnerabilities",
       content:
-        "Analyzing and defending against prompt injection, model theft, and other LLM-specific threats.",
+        "Explore common and critical web vulnerabilities such as XSS, SQL Injection, CSRF, SSRF, IDOR, and learn how to identify and exploit them in real targets.",
     },
     {
-      title: "Module 06: AI Security Governance & Red Teaming",
+      title: "Introduction to AI-Powered Bug Hunting",
       content:
-        "Building AI security policies and conducting red team exercises against AI systems.",
+        "Discover how AI tools can assist bug hunters in automation, recon, and vulnerability discovery, and how to integrate them into your bug bounty workflow.",
+    },
+    {
+      title: "Real World Bug Hunting",
+      content:
+        "Apply all your learning in real-world scenarios, analyze live bug bounty programs, report valid vulnerabilities, and learn how to write impactful submissions.",
     },
   ];
 
-  const faqs = [
+   const faqs = [
     {
-      title: "Is programming experience required for this course?",
+      title: "What are the prerequisites for this course?",
       content:
-        "Yes, a solid understanding of Python is a mandatory prerequisite for this advanced program.",
+        "No prior experience is required! This course starts from the basics — anyone with curiosity and interest in cybersecurity can join. Basic computer and internet knowledge is enough.",
     },
     {
-      title: "What kind of AI models will we work with?",
+      title: "Can a younger student do real bug hunting?",
       content:
-        "You will work with a variety of models, including computer vision classifiers and large language models (LLMs) in our dedicated lab environment.",
+        "Yes, absolutely — with parent approval! If you are under 14, you can legally test websites through Vulnerability Disclosure Programs (VDPs) under parental supervision.",
     },
     {
-      title: "Is this a theoretical or practical course?",
+      title: "Is this course focused on a specific platform?",
       content:
-        "This is a deeply practical course. Over 80% of the course time is dedicated to hands-on labs where you will perform and defend against real AI attacks.",
+        "No, JBBH covers a variety of real-world platforms including web applications, mobile apps, and APIs, so you can practice bug hunting across different environments.",
     },
   ];
 
-  const [activeModule, setActiveModule] = useState<Module>(curriculumModules[0]);
 
-  const careerOpportunities: CareerPath[] = [
-    {
-      title: "AI Security Specialist",
-      image: "https://placehold.co/300x200/0a192f/FFFFFF?text=AI+Sec",
-    },
-    {
-      title: "MLSecOps Engineer",
-      image: "https://placehold.co/300x200/0a192f/FFFFFF?text=MLSecOps",
-    },
-    {
-      title: "AI Red Teamer",
-      image: "https://placehold.co/300x200/0a192f/FFFFFF?text=AI+Red+Team",
-    },
-    {
-      title: "AI Security Researcher",
-      image: "https://placehold.co/300x200/0a192f/FFFFFF?text=Researcher",
-    },
-    {
-      title: "Prompt Engineer (Security)",
-      image: "https://placehold.co/300x200/0a192f/FFFFFF?text=Prompt",
-    },
-  ];
+  const [activeModule, setActiveModule] = useState(curriculumModules[0]);
 
-  const tools = [
-    { name: "Burp Suite", image: "https://placehold.co/200x120/0a192f/FFFFFF?text=Burp" },
-    { name: "Kali Linux", image: "https://placehold.co/200x120/0a192f/FFFFFF?text=Kali" },
-    { name: "Wireshark", image: "https://placehold.co/200x120/0a192f/FFFFFF?text=Wireshark" },
-    { name: "Metasploit", image: "https://placehold.co/200x120/0a192f/FFFFFF?text=Metasploit" },
-    { name: "Nmap", image: "https://placehold.co/200x120/0a192f/FFFFFF?text=Nmap" },
-    { name: "OWASP ZAP", image: "https://placehold.co/200x120/0a192f/FFFFFF?text=ZAP" },
-  ];
+const careerOpportunities = [
+  { title: "Junior Bug Bounty Hunter", icon: Bug },
+  { title: "Web Security Tester", icon: GlobeLock },
+  { title: "Cybersecurity Intern", icon: GraduationCap },
+  { title: "Security Research Assistant", icon: FlaskConical },
+  { title: "Vulnerability Analyst", icon: Shield },
+];
 
- 
-  return (
-    <div className="relative text-white font-sans bg-[#0a192f]">
-      <div className="fixed top-0 left-0 w-full h-full z-0">
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "url('https://www.transparenttextures.com/patterns/subtle-prism.png')",
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-black/50"></div>
-      </div>
+const tools = [
+  { name: "Kali Linux", logo: "/kali.png", size: "80px" },
+  { name: "Burp Suite", logo: "/burp.png", size: "70px" },
+  { name: "Wireshark", logo: "/wire.png", size: "60px" },
+  { name: "Nmap", logo: "/nmap.png", size: "145px" },
+  { name: "Shodan", logo: "/shodan.png", size: "85px" },
+  { name: "Metasploit", logo: "/metasploit.png", size: "110px" },
+  { name: "Sqlmap", logo: "/sqlmap.png", size: "100px" },
+  { name: "Exploit Database", logo: "/exploit.png", size: "70px" },
+];
+return (
+  <div className="relative text-white font-sans overflow-x-hidden">
+    {/* --- Cyber Gradient Background --- */}
+    <div className="fixed top-0 left-0 w-full h-full z-0">
+      {/* Base gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001F3F] via-[#0A0A2A] to-[#450000]" />
 
-      <main className="relative z-10">
-        <header className="py-24 text-center relative">
-          <div className="max-w-screen-xl mx-auto px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <p className="text-lg font-semibold text-red-500">
-                Cyzium Specialist Course
-              </p>
-              <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight text-white mt-4">
-                Certified AI Security Specialist
-              </h1>
-              <p className="text-4xl md:text-5xl font-bold text-red-500 tracking-wider mt-2">
-                (CASS)
-              </p>
-              <p className="mt-8 max-w-4xl mx-auto text-2xl text-gray-300">
-                Defend the future of intelligence. Master the art of securing
-                machine learning systems and protecting AI from emerging
-                threats.
-              </p>
-            </motion.div>
-          </div>
-        </header>
+      {/* Overlay red-blue glow */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 via-transparent to-red-800/40 mix-blend-overlay" />
 
-        <div className="max-w-screen-xl mx-auto p-8">
-          {/* --- Course Info --- */}
+      {/* 💠 Tech grid lines (visible now) */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 0, 0, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px",
+          mixBlendMode: "screen",
+        }}
+      ></div>
+
+      {/* Diagonal glowing pattern */}
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `
+            linear-gradient(135deg, rgba(0, 150, 255, 0.25) 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+          mixBlendMode: "overlay",
+        }}
+      ></div>
+    </div>
+    
+<img
+  src="/logo2.PNG"
+  alt="Logo"
+  className="fixed z-10 pointer-events-none"
+  style={{
+    top: "70%",           // vertical center
+    left: "50%",          // horizontal center
+    width: "2000px",      // base width
+    height: "auto",
+    opacity: 0.25,        // adjust visibility
+    mixBlendMode: "overlay",
+    transform: "translate(-50%, -50%)", // center the image
+  }}
+/>
+
+
+
+    {/* --- Page Content --- */}
+    <main className="relative z-10">
+      <header className="pt-32 pb-20 mt-10 sm:py-24 text-center relative">
+        <div className="max-w-screen-xl mx-auto px-6 sm:px-8">
           <motion.div
-            className="bg-black/30 backdrop-blur-xl border border-white/20 rounded-[40px] p-8 md:p-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
           >
-            <section className="py-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <p className="text-4xl font-bold">10 Weeks</p>
-                  <p className="text-gray-400">Duration</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-4xl font-bold">Expert</p>
-                  <p className="text-gray-400">Skill Level</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-4xl font-bold">150+</p>
-                  <p className="text-gray-400">Lab Hours</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-4xl font-bold">CASS</p>
-                  <p className="text-gray-400">Certification</p>
-                </div>
-              </div>
-            </section>
+<h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white mt-12">
+  Certified Junior Bug Bounty <span className="text-blue-600">Hunter</span>
+</h1>
+<p className="mt-6 sm:mt-8 max-w-6xl mx-auto text-lg sm:text-2xl text-gray-300">
+  Start your journey in ethical hacking with practical, hands-on learning. 
+  Understand how websites and applications work, spot vulnerabilities safely, 
+  and gain confidence using essential cybersecurity tools. 
+  Build the skills needed to responsibly uncover security issues in real environments.
+</p>
+
+
+
+
+<div className="mt-15 flex flex-col sm:flex-row items-center justify-center gap-4">
+  {/* Enroll Now Button */}
+  <motion.button
+  onClick={() => setShowContact(true)}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-[23px] text-base sm:text-lg font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 cursor-pointer relative group"
+  >
+    Enroll Now
+    {/* Hover pop-up */}
+  </motion.button>
+
+  {/* Download Syllabus Button */}
+  <Link href="/contact">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-[23px] text-base sm:text-lg font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 cursor-pointer relative group"
+    >
+      Download syllabus
+      {/* Hover pop-up */}
+    </motion.button>
+  </Link>
+</div>
           </motion.div>
+        </div>
+      </header>
 
-          {/* --- About --- */}
-          <Section id="about">
-            <h2 className="text-5xl font-bold text-center mb-12">
-              About The Course
-            </h2>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  The Certified AI Security Specialist (CASS) program is a
-                  cutting-edge course designed for the next frontier of
-                  cybersecurity. As AI and Machine Learning become integral to
-                  business, they also become prime targets for new, sophisticated
-                  attacks. This course equips you with the specialized skills to
-                  secure AI models, protect training data, and defend against
-                  adversarial attacks, making you an invaluable expert in a
-                  rapidly growing field.
-                </p>
-              </div>
-              <div>
-                <img
-                  src="https://placehold.co/600x400/0a192f/FFFFFF?text=AI+Neural+Network"
-                  alt="AI Security Concept"
-                  className="rounded-2xl shadow-lg"
-                />
-              </div>
-            </div>
-          </Section>
+<div className="max-w-[95rem] mx-auto px-2 sm:px-6">
+  {/* --- Course Stats --- */}
+  <motion.div
+    className="bg-black/10 backdrop-blur-xl border border-white/20 rounded-[30px] sm:rounded-[50px] px-4 sm:px-16 py-8 sm:py-16 shadow-[inset_-3px_-1px_9px_rgba(255,255,255,0.5),_inset_10px_10px_20px_rgba(0,0,0,0.2)] w-full"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, ease: "easeOut" }}
+    viewport={{ once: true }}
+  >
+    <section className="py-4 sm:py-8">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10">
+        <div className="text-center">
+          <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">2 Months</p>
+          <p className="text-gray-400 text-sm sm:text-base">Duration</p>
+        </div>
+<div className="text-center">
+  <p className="text-2xl sm:text-4xl font-bold text-green-400">Beginner</p>
+  <p className="text-gray-400 text-sm sm:text-base">Skill Level</p>
+</div>
+        <div className="text-center">
+          <p className="text-2xl sm:text-4xl text-blue-500 font-bold">20+</p>
+          <p className="text-gray-400 text-sm sm:text-base">Lab Hours</p>
+        </div>
+        <div className="text-center">
+          <p className="text-2xl sm:text-4xl  font-bold">Online</p>
+          <p className="text-gray-400 text-sm sm:text-base">Mode</p>
+        </div>
+      </div>
+    </section>
+  </motion.div>
+  
+  
+  {/* --- About --- */}
+<Section id="about" className="relative">
+  <h2 className="text-4xl mt-10 sm:text-5xl font-bold text-center mb-10 sm:mb-12">
+    About The Course
+  </h2>
 
-          {/* --- Achievements --- */}
-          <Section id="what-youll-achieve">
-            <h2 className="text-5xl font-bold text-center mb-8">
-              What You'll Achieve
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6 text-lg">
-              <div className="flex items-center gap-4 p-4">
-                <CheckCircle
-                  size={24}
-                  className="text-red-500 flex-shrink-0"
-                />
-                <span>Secure machine learning models against adversarial attacks.</span>
-              </div>
-              <div className="flex items-center gap-4 p-4">
-                <CheckCircle
-                  size={24}
-                  className="text-red-500 flex-shrink-0"
-                />
-                <span>
-                  Implement privacy-preserving techniques for sensitive data.
-                </span>
-              </div>
-              <div className="flex items-center gap-4 p-4">
-                <CheckCircle
-                  size={24}
-                  className="text-red-500 flex-shrink-0"
-                />
-                <span>Conduct red team exercises against AI and LLM systems.</span>
-              </div>
-              <div className="flex items-center gap-4 p-4">
-                <CheckCircle
-                  size={24}
-                  className="text-red-500 flex-shrink-0"
-                />
-                <span>
-                  Integrate security into the end-to-end ML lifecycle (MLSecOps).
-                </span>
-              </div>
-            </div>
-          </Section>
+  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
+<p className="text-base sm:text-xl text-gray-300 leading-relaxed md:w-[70%]">
+  The Certified Junior Bug Bounty Hunter (JBBH) is a comprehensive program designed for anyone starting their journey in cybersecurity, even with no prior experience. 
+  In this course, you will learn how to identify and report security vulnerabilities in websites, applications, and APIs safely and legally. 
+  We focus on building your foundational skills step by step — from understanding how web applications work, to using essential tools like Kali Linux, Burp Suite, and Nmap, to discovering common vulnerabilities like XSS and SQL Injection. 
+  As you progress, you will gain practical experience in real-world bug hunting scenarios, preparing you to report valid security issues confidently and professionally. 
+  By the end of the course, you will have the skills, knowledge, and mindset to begin your journey as an ethical hacker and junior bug bounty hunter.
+</p>
 
-          {/* --- Career Opportunities --- */}
-          <Section id="career-opportunities">
-            <h2 className="text-5xl font-bold text-center mb-8">
-              Career Opportunities
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {careerOpportunities.map((path) => (
-                <div
-                  key={path.title}
-                  className="bg-black/30 border border-white/10 rounded-2xl text-center overflow-hidden group"
-                >
-                  <img
-                    src={path.image}
-                    alt={path.title}
-                    className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <p className="py-4 font-semibold text-gray-300">
-                    {path.title}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Section>
 
-          {/* --- Tools --- */}
-          <Section id="tools">
-            <h2 className="text-5xl font-bold text-center mb-8">
-              Tools You'll Learn
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {tools.map((tool) => (
-                <div
-                  key={tool.name}
-                  className="bg-black/30 border border-white/10 rounded-2xl text-center overflow-hidden group"
-                >
-                  <img
-                    src={tool.image}
-                    alt={tool.name}
-                    className="w-full h-24 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <p className="py-3 font-semibold text-gray-300">{tool.name}</p>
-                </div>
-              ))}
-            </div>
-          </Section>
+    <img
+  src="/jbbh.png"
+  alt="Bug Bounty Course Illustration"
+  className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 
+  shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-500 ease-out 
+  hover:scale-105 hover:shadow-[0_30px_80px_rgba(0,128,255,0.8)]"
+/>
+  </div>
+</Section>
+
+{/* --- Callout Section (Smooth Instant Hover) --- */}
+<Section id="callout" className="py-10">
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{
+      scale: 1.03,
+      backgroundColor: "rgba(30, 58, 138, 0.5)",
+      transition: { duration: 0.15, ease: "easeOut" }, // 🔥 instant hover
+    }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }}
+    className="p-6 sm:p-10 rounded-[40px] flex flex-col md:flex-row items-center gap-6 sm:gap-8 max-w-5xl mx-auto text-center md:text-left bg-blue-900/40 border border-blue-500/50 backdrop-blur-md"
+  >
+    <motion.div
+      whileHover={{ rotate: 15, scale: 1.1 }}
+      transition={{ type: "spring", stiffness: 250, damping: 12 }}
+    >
+      <Award size={60} className="text-yellow-400 flex-shrink-0" />
+    </motion.div>
+
+    <div>
+      <h3 className="text-2xl sm:text-3xl font-bold text-white">
+        The Certified Edge
+      </h3>
+      <p className="mt-3 text-gray-200 text-sm sm:text-base">
+        The JBBH is recognized by leading bug bounty platforms and security firms worldwide. Gain the{" "}
+        <strong>credibility and deep technical skills</strong> required to stand out in the competitive field of offensive security.
+      </p>
+    </div>
+  </motion.div>
+</Section>
+
+
+
+
+
 
           {/* --- Curriculum --- */}
           <Section id="curriculum">
             <motion.div
-              className="bg-black/30 backdrop-blur-xl border border-white/20 rounded-[40px] p-8 md:p-16"
+              className="backdrop-blur-xl border border-white/20 rounded-[30px] sm:rounded-[60px] p-6 sm:p-20"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <h2 className="text-5xl font-bold text-center mb-8">
-                Curriculum
-              </h2>
+              <h2 className="text-4xl sm:text-6xl font-bold text-center mb-6 sm:mb-8">Curriculum</h2>
               <div className="flex flex-col">
-                <div className="flex justify-center flex-wrap gap-2 mb-8">
-                  {curriculumModules.map((module, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveModule(module)}
-                      className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors ${
-                        activeModule.title === module.title
-                          ? "bg-red-600 text-white"
-                          : "bg-black/20 text-gray-300 hover:bg-white/10"
-                      }`}
-                    >
+<div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
+  {curriculumModules.map((module, i) => (
+    <button
+      key={i}
+      onClick={() => setActiveModule(module)}
+      className={`px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base font-bold rounded-2xl transition-colors ${
+        activeModule.title === module.title
+          ? "bg-blue-600 text-white"
+          : "text-gray-200 hover:bg-white/10 cursor-pointer"
+      }`}
+    >
                       Module {String(i + 1).padStart(2, "0")}
                     </button>
                   ))}
                 </div>
-                <div className="relative h-48 bg-black/20 p-8 rounded-lg border border-white/10 flex items-center justify-center">
+                <div className="relative min-h-[160px] bg-black/10 p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] border border-white/15 flex items-center justify-center">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeModule.title}
@@ -399,10 +409,10 @@ const CASSCoursePage: React.FC<CASSCoursePageProps> = ({ onBack }) => {
                       transition={{ duration: 0.3 }}
                       className="text-center"
                     >
-                      <h3 className="text-2xl font-bold text-white">
+                      <h3 className="text-lg sm:text-2xl font-bold text-white">
                         {activeModule.title}
                       </h3>
-                      <p className="mt-2 text-gray-300">
+                      <p className="mt-2 text-gray-300 text-sm sm:text-base">
                         {activeModule.content}
                       </p>
                     </motion.div>
@@ -412,76 +422,183 @@ const CASSCoursePage: React.FC<CASSCoursePageProps> = ({ onBack }) => {
             </motion.div>
           </Section>
 
-          {/* --- Instructor --- */}
-          <Section id="instructor">
-            <h2 className="text-5xl font-bold text-center mb-8">
-              Meet Your Instructor
-            </h2>
-            <div className="p-8 rounded-lg flex flex-col sm:flex-row items-center gap-8 max-w-4xl mx-auto">
-              <img
-                src="https://placehold.co/150x150/0a192f/FFFFFF?text=EC"
-                alt="Instructor Dr. Evelyn Carter"
-                className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-red-500"
-              />
-              <div>
-                <h3 className="text-3xl font-bold">Dr. Evelyn Carter</h3>
-                <p className="text-lg text-red-500 font-semibold">
-                  Lead AI Security Researcher
-                </p>
-                <p className="mt-4 text-gray-300">
-                  Dr. Carter holds a PhD in Adversarial Machine Learning and has
-                  published numerous papers on the topic. She leads a research
-                  team dedicated to developing defenses against next-generation
-                  AI attacks.
-                </p>
-              </div>
+
+        {/* --- What You Will Learn --- */}
+<Section id="what-you-will-learn">
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
+    Key Proficiencies Gained
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
+    {[
+      "Understand the fundamentals of bug bounty hunting from scratch.",
+      "Learn how web applications, APIs, and mobile apps work.",
+      "Identify and exploit common vulnerabilities like XSS, SQLi, and CSRF.",
+      "Use real-world tools like Burp Suite, OWASP ZAP, Nmap, and Wireshark.",
+      "Perform recon and enumeration to discover targets legally.",
+      "Report valid vulnerabilities professionally to live bug bounty programs.",
+      "Gain confidence to participate in VDP programs even as a beginner.",
+      "Understand how AI tools can assist in bug hunting effectively.",
+    ].map((item, i) => (
+      <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
+        <CheckCircle size={20} className="text-blue-500 flex-shrink-0" />
+        <span>{item}</span>
+      </div>
+    ))}
+  </div>
+</Section>
+
+
+{/* --- Tools Section with Logos --- */}
+<Section id="tools">
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-10 sm:mb-12">
+    Tools You Will Master
+  </h2>
+  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-6 sm:gap-8">
+    {tools.map((tool, i) => (
+      <motion.div
+        key={i}
+        className="bg-white/30 rounded-[25px] p-4 sm:p-6 flex items-center justify-center hover:bg-white/5 transition-colors"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: i * 0.1 }}
+        viewport={{ once: true }}
+      >
+        <img
+          src={tool.logo}
+          alt={tool.name}
+          style={{ height: tool.size, width: "auto" }}
+          className="object-contain"
+        />
+      </motion.div>
+    ))}
+  </div>
+</Section>
+
+          {/* --- Achievements --- */}
+          <Section id="what-youll-achieve">
+            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You'll Achieve</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
+              {[
+                "Develop custom exploits for complex vulnerabilities.",
+                "Reverse engineer applications to find logical flaws.",
+                "Master advanced mobile hacking techniques on iOS and Android.",
+                "Build and execute sophisticated fuzzing campaigns.",
+              ].map((item, i) => (
+                <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
+                  <CheckCircle size={20} className="text-blue-500 flex-shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </Section>
+{/* --- Career Opportunities (Updated & Combined) --- */}
+<Section id="career-opportunities" className="relative py-16">
+  {/* Heading (centered & floating) */}
+  <div className="relative mb-12">
+    <h2 
+      className="text-4xl sm:text-5xl font-bold absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-25 text-center"
+    >
+      Career Opportunities
+    </h2>
+  </div>
+
+{/* Grid of Career Cards */}
+<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mt-20">
+  {careerOpportunities.map((path, i) => {
+    const Icon = path.icon;
+    return (
+      <motion.div
+        key={path.title}
+        className="bg-black/30 border border-white/10 rounded-2xl sm:rounded-3xl text-center overflow-hidden group hover:shadow-[0_0_20px_rgba(30,144,255,0.8)] transition-all duration-300"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: i * 0.1 }}
+        viewport={{ once: true }}
+      >
+        <div className="flex justify-center items-center h-28 sm:h-36 bg-red-600/30 group-hover:bg-red-800/40 transition-all duration-300">
+          <Icon size={60} className="text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+        </div>
+        <p className="py-3 sm:py-4 font-semibold text-gray-300 text-sm sm:text-base">
+          {path.title}
+        </p>
+      </motion.div>
+    );
+  })}
+</div>
+</Section>
+
+
+{/* --- Motivation Section --- */}
+<Section id="motivation">
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
+    You Don’t Need Experience — We’ll Build You from Scratch
+  </h2>
+  <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
+    <img
+      src="https://placehold.co/150x150/0a192f/FFFFFF?text=JBBH"
+      alt="JBBH Motivation"
+      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-blue-500"
+    />
+    <div>
+      <h3 className="text-2xl sm:text-3xl font-bold">Start from Zero, Grow to a Bug Hunter</h3>
+      <p className="text-base sm:text-lg text-red-500 font-semibold">
+        No Prior Knowledge Needed
+      </p>
+      <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
+        In JBBH, you don’t need to know a single thing about hacking or coding. We’ll take you step by step — from beginner level to finding your first real-world bug. 
+        This isn’t just a course; it’s your launchpad into ethical hacking.
+      </p>
+    </div>
+  </div>
+</Section>
+
 
           {/* --- FAQs --- */}
           <Section id="faqs">
-            <h2 className="text-5xl font-bold text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-10 sm:mb-12">
               Frequently Asked Questions
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
               {faqs.map((faq, i) => (
-                <FaqCard
-                  key={i}
-                  question={faq.title}
-                  answer={faq.content}
-                  delay={0.2 + i * 0.1}
-                />
+                <FaqCard key={i} question={faq.title} answer={faq.content} delay={0.2 + i * 0.1} />
               ))}
             </div>
           </Section>
         </div>
 
-        {/* --- CTA --- */}
-        <section className="bg-red-600 text-white py-20">
-          <div className="max-w-screen-xl mx-auto px-8 text-center">
-            <h2 className="text-5xl font-extrabold">
-              Ready to Secure the Future of AI?
-            </h2>
-            <p className="text-xl mt-4 max-w-3xl mx-auto">
-              Enroll in the Certified AI Security Specialist program and become a
-              leader in the most critical field of the next decade.
-            </p>
-            <div className="mt-8">
-              <div className="flex items-baseline justify-center gap-4">
-                <p className="text-5xl font-extrabold">₹80,000</p>
-                <p className="text-2xl line-through opacity-80">₹90,000</p>
-              </div>
-              <button className="mt-6 w-full max-w-sm px-8 py-4 bg-white text-red-600 text-lg font-bold rounded-lg hover:bg-gray-200 transition-colors">
-                Enroll Now
-              </button>
-            </div>
-          </div>
-        </section>
+     {/* --- CTA --- */}
+<section className="bg-gradient-to-r from-blue-900 to-red-800 text-white py-16 sm:py-20 px-6 sm:px-8 text-center">
+  <div className="max-w-screen-xl mx-auto">
+    <h2 className="text-4xl sm:text-5xl font-extrabold">
+      Ready to Join the Elite?
+    </h2>
+    <p className="text-lg sm:text-xl mt-4 max-w-2xl mx-auto">
+      Enroll in the Certified Junior Bug Bounty Hunter program and establish
+      yourself as a leader in offensive security.
+    </p>
+    <div className="mt-8">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+      </div>
+<motion.button
+  onClick={() => setShowContact(true)}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="mt-6 w-full sm:w-auto px-8 py-3 sm:py-4 bg-white text-red-600 text-base sm:text-lg font-bold rounded-[23px] hover:bg-gray-200 transition-colors cursor-pointer"
+>
+  Enroll Now
+</motion.button>
+
+    </div>
+  </div>
+</section>
+
       </main>
+      <Float />
       <Navbar />
+      <ContactCard isOpen={showContact} onClose={() => setShowContact(false)} />
       <Footer />
     </div>
   );
 };
 
-export default CASSCoursePage;
+export default JBBHCoursePage;

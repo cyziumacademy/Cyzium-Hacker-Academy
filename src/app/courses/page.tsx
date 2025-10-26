@@ -4,7 +4,6 @@ import { Search, SlidersHorizontal, X } from 'lucide-react';
 import Navbar from '../navbar';
 import Footer from "../footer"; 
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 
 // ================== TypeScript Interfaces ==================
 interface Certification {

@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react"; // 🧭 added icons
 import ContactCard from "./contact";
-import BlogPage from "@/app/blogs/page";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
