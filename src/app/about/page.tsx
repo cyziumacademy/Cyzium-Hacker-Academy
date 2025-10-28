@@ -56,7 +56,7 @@ function MissionSection() {
               transition={{ duration: 0.4 }}
               viewport={{ once: false, amount: 0.2 }}
             >
-              "We aren't just instructors; we're practitioners from the front lines of cyber warfare. Our mission is to forge the next generation of elite security professionals through real-world, hands-on experience."
+              &quot;We aren&apos;t just instructors; we&apos;re practitioners from the front lines of cyber warfare. Our mission is to forge the next generation of elite security professionals through real-world, hands-on experience.&quot;
             </motion.p>
           </div>
           <motion.div
@@ -67,8 +67,8 @@ function MissionSection() {
             viewport={{ once: false, amount: 0.2 }}
           >
             <p>
-              Welcome to Cyzium. You're here because you're curious, driven, and
-              ready to move beyond theoretical knowledge. You're in the right
+              Welcome to Cyzium. You&apos;re here because you&apos;re curious, driven, and
+              ready to move beyond theoretical knowledge. You&apos;re in the right
               place.
             </p>
             <p>
@@ -166,10 +166,10 @@ function CommunityNetworkSection() {
       <div className="bg-black/30 border border-white/20 rounded-[40px] sm:rounded-[95px] shadow-[inset_-3px_-1px_9px_rgba(255,255,255,0.5),_inset_10px_10px_20px_rgba(0,0,0,0.2),_0_4px_30px_rgba(0,0,0,0.1)] p-8 sm:p-12 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 items-center">
         <div>
           <h2 className="text-3xl sm:text-5xl font-bold mb-4 text-white">
-            Community & Network
+            Community &amp; Network
           </h2>
           <p className="text-base sm:text-lg text-gray-300">
-            Join our global academy — connect with learners, 
+            Join our global academy &mdash; connect with learners, 
             alumni, and professionals from around the world.
             Collaborate on projects, attend live sessions, and grow together in a truly digital community.
           </p>
@@ -214,11 +214,11 @@ function OurCommitmentSection() {
           viewport={{ once: false, amount: 0.2 }}
         >
           <p className="text-2xl sm:text-4xl font-bold leading-tight">
-            "We guarantee a curriculum that's always ahead of the curve,
+            &quot;We guarantee a curriculum that&apos;s always ahead of the curve,
             integrating the latest advancements in{" "}
             <span className="text-red-500">AI-driven defense</span> and{" "}
             <span className="text-red-500">cloud security</span> to ensure
-            you're not just ready for a job, but for a career."
+            you&apos;re not just ready for a job, but for a career.&quot;
           </p>
         </motion.div>
       </div>

@@ -179,7 +179,7 @@ function ContactCard() {
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl mt-4 leading-relaxed">
-            🔐 Learn practical hacking skills with real-world labs and live projects.  
+            Learn practical hacking skills with real-world labs and live projects.  
             Get guidance from experts who’ve been in the trenches of cybersecurity.  
             Don’t just study — build, break, defend, and level up your career.
           </p>

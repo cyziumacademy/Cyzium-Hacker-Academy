@@ -58,18 +58,20 @@ export default function Contact() {
   return (
     <section id="contact" className="relative min-h-screen w-full text-white font-sans overflow-hidden">
       {/* Background Video Layer */}
-<div className="absolute inset-0 -z-10 bg-gradient-to-br from-black via-gray-900 to-black">
+<div className="absolute inset-0 -z-10 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
   <video
     autoPlay
     loop
     muted
     playsInline
-    className="w-full h-full object-cover"
+    className="w-full h-full object-cover filter blur-xs"
     poster="/bg1-poster.jpg"
   >
     <source src="/bg1.mp4" type="video/mp4" />
   </video>
 </div>
+
+
 
       {/* Navbar */}
       <div className="relative z-20">
@@ -208,18 +210,19 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <h2 className="text-4xl md:text-6xl font-extrabold mb-3 text-gray-100 leading-snug max-w-xl">
-              Ready to Hack Your{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
-                Future
-              </span>
-              ?
-            </h2>
+<h2 className="text-4xl mt-10 md:text-7xl font-extrabold mb-3 text-gray-100 leading-snug max-w-1xl">
+  Build your{" "}
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
+    Future
+  </span>
+  {" "}Now
+</h2>
+
 
             <p className="text-lg md:text-xl leading-relaxed">
-              🔐 Learn practical hacking skills with real-world labs and live projects.  
-              Get guidance from experts who’ve been in the trenches of cybersecurity.  
-              Don’t just study — build, break, defend, and level up your career.
+Learn hands‑on hacking with real labs and live projects — 
+practical skills you can use on day one. Get mentorship from experienced security pros, practice on realistic targets, 
+and move from learning to doing.
             </p>
             <p className="text-lg mt-8 font-semibold text-white">
               Fill the form and let us help you get started today!

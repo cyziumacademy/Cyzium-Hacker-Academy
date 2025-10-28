@@ -8,8 +8,7 @@ import WhyChooseUsPage from "@/app/why";
 import Testimonials from "@/app/testimonial";
 import ContactCard from "@/app/contactcard";
 import Link from "next/link";
-import LaptopSection from "@/app/laptop"; 
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import EndSection from "@/app/end";
 import TeachingSection from "@/app/teaching";
 import Footer from "../app/footer"; 
@@ -36,14 +35,13 @@ function Hero() {
           </motion.h2>
 
           <motion.p
-            className="mt-4 sm:mt-6 text-base sm:text-lg md:text-2xl font-semibold 
-                       md:ml-[-155px] max-w-xl mx-auto md:mx-0 px-2"
+            className="mt-4 sm:mt-6 text-base sm:text-lg md:text-[21px] font-semibold 
+                       md:ml-[-155px] max-w-1xl mx-auto md:mx-0 px-2"
             initial={{ opacity: 0.5, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
           >
-            hands-on labs, and career guidance tailored for aspiring students &
-            security professionals.
+            Career-driven learning paths designed to inspire growth and success for aspiring studens and working professionals
           </motion.p>
 
           {/* Buttons */}

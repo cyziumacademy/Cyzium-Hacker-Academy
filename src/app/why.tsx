@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Zap, Target, Briefcase, Users, BrainCircuit, ShieldCheck } from "lucide-react";
+import { Zap, Target, Award, Briefcase, Users, BrainCircuit, ShieldCheck } from "lucide-react";
 
 type FeatureCardProps = {
   icon: React.ReactNode;
@@ -37,11 +37,11 @@ function FeatureCard({ icon, title, description, delay, className = "" }: Featur
 
 function WhyChooseUsPage() {
   const features = [
-    { icon: <Target size={32} className="text-red-500" />, title: "Hands-On Labs", description: "Work on Splunk, Wireshark, ELK & real attack simulations.", delay: 0.1, className: "md:col-span-1" },
-    { icon: <Users size={32} className="text-red-500" />, title: "Ai & Cloud Specialized", description: "Learn from elite practitioners with years of real-world SOC and pentesting experience.", delay: 0.1, className: "md:col-span-2" },
-    { icon: <Briefcase size={32} className="text-red-500" />, title: "Placement Assistance", description: "We provide resume prep, interview coaching, and placement support.", delay: 0.1, className: "md:col-span-3" },
-    { icon: <BrainCircuit size={32} className="text-red-500" />, title: "Practical Learning", description: "We focus on job-ready skills employers are looking for.", delay: 0.1, className: "md:col-span-1" },
-    { icon: <ShieldCheck size={32} className="text-red-500" />, title: "Community & Support", description: "Gain access to our private Discord and Telegram channels.", delay: 0.1, className: "md:col-span-1" },
+    { icon: <Target size={32} className="text-red-500" />, title: "Hands-On Labs", description: "Gain industry-ready skills through labs that replicate real-world cyber challenges.", delay: 0.1, className: "md:col-span-1" },
+    { icon: <Users size={32} className="text-red-500" />, title: "Ai & Cloud Specialized", description: "Experience real-world simulations that combine AI innovation, cloud environments, automation, and defense security testing.", delay: 0.1, className: "md:col-span-2" },
+    { icon: <Briefcase size={32} className="text-red-500" />, title: "100% Placement & Internship Assistance", description: "Our placement assistance empowers your career journey by providing expert resume preparation, real-time mock interviews, one-on-one interview practice, personalized coaching, and dedicated guidance throughout the placement process — ensuring you are fully prepared and confident to secure your dream role.", delay: 0.1, className: "md:col-span-3" },
+    { icon: <Award size={32} className="text-red-500" />, title: "Certifications", description: "We offer industry-recognized certifications that serve as definitive proof of your practical expertise.", delay: 0.1, className: "md:col-span-1" },
+    { icon: <ShieldCheck size={32} className="text-red-500" />, title: "Community & Support", description: "Receive continuous, round-the-clock assistance from our Team.", delay: 0.1, className: "md:col-span-1" },
     { icon: <Zap size={32} className="text-red-500" />, title: "Cutting-Edge Curriculum", description: "Our syllabus is constantly updated with latest threats, tools, and techniques.", delay: 0.1, className: "md:col-span-1" },
   ];
 
