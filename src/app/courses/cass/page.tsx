@@ -28,7 +28,7 @@ interface FaqCardProps {
   delay?: number;
 }
 
-interface JBBHCoursePageProps {
+interface CASSCoursePageProps {
   onBack?: () => void;
 }
 
@@ -95,7 +95,7 @@ const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
 };
 
 // --- MAIN COMPONENT ---
-const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({ onBack }) => {
+const CASSCoursePage: React.FC<CASSCoursePageProps> = ({ onBack }) => {
     const [showContact, setShowContact] = useState(false);
   const curriculumModules = [
     {
@@ -326,7 +326,7 @@ return (
 
 
     <img
-  src="/jbbh.png"
+  src="/cass.png"
   alt="Bug Bounty Course Illustration"
   className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 
   shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-500 ease-out 
@@ -361,7 +361,7 @@ return (
         The Certified Edge
       </h3>
       <p className="mt-3 text-gray-200 text-sm sm:text-base">
-        The JBBH is recognized by leading bug bounty platforms and security firms worldwide. Gain the{" "}
+        The CASS is recognized by leading bug bounty platforms and security firms worldwide. Gain the{" "}
         <strong>credibility and deep technical skills</strong> required to stand out in the competitive field of offensive security.
       </p>
     </div>
@@ -535,8 +535,8 @@ return (
   </h2>
   <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
     <img
-      src="https://placehold.co/150x150/0a192f/FFFFFF?text=JBBH"
-      alt="JBBH Motivation"
+      src="https://placehold.co/150x150/0a192f/FFFFFF?text=CASS"
+      alt="CASS Motivation"
       className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-blue-500"
     />
     <div>
@@ -601,4 +601,4 @@ return (
   );
 };
 
-export default JBBHCoursePage;
+export default CASSCoursePage;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback, ReactNode } from "react";
+import React, { useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bug, GlobeLock, Smartphone, Cpu, ShieldCheck, Code, Monitor, Cloud } from "lucide-react";
 
@@ -26,14 +26,6 @@ interface FaqCardProps {
   question: string;
   answer: string;
   delay?: number;
-}
-
-interface CBBECoursePageProps {
-  onBack?: () => void;
-}
-
-interface ContactProps {
-  onClose: () => void;
 }
 
 
@@ -95,7 +87,7 @@ const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
 };
 
 // --- MAIN COMPONENT ---
-const CBBECoursePage: React.FC<CBBECoursePageProps> = ({ onBack }) => {
+const CBBECoursePage: React.FC = () => {
     const [showContact, setShowContact] = useState(false);
 
    const curriculumModules = [
@@ -173,7 +165,7 @@ const careerOpportunities = [
 
 const tools = [
   { name: "Kali Linux", logo: "/kali.png", size: "80px" },
-  { name: "Burp Suite", logo: "/burp.png", size: "70px" },
+  { name: "Burp Suite", logo: "/burp.png", size: "180px" },
   { name: "Wireshark", logo: "/wire.png", size: "60px" },
   { name: "Nmap", logo: "/nmap.png", size: "145px" },
   { name: "Textattack", logo: "/text.png", size: "85px" },
@@ -327,7 +319,7 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
 
   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
 <p className="text-base sm:text-xl text-gray-300 leading-relaxed md:w-[70%]">
-  The Certified Bug Bounty Expert (CBBE) is an advanced program crafted for learners ready to move beyond the basics and specialize in AI and Cloud security testing. This course teaches you how to identify, analyze, and report complex vulnerabilities in AI-powered applications, cloud infrastructures, and APIs. You’ll explore real-world attack scenarios involving machine learning models, cloud misconfigurations, and automation flaws, while gaining hands-on experience with professional tools used by industry experts. By the end of the program, you’ll have the skills and confidence to perform advanced bug bounty testing across modern AI and Cloud environments like AWS, Azure, and Google Cloud.
+  The Certified Bug Bounty Expert (CBBE) is an advanced program crafted for learners ready to move beyond the basics and specialize in AI and Cloud security testing. This course teaches you how to identify, analyze, and report complex vulnerabilities in AI-powered applications, cloud infrastructures, and APIs. You’ll explore real-world attack scenarios involving machine learning models, cloud misconfigurations, and automation flaws, while gaining hands-on experience with professional tools used by industry experts. By the end of the program, you&rsquo;ll have the skills and confidence to perform advanced bug bounty testing across modern AI and Cloud environments like AWS, Azure, and Google Cloud.
 </p>
 
 
@@ -337,7 +329,7 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
   className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 
   shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-all duration-500 ease-out 
   hover:scale-105 hover:shadow-[0_30px_80px_rgba(128,0,255,0.8)]"
-/>
+  />
   </div>
 </Section>
 
@@ -484,7 +476,7 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
 
           {/* --- Achievements --- */}
 <Section id="what-youll-achieve">
-  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You'll Achieve</h2>
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You&rsquo;ll Achieve</h2>
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
   {[
     "Gain advanced skills in AI, Cloud, web, API, and mobile bug hunting.",
@@ -539,7 +531,7 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
 {/* --- Motivation Section --- */}
 <Section id="motivation">
   <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
-    You Don’t Need Experience — We’ll Build You from Scratch
+    You Don&rsquo;t Need Experience — We&rsquo;ll Build You from Scratch
   </h2>
   <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
     <img
@@ -555,9 +547,9 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
         Foundational Skills Recommended
       </p>
 <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
-  In CBBE, you’ll build on foundational security skills and advance into professional AI and Cloud bug hunting. 
-  Through guided, hands‑on modules you’ll learn to assess machine‑learning models, cloud configurations, APIs, and complex applications—moving from structured labs to real-world hunting. 
-  This isn’t just a course; it’s your launchpad into expert AI & Cloud bug bounty research.
+  In CBBE, you&rsquo;ll build on foundational security skills and advance into professional AI and Cloud bug hunting. 
+  Through guided, hands&nbsp;on modules you&rsquo;ll learn to assess machine&nbsp;learning models, cloud configurations, APIs, and complex applications—moving from structured labs to real-world hunting. 
+  This isn&rsquo;t just a course; it&rsquo;s your launchpad into expert AI &amp; Cloud bug bounty research.
 </p>
     </div>
   </div>
