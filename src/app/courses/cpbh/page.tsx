@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bug, GlobeLock, Smartphone, FlaskConical, ShieldCheck, Monitor, Cpu } from "lucide-react";
+import { Bug, GlobeLock, Smartphone, FlaskConical, ShieldCheck, Monitor, Cpu, Cloud, Server, Cog, Radar } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 
 import {
@@ -15,6 +15,7 @@ import Footer from "@/app/footer";
 import Float from "@/app/float";
 import ContactCard from "@/app/contact";
 import Link from "next/link";
+import Image from "next/image";
 
 // --- TYPES ---
 interface SectionProps {
@@ -31,10 +32,6 @@ interface FaqCardProps {
 
 interface CBBTCoursePageProps {
   onBack?: () => void;
-}
-
-interface ContactProps {
-  onClose: () => void;
 }
 
 
@@ -96,83 +93,150 @@ const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
 };
 
 // --- MAIN COMPONENT ---
-const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ onBack }) => {
+const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({}) => {
     const [showContact, setShowContact] = useState(false);
 
-    const curriculumModules = [
-        {
-            title: "Module 01 - Advanced Reconnaissance & Asset Discovery",
-            content:
-                "Master advanced techniques for recon, footprinting, and asset discovery to identify potential targets and attack surfaces effectively.",
-        },
-        {
-            title: "Web Application Deep Dive",
-            content:
-                "Gain in-depth understanding of web applications, their components, and architecture to spot weak points and potential vulnerabilities.",
-        },
-        {
-            title: "Vulnerability Exploitation & Chaining",
-            content:
-                "Learn how to exploit vulnerabilities individually and chain them together for more impactful results in real bug bounty scenarios.",
-        },
-        {
-            title: "API & Mobile Bug Hunting",
-            content:
-                "Explore testing methodologies for APIs and mobile applications, including common vulnerabilities, tools, and hands-on exploitation.",
-        },
-        {
-            title: "Automation & AI in Bug Hunting",
-            content:
-                "Discover how to leverage automation and AI tools to enhance reconnaissance, scanning, and vulnerability discovery efficiently.",
-        },
-        {
-            title: "Advanced Tools Mastery",
-            content:
-                "Become proficient with advanced bug bounty tools for scanning, exploitation, fuzzing, and other essential phases of ethical hacking.",
-        },
-        {
-            title: "Reporting, Communication & Responsible Disclosure",
-            content:
-                "Learn how to write professional bug reports, communicate with program owners, and follow responsible disclosure practices.",
-        },
-        {
-            title: "Live Hunting Sprint & Final Project",
-            content:
-                "Apply everything in a live bug hunting sprint and final project, simulating real-world scenarios to solidify your bug bounty skills.",
-        },
-    ];
+const curriculumModules = [
+  {
+    title: "Advanced Reconnaissance & Asset Discovery",
+    content:
+      "Master advanced techniques for recon, footprinting, and asset discovery to identify potential targets and attack surfaces effectively.",
+  },
+  {
+    title: "Web Application Deep Dive",
+    content:
+      "Gain in-depth understanding of web applications, their components, and architecture to spot weak points and potential vulnerabilities.",
+  },
+  {
+    title: "Vulnerability Exploitation & Chaining",
+    content:
+      "Learn how to exploit vulnerabilities individually and chain them together for more impactful results in real bug bounty scenarios.",
+  },
+  {
+    title: "API & Mobile Bug Hunting",
+    content:
+      "Explore testing methodologies for APIs and mobile applications, including common vulnerabilities, tools, and hands-on exploitation.",
+  },
+  {
+    title: "Automation & AI in Bug Hunting",
+    content:
+      "Discover how to leverage automation and AI tools to enhance reconnaissance, scanning, and vulnerability discovery efficiently.",
+  },
+  {
+    title: "Advanced Tools Mastery",
+    content:
+      "Become proficient with advanced bug bounty tools for scanning, exploitation, fuzzing, and other essential phases of ethical hacking.",
+  },
+  {
+    title: "Reporting, Communication & Responsible Disclosure",
+    content:
+      "Learn how to write professional bug reports, communicate with program owners, and follow responsible disclosure practices.",
+  },
+  {
+    title: "Live Hunting Sprint & Final Project",
+    content:
+      "Apply everything in a live bug hunting sprint and final project, simulating real-world scenarios to solidify your bug bounty skills.",
+  },
 
-   const faqs = [
-    {
-      title: "What are the prerequisites for this course?",
-      content:
-        "No prior experience is required! This course starts from the basics — anyone with curiosity and interest in cybersecurity can join. Basic computer and internet knowledge is enough.",
-    },
-    {
-      title: "Can a younger student do real bug hunting?",
-      content:
-        "Yes, absolutely — with parent approval! If you are under 14, you can legally test websites through Vulnerability Disclosure Programs (VDPs) under parental supervision.",
-    },
-    {
-      title: "Is this course focused on a specific platform?",
-      content:
-        "No, CBBT covers a variety of real-world platforms including web applications, mobile apps, and APIs, so you can practice bug hunting across different environments.",
-    },
-  ];
+  // --- New Modules Below ---
+  {
+    title: "Bypassing WAFs & Security Filters",
+    content:
+      "Understand how Web Application Firewalls operate and master evasion techniques to uncover vulnerabilities hidden behind filtering systems.",
+  },
+  {
+    title: "Privilege Escalation & Post Exploitation",
+    content:
+      "Explore methods to escalate privileges, pivot access, and maintain control post-exploitation in legal, educational environments.",
+  },
+  {
+    title: "Advanced Authentication & Session Attacks",
+    content:
+      "Dive into session management flaws, token manipulation, and authentication bypass techniques used in advanced bug bounty hunting.",
+  },
+  {
+    title: "Source Code Analysis & Hidden Vulnerabilities",
+    content:
+      "Learn how to review source code for logic flaws, hardcoded secrets, and overlooked vulnerabilities in open or leaked repositories.",
+  },
+  {
+    title: "Subdomain Takeover & DNS Exploitation",
+    content:
+      "Discover how to identify and exploit misconfigured DNS and abandoned subdomains to claim ownership or execute controlled attacks.",
+  },
+  {
+    title: "Real-World Vulnerability Case Studies",
+    content:
+      "Analyze real bug reports and disclosures from top hackers to understand real-world exploitation chains and advanced reporting styles.",
+  },
+  {
+    title: "Operational Security (OpSec) for Hunters",
+    content:
+      "Learn how to protect your identity, maintain privacy, and stay compliant while performing ethical hacking and bug bounty testing.",
+  },
+  {
+    title: "Career Growth & Industry Insights",
+    content:
+      "Get guidance on building your hacker brand, joining private programs, and turning bug bounty hunting into a long-term cybersecurity career.",
+  },
+];
+
+const faqs = [
+  {
+    title: "Who is this course designed for?",
+    content:
+      "CPBH is built for anyone who wants to take bug bounty hunting seriously — from motivated beginners to intermediate learners aiming to go pro. If you want to master real-world vulnerabilities and build a career in cybersecurity, this is for you.",
+  },
+  {
+    title: "Do I need hacking or programming knowledge before joining?",
+    content:
+      "Not at all. CPBH starts from the foundations and gradually builds you up to professional-level bug hunting. We’ll teach you everything — from understanding web and API behavior to exploiting and reporting complex vulnerabilities with confidence.",
+  },
+  {
+    title: "What makes CPBH different from other bug bounty courses?",
+    content:
+      "Unlike typical courses, CPBH focuses on practical learning, live hunting challenges, AI-assisted recon, and real-world bug chaining. You’ll gain the mindset, tools, and reporting skills used by top security researchers in the industry.",
+  },
+  {
+    title: "Will I get hands-on experience during the course?",
+    content:
+      "Yes! You’ll work on simulated labs, real-world targets, and guided live hunting tasks. By the end of CPBH, you’ll have a solid portfolio that showcases your professional bug bounty skills.",
+  },
+  {
+    title: "Can this course help me start a cybersecurity career?",
+    content:
+      "Absolutely. CPBH is structured to help you transition from learner to professional. You’ll gain skills relevant for roles like Bug Bounty Hunter, Application Security Tester, or Penetration Tester — and learn how to build credibility in the security community.",
+  },
+  {
+    title: "Does CPBH include mentorship and post-course support?",
+    content:
+      "Yes — every learner receives continuous mentor guidance throughout and even after course completion. You’ll get feedback on reports, insights into new bug trends, and support to keep progressing in your bug bounty journey.",
+  },
+];
+
 
 
   const [activeModule, setActiveModule] = useState(curriculumModules[0]);
 
 const careerOpportunities = [
-  { title: "Bug Bounty Hunter", icon: Bug },
-  { title: "Web Application Security Tester", icon: GlobeLock },
-  { title: "API & Mobile Security Tester", icon: Smartphone },
-  { title: "AI-assisted Security Researcher", icon: Cpu }, // reflects AI automation in bug hunting
-  { title: "Vulnerability Researcher", icon: FlaskConical },
-  { title: "Security Consultant / Penetration Tester", icon: ShieldCheck },
-  { title: "Secure Code Auditor", icon: Code },
-  { title: "Red Team / Offensive Security Specialist", icon: Monitor },
+  { title: "Professional Bug Bounty Hunter", icon: Bug }, // Core path for bounty professionals
+  { title: "Advanced Bug Bounty Specialist", icon: Cpu }, // AI-driven bug hunting expertise
+  { title: "Web Application Security Tester", icon: GlobeLock }, // Web security testing
+  { title: "Cloud Security Tester", icon: Cloud }, // Focused on cloud platform security
+  { title: "API & Mobile Security Specialist", icon: Smartphone }, // API/mobile app security
+  { title: "AI & ML Security Researcher", icon: Cpu }, // AI/ML exploitation & safety
+  { title: "Vulnerability Researcher", icon: FlaskConical }, // Deep dive into vulnerabilities
+  { title: "Security Consultant / Penetration Tester", icon: ShieldCheck }, // Professional consulting
+  { title: "Secure Code & DevSecOps Auditor", icon: Code }, // Application & CI/CD auditing
+  { title: "Red Team / Offensive Security Expert", icon: Monitor }, // Advanced attack simulation
+  { title: "Threat Intelligence Analyst", icon: Radar }, // Threat profiling & analysis
+  { title: "Application Security Tester", icon: ShieldCheck }, // Specialized in app-level security testing
+  { title: "Cloud Infrastructure Security Engineer", icon: Server }, // Cloud (AWS, Azure, GCP) security
+  { title: "Security Automation Engineer", icon: Cog }, // Automation in testing & defense
+  { title: "Cybersecurity Research & Innovation Specialist", icon: Award }, // Advanced R&D role
 ];
+
+
 
 const tools = [
   { name: "Kali Linux", logo: "/kali.png", size: "80px" },
@@ -192,7 +256,7 @@ const tools = [
 return (
   <div className="relative text-white font-sans overflow-x-hidden">
   {/* --- Cyber Video Background --- */}
-  <div className="fixed filter blur-xs top-0 left-0 w-full h-full z-0 overflow-hidden">
+  <div className="fixed filter blur-sm top-0 left-0 w-full h-full z-0 overflow-hidden">
     <video
       autoPlay
       loop
@@ -233,20 +297,21 @@ return (
     ></div>
   </div>
 
-<img
-  src="/logo2.PNG"
-  alt="Logo"
-  className="fixed z-10 pointer-events-none"
-  style={{
-    top: "70%",           // vertical center
-    left: "50%",          // horizontal center
-    width: "2000px",      // base width
-    height: "auto",
-    opacity: 0.35,        // adjust visibility
-    mixBlendMode: "overlay",
-    transform: "translate(-50%, -50%)", // center the image
-  }}
-/>
+<div className="fixed z-10 pointer-events-none" style={{
+  top: "70%",
+  left: "50%",
+  width: "2000px",
+  height: "auto",
+  transform: "translate(-50%, -50%)",
+}}>
+  <Image
+    src="/logo2.PNG"
+    alt="Logo"
+    fill
+    className="object-contain opacity-35 mix-blend-overlay"
+  />
+</div>
+
 
 
 
@@ -369,11 +434,13 @@ return (
                     : "w-48 h-48 sm:w-56 sm:h-56 border border-white/20"
                 }`}
               >
-                <img
-                  src={step.img}
-                  alt={step.name}
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
+                <Image
+    src={step.img}
+    alt={step.name}
+    fill
+    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+    sizes="100vw"
+  />
                 <h3 className="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm sm:text-xl font-bold bg-black/60 px-2 sm:px-4 py-1 rounded-lg">
                   {step.name}
                 </h3>
@@ -388,11 +455,13 @@ return (
                   : "w-48 h-48 sm:w-56 sm:h-56 border border-white/20 cursor-pointer"
               }`}
             >
-              <img
-                src={step.img}
-                alt={step.name}
-                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-              />
+               <Image
+    src={step.img}
+    alt={step.name}
+    fill
+    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+    sizes="100vw"
+  />
               <h3 className="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm sm:text-xl font-bold bg-black/60 px-2 sm:px-4 py-1 rounded-lg">
                 {step.name}
               </h3>
@@ -423,10 +492,12 @@ return (
   By the end of the course, you will have the skills, knowledge, and mindset to begin your journey as an ethical hacker and bug bounty hunter.
 </p>
 
-
-<img
+<Image
   src="/cpbh.png"
   alt="Bug Bounty Course Illustration"
+  width={320}
+  height={320}
+  priority
   className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 
   shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-all duration-500 ease-out 
   hover:scale-105 hover:shadow-[20px_0_40px_rgba(0,0,255,0.7),-20px_0_40px_rgba(255,0,0,0.6)]"
@@ -473,80 +544,92 @@ return (
 
 
 
-          {/* --- Curriculum --- */}
-          <Section id="curriculum">
-            <motion.div
-              className="backdrop-blur-xl border border-white/20 rounded-[30px] sm:rounded-[60px] p-6 sm:p-20"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl sm:text-6xl font-bold text-center mb-6 sm:mb-8">Curriculum</h2>
-              <div className="flex flex-col">
-<div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8">
-  {curriculumModules.map((module, i) => (
-    <button
-      key={i}
-      onClick={() => setActiveModule(module)}
-      className={`px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base font-bold rounded-2xl transition-colors ${
-        activeModule.title === module.title
-          ? "bg-red-600 text-white"
-          : "text-gray-200 hover:bg-white/10 cursor-pointer"
-      }`}
-    >
-                      Module {String(i + 1).padStart(2, "0")}
-                    </button>
-                  ))}
-                </div>
-                <div className="relative min-h-[160px] bg-black/10 p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] border border-white/15 flex items-center justify-center">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeModule.title}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                      className="text-center"
-                    >
-                      <h3 className="text-lg sm:text-2xl font-bold text-white">
-                        {activeModule.title}
-                      </h3>
-                      <p className="mt-2 text-gray-300 text-sm sm:text-base">
-                        {activeModule.content}
-                      </p>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              </div>
-            </motion.div>
-          </Section>
+{/* --- Curriculum --- */}
+<Section id="curriculum">
+  <motion.div
+    className="backdrop-blur-xl border border-white/20 rounded-[30px] sm:rounded-[60px] p-6 sm:p-20"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, ease: "easeOut" }}
+    viewport={{ once: true }}
+  >
+    <h2 className="text-4xl sm:text-6xl font-bold text-center mb-8 sm:mb-12">
+      Curriculum
+    </h2>
+
+    {/* --- Module Buttons --- */}
+    <div className="w-full flex flex-col items-center mb-10">
+      <div className="grid grid-cols-8 gap-3 sm:gap-4 w-full max-w-6xl">
+        {curriculumModules.map((module, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveModule(module)}
+            className={`py-2 sm:py-3 text-xs sm:text-sm font-bold rounded-2xl transition-colors text-center ${
+              activeModule.title === module.title
+                ? "bg-red-600 text-white"
+                : "text-gray-200 hover:bg-white/10 cursor-pointer"
+            }`}
+          >
+            Module {String(i + 1).padStart(2, "0")}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* --- Active Module Content --- */}
+    <div className="relative min-h-[260px] sm:min-h-[300px] bg-black/20 p-8 sm:p-12 rounded-[30px] sm:rounded-[40px] border border-white/15 flex items-center justify-center w-full max-w-4xl mx-auto">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeModule.title}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="text-center"
+        >
+          <h3 className="text-xl sm:text-3xl font-bold text-white mb-3">
+            {activeModule.title}
+          </h3>
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+            {activeModule.content}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  </motion.div>
+</Section>
 
 
-        {/* --- What You Will Learn --- */}
+
+{/* --- What You Will Learn --- */}
 <Section id="what-you-will-learn">
   <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
-    Key Proficiencies Gained
+    Professional Skills You’ll Master
   </h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
     {[
-      "Perform advanced reconnaissance and asset discovery to prioritise high-value targets.",
-      "Deeply understand web application architecture to identify and exploit complex vulnerabilities.",
-      "Exploit and chain vulnerabilities for higher impact and realistic attack simulation.",
-      "Discover and attack API and mobile-specific weaknesses on both iOS and Android.",
-      "Automate recon and scanning workflows and leverage AI to speed up vulnerability discovery.",
-      "Master professional tools for fuzzing, scanning, exploitation and post-exploitation workflows.",
-      "Write high-quality reports, communicate with program owners, and follow responsible disclosure.",
-      "Complete live hunting sprints and a final project that demonstrates real-world bug bounty skills.",
-
+      "Perform in-depth reconnaissance and smart asset discovery to identify high-value targets efficiently.",
+      "Understand modern web, cloud, and API architectures to pinpoint complex security flaws.",
+      "Exploit and chain multi-step vulnerabilities for real-world, high-impact scenarios.",
+      "Hunt and exploit API, mobile (Android & iOS), and cloud-based vulnerabilities with precision.",
+      "Use AI and automation tools to enhance recon, vulnerability analysis, and report generation.",
+      "Master advanced bug bounty tools for reconnaissance, scanning, exploitation, and automation.",
+      "Identify logic flaws, business logic abuse, and access control misconfigurations effectively.",
+      "Apply DevSecOps and secure coding principles to analyze and strengthen application security.",
+      "Communicate findings professionally and write impactful, industry-grade vulnerability reports.",
+      "Participate in live hunting challenges and build a professional bug bounty portfolio project.",
     ].map((item, i) => (
-      <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
-        <CheckCircle size={20} className="text-red-500 flex-shrink-0" />
+      <div
+        key={i}
+        className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4"
+      >
+        <CheckCircle size={20} className="text-purple-500 flex-shrink-0" />
         <span>{item}</span>
       </div>
     ))}
   </div>
 </Section>
+
 
 
 {/* --- Tools Section with Logos --- */}
@@ -561,15 +644,18 @@ return (
         className="bg-white/30 rounded-[25px] p-4 sm:p-6 flex items-center justify-center hover:bg-white/5 transition-colors"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: i * 0.1 }}
+        transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <img
-          src={tool.logo}
-          alt={tool.name}
-          style={{ height: tool.size, width: "auto" }}
-          className="object-contain"
-        />
+<Image
+  src={tool.logo}
+  alt={tool.name}
+  width={100}
+  height={100}
+  style={{ height: tool.size, width: "auto" }}
+  className="object-contain"
+  priority
+/>
       </motion.div>
     ))}
   </div>
@@ -577,13 +663,16 @@ return (
 
           {/* --- Achievements --- */}
 <Section id="what-youll-achieve">
-  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You'll Achieve</h2>
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You&apos;ll Achieve</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
-    {[
-      "Gain advanced skills in web, API, and mobile bug hunting.",
-      "Master reconnaissance, exploitation, and chaining of complex vulnerabilities.",
-      "Leverage automation and AI tools to optimize bug discovery.",
-      "Learn professional reporting, communication, and responsible disclosure practices.",
+{[
+  "Gain expert-level skills in Web, Cloud, API, Mobile, and AI-driven bug hunting.",
+  "Master reconnaissance, exploitation, and vulnerability chaining across real-world targets.",
+  "Use automation and AI-powered tools to accelerate recon, testing, and reporting workflows.",
+  "Understand cloud-specific attack surfaces and advanced web application exploitation techniques.",
+  "Learn industry-grade reporting, communication, and responsible disclosure methods used by top researchers.",
+  "Build a professional bug bounty portfolio through live hunting challenges and guided real-world projects.",
+
               ].map((item, i) => (
                 <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
                   <CheckCircle size={20} className="text-red-500 flex-shrink-0" />
@@ -616,7 +705,7 @@ return (
         transition={{ duration: 0.5, delay: i * 0.1 }}
         viewport={{ once: true }}
       >
-        <div className="flex justify-center items-center h-28 sm:h-36 bg-blue-900/30 group-hover:bg-blue-800/40 transition-all duration-300">
+        <div className="flex justify-center items-center h-28 sm:h-36 bg-blue-900/30 group-hover:bg-purple-800/40 transition-all duration-300">
           <Icon size={60} className="text-red-600 group-hover:scale-110 transition-transform duration-300" />
         </div>
         <p className="py-3 sm:py-4 font-semibold text-gray-300 text-sm sm:text-base">
@@ -631,25 +720,39 @@ return (
 
 {/* --- Motivation Section --- */}
 <Section id="motivation">
-  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
-    You Don’t Need Experience — We’ll Build You from Scratch
-  </h2>
+  <div className="text-center mb-8">
+   <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
+  From Beginner to Professional
+</h2>
+
+    <p className="text-4xl sm:text-5xl font-bold">
+      We’ll Build Your Bug Bounty Career
+    </p>
+  </div>
   <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
-    <img
-      src="https://placehold.co/150x150/0a192f/FFFFFF?text=CBBT"
-      alt="CBBT Motivation"
-      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-red-500"
-    />
-    <div>
-      <h3 className="text-2xl sm:text-3xl font-bold">Start from Zero, Grow to a Bug Hunter</h3>
-      <p className="text-base sm:text-lg text-red-500 font-semibold">
-        No Prior Knowledge Needed
-      </p>
-      <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
-        In CBBT, you don’t need to know a single thing about hacking or coding. We’ll take you step by step — from beginner level to finding your first real-world bug. 
-        This isn’t just a course; it’s your launchpad into ethical hacking.
-      </p>
-    </div>
+  <Image
+                 src="/cpbh.png"
+                 alt="JBBH Motivation"
+                 width={150}
+                 height={150}
+                 className="object-cover rounded-md"
+               />
+<div>
+  <h3 className="text-2xl sm:text-3xl font-bold">
+    Transform Your Curiosity into a Professional Bug Hunting Career
+  </h3>
+  <p className="text-base sm:text-lg text-purple-500 font-semibold">
+    No Prior Experience Required
+  </p>
+  <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
+    In CPBH, we’ll guide you to master real-world bug bounty hunting across 
+    <span className="text-white font-medium"> Web, AI, Cloud, Mobile,</span> and 
+    <span className="text-white font-medium"> API</span> environments. 
+    You’ll uncover complex vulnerabilities, automate your recon with AI, and learn to think like a professional security researcher. 
+    This program isn’t just training — it’s your pathway to becoming an elite ethical hacker.
+  </p>
+</div>
+
   </div>
 </Section>
 

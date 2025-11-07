@@ -113,7 +113,7 @@ export default function ContactCard({ onClose, isOpen }: ContactCardProps) {
               </button>
             </form>
 
-            <p className="text-gray-400 text-xs text-center mt-4">
+            <p className="text-gray-400 text-xs text-center -mt-2">
               Note: Our team will review your submission and contact you within 24 hours.
             </p>
           </motion.div>

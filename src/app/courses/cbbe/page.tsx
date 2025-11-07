@@ -14,6 +14,7 @@ import Footer from "@/app/footer";
 import Float from "@/app/float";
 import ContactCard from "@/app/contact";
 import Link from "next/link";
+import Image from "next/image";
 
 // --- TYPES ---
 interface SectionProps {
@@ -214,20 +215,20 @@ return (
       ></div>
     </div>
     
-<img
-  src="/logo2.PNG"
-  alt="Logo"
-  className="fixed z-10 pointer-events-none"
-  style={{
-    top: "70%",           // vertical center
-    left: "50%",          // horizontal center
-    width: "2000px",      // base width
-    height: "auto",
-    opacity: 0.25,        // adjust visibility
-    mixBlendMode: "overlay",
-    transform: "translate(-50%, -50%)", // center the image
-  }}
-/>
+<div
+  aria-hidden
+  className="fixed left-1/2 top-[98%] -translate-x-1/2 -translate-y-1/2 opacity-18 mix-blend-overlay z-10 pointer-events-none"
+  style={{ width: "2200px" }} // ✅ explicit physical width
+>
+  <Image
+    src="/logo2.PNG"
+    alt="Logo"
+    width={2500}
+    height={1300}
+    className="object-contain w-full h-auto max-w-none"
+    priority
+  />
+</div>
 
 
 
@@ -323,13 +324,15 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
 </p>
 
 
-    <img
-  src="/cbbe.png"
-  alt="Bug Bounty Course Illustration"
-  className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 
-  shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-all duration-500 ease-out 
-  hover:scale-105 hover:shadow-[0_30px_80px_rgba(128,0,255,0.8)]"
-  />
+    <Image
+      src="/cbbe.png"
+      alt="Bug Bounty Course Illustration"
+      width={320} // required
+      height={320} // required
+      className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 
+      shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-all duration-500 ease-out 
+      hover:scale-105 hover:shadow-[0_30px_80px_rgba(128,0,255,0.8)]"
+    />
   </div>
 </Section>
 
@@ -453,22 +456,25 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
   <h2 className="text-4xl sm:text-5xl font-bold text-center mb-10 sm:mb-12">
     Tools You Will Master
   </h2>
-  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-6 sm:gap-8">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8">
     {tools.map((tool, i) => (
       <motion.div
         key={i}
         className="bg-white/30 rounded-[25px] p-4 sm:p-6 flex items-center justify-center hover:bg-white/5 transition-colors"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: i * 0.1 }}
+        transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <img
-          src={tool.logo}
-          alt={tool.name}
-          style={{ height: tool.size, width: "auto" }}
-          className="object-contain"
-        />
+         <Image
+      src={tool.logo}
+      alt={tool.name}
+      width={200} // you can set a base width
+      height={200} // height required even if object-contain scales it
+      style={{ height: tool.size, width: "auto" }}
+      className="object-contain"
+      priority
+    />
       </motion.div>
     ))}
   </div>
@@ -534,11 +540,13 @@ and cloud platforms, gaining hands-on expertise to secure modern technologies.
     You Don&rsquo;t Need Experience — We&rsquo;ll Build You from Scratch
   </h2>
   <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
-    <img
-      src="https://placehold.co/150x150/0a192f/FFFFFF?text=CBBE"
-      alt="CBBE Motivation"
-      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-purple-500"
-    />
+ <Image
+                src="/cbbe.png"
+                alt="JBBH Motivation"
+                width={150}
+                height={150}
+                className="object-cover rounded-md"
+              />
     <div>
      <h3 className="text-2xl sm:text-3xl font-bold">
    From Intermediate Hacker to Advanced Bug Bounty Specialist

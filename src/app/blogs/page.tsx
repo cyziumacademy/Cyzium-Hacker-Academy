@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/app/navbar";
 import Footer from "../footer";
+import Float from "@/app/float";
 
 const blogs = [
   {
@@ -104,7 +105,9 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
+      <Float />
       <Footer />
     </main>
+    
   );
 }

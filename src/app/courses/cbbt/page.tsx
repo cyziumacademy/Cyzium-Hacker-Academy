@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback, ReactNode } from "react";
+import React, { useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bug, GlobeLock, Smartphone, FlaskConical, ShieldCheck, Monitor, Cpu } from "lucide-react";
 
@@ -14,6 +14,8 @@ import Footer from "@/app/footer";
 import Float from "@/app/float";
 import ContactCard from "@/app/contact";
 import Link from "next/link";
+import Image from "next/image";
+
 
 // --- TYPES ---
 interface SectionProps {
@@ -32,9 +34,9 @@ interface CBBTCoursePageProps {
   onBack?: () => void;
 }
 
-interface ContactProps {
+/* interface ContactProps {
   onClose: () => void;
-}
+} */
 
 
 // --- SECTION COMPONENT ---
@@ -95,7 +97,7 @@ const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
 };
 
 // --- MAIN COMPONENT ---
-const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ onBack }) => {
+const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ }) => {
     const [showContact, setShowContact] = useState(false);
 
     const curriculumModules = [
@@ -175,10 +177,10 @@ const careerOpportunities = [
 
 const tools = [
   { name: "Kali Linux", logo: "/kali.png", size: "80px" },
-  { name: "Burp Suite", logo: "/burp.png", size: "70px" },
+  { name: "Burp Suite", logo: "/burp.png", size: "180px" },
   { name: "Wireshark", logo: "/wire.png", size: "60px" },
   { name: "Nmap", logo: "/nmap.png", size: "145px" },
-  { name: "Shodan", logo: "/shodan.png", size: "85px" },
+  { name: "Censys", logo: "/censys.webp", size: "70px" },
   { name: "Metasploit", logo: "/metasploit.png", size: "110px" },
   { name: "Sqlmap", logo: "/sqlmap.png", size: "100px" },
   { name: "Exploit Database", logo: "/exploit.png", size: "70px" },
@@ -224,21 +226,20 @@ return (
       ></div>
     </div>
     
-<img
-  src="/logo2.PNG"
-  alt="Logo"
-  className="fixed z-10 pointer-events-none"
-  style={{
-    top: "70%",           // vertical center
-    left: "50%",          // horizontal center
-    width: "2000px",      // base width
-    height: "auto",
-    opacity: 0.25,        // adjust visibility
-    mixBlendMode: "overlay",
-    transform: "translate(-50%, -50%)", // center the image
-  }}
-/>
-
+<div
+  aria-hidden
+  className="fixed left-1/2 top-[98%] -translate-x-1/2 -translate-y-1/2 opacity-18 mix-blend-overlay z-10 pointer-events-none"
+  style={{ width: "2200px" }} // ✅ explicit physical width
+>
+  <Image
+    src="/logo2.PNG"
+    alt="Logo"
+    width={2500}
+    height={1300}
+    className="object-contain w-full h-auto max-w-none"
+    priority
+  />
+</div>
 
 
     {/* --- Page Content --- */}
@@ -340,9 +341,11 @@ return (
 </p>
 
 
-    <img
+<Image
   src="/cbbt.png"
   alt="Bug Bounty Course Illustration"
+  width={320}
+  height={320}
   className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 
   shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-all duration-500 ease-out 
   hover:scale-105 hover:shadow-[0_30px_80px_rgba(255,0,0,0.4)]"
@@ -476,15 +479,18 @@ return (
         className="bg-white/30 rounded-[25px] p-4 sm:p-6 flex items-center justify-center hover:bg-white/5 transition-colors"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: i * 0.1 }}
+        transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <img
-          src={tool.logo}
-          alt={tool.name}
-          style={{ height: tool.size, width: "auto" }}
-          className="object-contain"
-        />
+      <Image
+  src={tool.logo}
+  alt={tool.name}
+  width={200} // fallback/default width
+  height={200} // fallback/default height
+  style={{ height: tool.size, width: "auto" }}
+  className="object-contain"
+  unoptimized
+/>
       </motion.div>
     ))}
   </div>
@@ -492,7 +498,7 @@ return (
 
           {/* --- Achievements --- */}
 <Section id="what-youll-achieve">
-  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You'll Achieve</h2>
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You&apos;ll Achieve</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
     {[
       "Gain advanced skills in web, API, and mobile bug hunting.",
@@ -547,22 +553,24 @@ return (
 {/* --- Motivation Section --- */}
 <Section id="motivation">
   <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
-    You Don’t Need Experience — We’ll Build You from Scratch
+    You Dont&apos;t Need Experience — Wet&apos;ll Build You from Scratch
   </h2>
   <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
-    <img
-      src="https://placehold.co/150x150/0a192f/FFFFFF?text=CBBT"
-      alt="CBBT Motivation"
-      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-red-500"
-    />
+              <Image
+                src="/cbbt.png"
+                alt="JBBH Motivation"
+                width={150}
+                height={150}
+                className="object-cover rounded-md"
+              />
     <div>
       <h3 className="text-2xl sm:text-3xl font-bold">Start from Zero, Grow to a Bug Hunter</h3>
       <p className="text-base sm:text-lg text-red-500 font-semibold">
         No Prior Knowledge Needed
       </p>
       <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
-        In CBBT, you don’t need to know a single thing about hacking or coding. We’ll take you step by step — from beginner level to finding your first real-world bug. 
-        This isn’t just a course; it’s your launchpad into ethical hacking.
+        In CBBT, you dont&apos;t need to know a single thing about hacking or coding. Wet&apos;ll take you step by step — from beginner level to finding your first real-world bug. 
+        This isnt&apos;t just a course; itt&apos;s your launchpad into ethical hacking.
       </p>
     </div>
   </div>

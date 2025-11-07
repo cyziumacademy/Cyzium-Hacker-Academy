@@ -3,40 +3,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Calendar, Clock, Laptop, AlertTriangle } from "lucide-react";
 import ContactCard from "./contact";
+import Image from "next/image";
+import { batches } from "./batchesdata";
 
-// 🎓 Upcoming batches data
-const batches = [
-  {
-    image: "/cass.png",
-    title: "Certified Ai Security Specialist",
-    startDate: "Sep 15, 2025",
-    duration: "2 Months (Weekend)",
-    includes: "Live Sessions + Labs",
-    price: "₹2,000",
-    cashback: "Cashback!",
-    targetDate: "2025-09-15T23:59:59",
-  },
-  {
-    image: "/cbbt.png",
-    title: "Certified Bug Bounty Hunter",
-    startDate: "Oct 01, 2025",
-    duration: "1.5 Months (Weekend)",
-    includes: "Live Sessions + Labs",
-    price: "₹4,000",
-    cashback: "₹Cashback!",
-    targetDate: "2025-10-01T23:59:59",
-  },
-  {
-    image: "/ccsa.png",
-    title: "Certified Cloud Security Analyst",
-    startDate: "Oct 20, 2025",
-    duration: "2 Months",
-    includes: "Live Sessions + Labs",
-    price: "₹7,000",
-    cashback: "Cashback!",
-    targetDate: "2025-10-20T23:59:59",
-  },
-];
 
 function UpcomingBatchCard() {
   const [[currentIndex, direction], setCurrentIndex] = useState<[number, number]>([0, 0]);
@@ -74,6 +43,7 @@ function UpcomingBatchCard() {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
+    
     return () => clearInterval(timer);
   }, [calculateTimeLeft]);
 
@@ -120,12 +90,17 @@ function UpcomingBatchCard() {
     }),
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex(([prev]) => [(prev + 1) % batches.length, 1]);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+useEffect(() => {
+  // ✅ Skip auto-rotation if there's only one batch
+  if (batches.length <= 1) return;
+
+  const interval = setInterval(() => {
+    setCurrentIndex(([prev]) => [(prev + 1) % batches.length, 1]);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
+
 
   return (
     <>
@@ -170,10 +145,13 @@ function UpcomingBatchCard() {
                 exit="exit"
                 className="w-full text-center"
               >
-                <img
-                  src={currentBatch.image}
-                  className="w-full h-60 object-cover rounded-[40px] border-2 border-white/20 shadow-lg md:h-60 h-48"
-                />
+               <Image
+  src={currentBatch.image}
+  alt="Batch Image"
+  width={800} // approximate width
+  height={240} // approximate height
+  className="w-full h-60 object-cover rounded-[40px] border-2 border-white/20 shadow-lg md:h-60 sm:h-48"
+/>
                 <p className="text-md text-gray-300 mt-2">{currentBatch.title}</p>
               </motion.div>
             </AnimatePresence>

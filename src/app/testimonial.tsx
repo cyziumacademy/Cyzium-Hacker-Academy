@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion, MotionProps } from "framer-motion";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Type for individual testimonial
 interface Testimonial {
@@ -46,20 +47,22 @@ function TestimonialOrb({
         className={`absolute inset-0 rounded-full bg-gradient-to-br ${gradientClass} opacity-50`}
       ></div>
       <div className="relative z-10 flex flex-col items-center px-4">
-        <img
-          src={image}
+        <Image
+          src={image || "/default-avatar.png"}
           alt={name}
-          className="w-20 h-20 rounded-full border-4 border-white/20 object-cover mb-3"
+          width={80}
+          height={80}
+          priority
+          className="rounded-full border-4 border-white/20 object-cover mb-3"
         />
         <h3 className="text-xl font-bold text-white">{name}</h3>
         <p className="text-xs text-gray-300 leading-relaxed italic mt-2">
-          "{quote}"
-        </p>
+  &quot;{quote}&quot;
+</p>
       </div>
     </motion.div>
   );
 }
-
 
 // Main Testimonials Page Component
 const TestimonialsPage: React.FC = () => {
@@ -107,6 +110,7 @@ const TestimonialsPage: React.FC = () => {
       gradientClass: "from-purple-500/20 to-transparent",
     },
   ];
+
 
   // Automatic sliding logic
   useEffect(() => {

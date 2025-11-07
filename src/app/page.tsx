@@ -116,7 +116,7 @@ const sampleCourses: Course[] = [
     duration: "6 weeks",
     seatsLeft: 20,
     shortDescription: "Logs, alerts, SIEM basics and incident triage using free tools.",
-    image: "/jbbh.png",
+    image: "/ccsa.png",
     path: "jbbh"
   },
 ];

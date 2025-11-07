@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Zap, Target, Award, Briefcase, Users, BrainCircuit, ShieldCheck } from "lucide-react";
+import { Zap, Target, Award, Briefcase, Users, ShieldCheck } from "lucide-react";
 
 type FeatureCardProps = {
   icon: React.ReactNode;
@@ -65,7 +65,7 @@ function WhyChooseUsPage() {
             </span>{" "}?
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-300">
-            We're not just another training center. We are your launchpad into the elite world of cybersecurity.
+            We&apos;re not just another training center. We are your launchpad into the elite world of cybersecurity.
           </p>
         </motion.div>
 

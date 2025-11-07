@@ -19,7 +19,7 @@ const LaptopSection: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl -ml-[102px] md:text-6xl font-bold mb-6">
-            Don't have a Laptop to study?
+            Don&apos;t have a Laptop to study?
           </h2>
 
           <p className="text-gray-100 -ml-[100px] max-w-md mb-8">
