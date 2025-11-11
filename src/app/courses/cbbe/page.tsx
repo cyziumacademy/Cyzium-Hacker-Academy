@@ -175,7 +175,7 @@ const tools = [
   { name: "Guardrails Ai", logo: "/Guardrails.png", size: "99px" },
   { name: "Promptfoo", logo: "/promptfoo.png", size: "205px" },
   { name: "Owasp zap", logo: "/owasp.png", size: "150px" },
-  { name: "Trivy", logo: "/Trivy.png", size: "160px" },
+  { name: "Trivy", logo: "/trivy.png", size: "160px" },
   { name: "Scout", logo: "/scout.png", size: "160px" },
   
 ];
