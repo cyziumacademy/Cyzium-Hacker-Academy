@@ -177,7 +177,7 @@ const careerOpportunities = [
 
 const tools = [
   { name: "Kali Linux", logo: "/kali.png", size: "80px" },
-  { name: "Burp Suite", logo: "/burp.png", size: "180px" },
+  { name: "Burp Suite", logo: "/burp.png", size: "230px" },
   { name: "Wireshark", logo: "/wire.png", size: "60px" },
   { name: "Nmap", logo: "/nmap.png", size: "145px" },
   { name: "Censys", logo: "/censys.webp", size: "70px" },

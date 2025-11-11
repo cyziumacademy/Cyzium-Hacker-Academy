@@ -240,10 +240,10 @@ const careerOpportunities = [
 
 const tools = [
   { name: "Kali Linux", logo: "/kali.png", size: "80px" },
-  { name: "Burp Suite", logo: "/burp.png", size: "70px" },
+  { name: "Burp Suite", logo: "/burp.png", size: "230px" },
   { name: "Wireshark", logo: "/wire.png", size: "60px" },
   { name: "Nmap", logo: "/nmap.png", size: "145px" },
-  { name: "Shodan", logo: "/shodan.png", size: "85px" },
+  { name: "Censys", logo: "/censys.webp", size: "70px" },
   { name: "Metasploit", logo: "/metasploit.png", size: "110px" },
   { name: "Sqlmap", logo: "/sqlmap.png", size: "100px" },
   { name: "Exploit Database", logo: "/exploit.png", size: "70px" },
@@ -251,6 +251,15 @@ const tools = [
   { name: "Owasp zap", logo: "/owasp.png", size: "150px" },
   { name: "Postman", logo: "/postman.png", size: "160px" },
   { name: "Frida", logo: "/frida.png", size: "160px" },
+  { name: "Textattack", logo: "/text.png", size: "85px" },
+  { name: "Prowler", logo: "/prowler.png", size: "100px" },
+  { name: "Guardrails Ai", logo: "/Guardrails.png", size: "99px" },
+  { name: "Promptfoo", logo: "/promptfoo.png", size: "205px" },
+  { name: "Owasp zap", logo: "/owasp.png", size: "150px" },
+  { name: "Trivy", logo: "/trivy.png", size: "160px" },
+  { name: "Scout", logo: "/scout.png", size: "160px" },
+  { name: "Shodan", logo: "/shodan.png", size: "85px" },
+
   
 ];
 return (
@@ -485,11 +494,9 @@ return (
 
   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
 <p className="text-base sm:text-xl text-gray-300 leading-relaxed md:w-[70%]">
-  The Certified Bug Bounty Hunter (CBBT) is a comprehensive program designed for anyone starting their journey in cybersecurity, even with no prior experience. 
-  In this course, you will learn how to identify and report security vulnerabilities in websites, applications, and APIs safely and legally. 
-  We focus on building your foundational skills step by step — from understanding how web applications work, to using essential tools like Kali Linux, Burp Suite, and Nmap, to discovering common vulnerabilities like XSS and SQL Injection. 
-  As you progress, you will gain practical experience in real-world bug hunting scenarios, preparing you to report valid security issues confidently and professionally. 
-  By the end of the course, you will have the skills, knowledge, and mindset to begin your journey as an ethical hacker and bug bounty hunter.
+ The Certified Professional Bug Bounty Hunter (CPBH) is our flagship certification program that takes you from beginner to expert in ethical hacking. It includes the complete learning path from our Junior (JBBH), Certified (CBBT), and Expert (CBBE) Bug Bounty Hunter courses — covering everything from foundational concepts to advanced, real-world bug hunting. 
+ This program trains you to identify and report vulnerabilities across Web, API, Mobile, AI, and Cloud platforms through practical, hands-on learning. By the end, you’ll earn the prestigious CPBH certification, equipped with the skills, confidence, 
+ and professional mindset to hunt bugs responsibly and effectively across any modern technology stack.
 </p>
 
 <Image

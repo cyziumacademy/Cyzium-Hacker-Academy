@@ -56,11 +56,11 @@ const courses: Course[] = [
     image: "/cbbe.png" 
   },
   { 
-    title: "Certified Network Associate", 
-    path: "cna", 
-    category: "Networking", 
-    description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
-    image: "/cna.png" 
+    title: "Certified Professional Bug Hunter", 
+    path: "cpbh", 
+    category: "Bug Bounty Hunter", 
+    description: "Achieve professional mastery in bug bounty hunting with advanced real-world simulations.", 
+    image: "/cpbh.png" 
   },
   { 
     title: "Certified Cloud Security Analyst", 
@@ -76,12 +76,12 @@ const courses: Course[] = [
     description: "Understand and defend AI systems against modern security threats and adversarial attacks.", 
     image: "/cass.png" 
   },
-  { 
-    title: "Certified Professional Bug Hunter", 
-    path: "cpbh", 
-    category: "Bug Bounty Hunter", 
-    description: "Achieve professional mastery in bug bounty hunting with advanced real-world simulations.", 
-    image: "/cpbh.png" 
+    { 
+    title: "Certified Network Associate", 
+    path: "cna", 
+    category: "Networking", 
+    description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
+    image: "/cna.png" 
   },
 ];
 
@@ -157,7 +157,7 @@ export default function CoursesPage(): React.JSX.Element {
         <div className="bg-slate-950 min-h-screen font-sans text-gray-200">
             
             {/* SECTION 1: Career Paths */}
-            <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/bg2.jpg')" }}>
+            <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/bg16.jpg')" }}>
                 <div className="absolute inset-0 bg-slate-900/80"></div>
                 <div className="relative">
                     <section className="text-white py-20 px-6">
@@ -261,7 +261,7 @@ export default function CoursesPage(): React.JSX.Element {
                                         <h3 className="text-2xl font-bold mb-2 text-gray-100 flex-grow">{course.title}</h3>
                                         <p className="text-gray-400 mb-6">{course.description}</p>
                                        <div className="flex justify-center">
-  {["ccsa", "cass"].includes(course.path) ? (
+  {["ccsa", "cna", "cass"].includes(course.path) ? (
     <div className="w-60 mt-auto bg-gray-700 text-gray-300 font-semibold py-3 px-4 rounded-[20px] text-center cursor-not-allowed">
       Coming Soon
     </div>

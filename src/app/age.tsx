@@ -25,12 +25,10 @@ export default function AgeSection() {
             viewport={{ once: true }}
             className="text-lg md:text-xl text-gray-300 leading-relaxed"
           >
-            We are starting our programs from <span className="text-blue-400 font-semibold">7th grade students</span>.
-            But learning has no age limit — if you’re in <span className="text-blue-400 font-semibold">6th, 5th, or even younger</span> 
-            and have the curiosity to explore technology, you’re more than welcome at 
-            <span className="text-blue-400 font-semibold"> Cyzium Hacker Academy</span>.  
-            Passion and curiosity matter more than age — we believe in empowering young minds early to 
-            build the next generation of cybersecurity leaders.
+We are starting our programs from students aged 13 and above.
+But learning has no age limit — if you’re 12, 11, or even younger and have the curiosity to explore technology, you’re more than welcome at
+<span className="text-blue-400 font-semibold"> Cyzium Hacker Academy</span>.
+Passion and curiosity matter more than age — we believe in empowering young minds early to build the next generation of cybersecurity leaders.
           </motion.p>
         </div>
 
