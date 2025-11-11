@@ -90,17 +90,12 @@ function UpcomingBatchCard() {
     }),
   };
 
-useEffect(() => {
-  // ✅ Skip auto-rotation if there's only one batch
-  if (batches.length <= 1) return;
-
-  const interval = setInterval(() => {
-    setCurrentIndex(([prev]) => [(prev + 1) % batches.length, 1]);
-  }, 5000);
-
-  return () => clearInterval(interval);
-}, []);
-
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(([prev]) => [(prev + 1) % batches.length, 1]);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>

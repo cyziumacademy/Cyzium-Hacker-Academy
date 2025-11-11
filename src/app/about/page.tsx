@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Navbar from "../navbar";
 import Footer from "../footer";
+import Float from "@/app/float";
 
 // Section Component
 type SectionProps = {
@@ -334,6 +335,7 @@ function CyziumAboutPage() {
         <FutureVisionSection />
         <CallToActionFooter />
         <Footer />
+        <Float />
       </main>
     </div>
   );

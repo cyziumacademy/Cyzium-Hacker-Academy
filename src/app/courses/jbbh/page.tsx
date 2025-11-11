@@ -18,6 +18,7 @@ import ContactCard from "@/app/contact";
 import Link from "next/link";
 import Image from "next/image";
 
+
 // --- TYPES ---
 interface SectionProps {
   children: ReactNode;
@@ -49,41 +50,57 @@ const Section: React.FC<SectionProps> = ({ children, id, className = "" }) => (
   </motion.section>
 );
 
+interface FaqCardProps {
+  question: string;
+  answer: string;
+  delay?: number;
+}
+
 // --- FAQ CARD COMPONENT ---
 const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const handleFlip = () => setIsFlipped(!isFlipped);
+
   return (
     <motion.div
-      className="w-full h-64 sm:h-72 rounded-2xl cursor-pointer"
+      className="w-full h-64 sm:h-72 rounded-2xl cursor-pointer select-none"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay }}
       viewport={{ once: true }}
-      style={{ perspective: 1000 }}
+      style={{ perspective: "1000px" }}
       onHoverStart={() => setIsFlipped(true)}
       onHoverEnd={() => setIsFlipped(false)}
+      onClick={handleFlip}
+      onTouchStart={handleFlip}
     >
       <motion.div
-        className="relative w-full h-full"
-        style={{ transformStyle: "preserve-3d" as React.CSSProperties["transformStyle"] }}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="relative w-full h-full transition-transform duration-500"
+        style={{
+          transformStyle: "preserve-3d",
+          transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
+        }}
       >
-        {/* Front of the card */}
+        {/* FRONT */}
         <div
           className="absolute w-full h-full bg-black/30 backdrop-blur-xl border border-white/20 rounded-[50px] p-4 sm:p-6 flex flex-col justify-center items-center text-center"
-          style={{ backfaceVisibility: "hidden" as React.CSSProperties["backfaceVisibility"] }}
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
         >
           <HelpCircle size={28} className="text-blue-500 mb-3 sm:mb-4" />
           <h3 className="text-lg sm:text-xl font-bold text-white">{question}</h3>
         </div>
-        {/* Back of the card */}
+
+        {/* BACK */}
         <div
-          className="absolute w-full h-full bg-red-600/10 backdrop-blur-xl border border-red-500/50 rounded-2xl p-4 sm:p-6 flex items-center justify-center text-center"
+          className="absolute w-full h-full bg-red-600/10 backdrop-blur-xl border border-red-500/50 rounded-[50px] p-4 sm:p-6 flex items-center justify-center text-center"
           style={{
-            backfaceVisibility: "hidden" as React.CSSProperties["backfaceVisibility"],
             transform: "rotateY(180deg)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
           }}
         >
           <p className="text-sm sm:text-base text-white leading-relaxed">{answer}</p>
@@ -183,18 +200,18 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
         {/* Overlay red-blue glow */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 via-transparent to-red-800/40 mix-blend-overlay" />
 
-        {/* 💠 Tech grid lines (visible now) */}
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(0, 255, 255, 0.15) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255, 0, 0, 0.15) 1px, transparent 1px)
-            `,
-            backgroundSize: "50px 50px",
-            mixBlendMode: "screen",
-          }}
-        ></div>
+      {/* 💠 Tech grid lines (visible now) */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 0, 0, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px",
+          mixBlendMode: "screen",
+        }}
+      ></div>
 
         {/* Diagonal glowing pattern */}
         <div

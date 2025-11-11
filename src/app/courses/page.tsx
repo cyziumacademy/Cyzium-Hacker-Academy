@@ -274,8 +274,6 @@ export default function CoursesPage(): React.JSX.Element {
     </button>
   )}
 </div>
-
-
                                     </div>
                                 </div>
                             ))}
@@ -318,7 +316,7 @@ export default function CoursesPage(): React.JSX.Element {
       {/* Close Button */}
       <button
         onClick={closeCareerModal}
-        className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-400 hover:text-white"
+        className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-400 hover:text-white cursor-pointer"
       >
         <X size={24} />
       </button>
