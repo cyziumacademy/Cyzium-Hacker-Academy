@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Phone, Mail, MapPin, Youtube, Instagram, Send, Linkedin } from 'lucide-react';
 import { FaDiscord } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Image from "next/image";
+
 
 export default function Footer() {
   return (
@@ -17,19 +19,23 @@ export default function Footer() {
 <div className="container mx-auto px-6 py-12">
   <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-gray-400">
 
-    {/* Column 1: About & Socials */}
-    <motion.div
-      className="md:col-span-1"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-    >
-      <img 
-        src="/logo.png"        // <-- replace with your actual logo image path
-        alt="Cyzium Academy Logo"
-        className="w-80 mb-4 -mt-15"  // adjust size if needed
-      />
+{/* Column 1: About & Socials */}
+<motion.div
+  className="md:col-span-1"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+>
+  <Image
+    src="/logo.png"            // path inside your public folder
+    alt="Cyzium Academy Logo"
+    width={320}                // required
+    height={100}               // required
+    className="w-80 mb-4 -mt-15"
+    priority                   // optional (improves LCP)
+  />
+
  
             <p className="pr-4 mb-6">
               Cyzium&apos;s career-focused, implementation-based learning programs pave the road to a success-assured career in Ethical Hacking & Cybersecurity.

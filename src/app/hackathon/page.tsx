@@ -69,7 +69,7 @@ export default function EventPage() {
 
           {/* Centered Coming Soon */}
           <div className="absolute inset-0 flex items-center justify-center px-4">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] font-extrabold text-white drop-shadow-2xl text-center">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7rem] font-extrabold text-white drop-shadow-3xl text-center">
               Coming Soon...
             </h1>
           </div>

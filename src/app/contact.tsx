@@ -88,13 +88,13 @@ export default function ContactCard({ onClose, isOpen }: ContactCardProps) {
               {/* Course Select */}
               <select className="w-full rounded-lg px-4 py-3 text-sm bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-cyan-500">
                 <option>Select a Course of Interest</option>
-                <option>CCSA (Certified Cloud Security Analyst)</option>
-                <option>CNA (Certified Network Associate)</option>
-                <option>CASS (Certified Ai Security Specialist)</option>
                 <option>JBBH (Certified Junior Bug Bounty Hunter)</option>
                 <option>CBBH (Certified Bug Bounty Hunter)</option>
                 <option>CBBE (Certified Bug Bounty Expert)</option>
                 <option>CPBH (Certified Professional Bug Hunter)</option>
+                <option>CNA (Certified Network Associate)</option>
+                <option>CCSA (Certified Cloud Security Analyst)</option>
+                <option>CASS (Certified Ai Security Specialist)</option>
               </select>
 
               {/* Message */}

@@ -49,10 +49,13 @@ function FormInput({
 
 export default function Contact() {
   const courses = [
-    "Intro to Ethical Hacking",
-    "Web App Security (XSS & SQLi)",
-    "SOC Analyst Essentials",
-    "Advanced Penetration Testing",
+    "JBBH (Certified Junior Bug Bounty Hunter)",
+    "CBBT (Certified Bug Bounty Hunter)",
+    "CBBE (Certified Bug Bounty Expert)",
+    "CPBH (Certified Professional Bug Hunter)",
+    "CNA (Certified Network Associate)",
+    "CCSA (Certified Cloud Security Analyst)",
+    "CASS (Certified Ai Security Specialist)"              
   ];
 
   return (

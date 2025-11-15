@@ -15,6 +15,7 @@ import {
 import Navbar from "../navbar";
 import Footer from "../footer";
 import Float from "@/app/float";
+import Link from "next/link";
 
 // Section Component
 type SectionProps = {
@@ -281,13 +282,15 @@ function FutureVisionSection() {
 function CallToActionFooter() {
   return (
     <footer className="py-12 sm:py-16 text-center px-4">
-      <motion.button
-        className="px-8 sm:px-10 py-3 sm:py-4 bg-red-600 text-white text-lg sm:text-xl font-bold rounded-lg hover:bg-red-700 transition-colors"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Join Now. Defend the Future.
-      </motion.button>
+      <Link href="/contact">
+        <motion.button
+          className="px-8 sm:px-10 py-3 sm:py-4 bg-red-600 text-white text-lg sm:text-xl font-bold rounded-lg hover:bg-red-700 transition-colors cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Join Now. Defend the Future.
+        </motion.button>
+      </Link>
     </footer>
   );
 }
