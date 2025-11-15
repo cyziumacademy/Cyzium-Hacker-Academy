@@ -14,19 +14,23 @@ export default function Footer() {
   viewport={{ once: true }}
   transition={{ duration: 0.8, ease: 'easeOut' }}
 >
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-gray-400">
-          {/* Column 1: About & Socials */}
-          <motion.div
-            className="md:col-span-1"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-2xl font-bold text-red-500 mb-4">
-              CYZIUM <span className="text-gray-100">ACADEMY</span>
-            </h3>
+<div className="container mx-auto px-6 py-12">
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-gray-400">
+
+    {/* Column 1: About & Socials */}
+    <motion.div
+      className="md:col-span-1"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    >
+      <img 
+        src="/logo.png"        // <-- replace with your actual logo image path
+        alt="Cyzium Academy Logo"
+        className="w-80 mb-4 -mt-15"  // adjust size if needed
+      />
+ 
             <p className="pr-4 mb-6">
               Cyzium&apos;s career-focused, implementation-based learning programs pave the road to a success-assured career in Ethical Hacking & Cybersecurity.
             </p>
