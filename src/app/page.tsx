@@ -80,7 +80,7 @@ function Hero() {
 type Course = {
   id: string;
   title: string;
-  level: "Beginner" | "Intermediate" | "Advanced";
+  level: "Beginner" | "Intermediate" | "Advanced" | "Professional";
   duration: string;
   seatsLeft?: number;
   shortDescription: string;
@@ -92,7 +92,7 @@ const sampleCourses: Course[] = [
   {
     id: "c1",
     title: "Certified Professional Bug Hunter",
-    level: "Advanced",
+    level: "Professional",
     duration: "5 months",
     seatsLeft: 12,
     shortDescription: "Fundamentals of pentesting, recon, and common vulnerabilities.",
@@ -101,23 +101,23 @@ const sampleCourses: Course[] = [
   },
   {
     id: "c2",
-    title: "Certified Ai Security Specialist",
+    title: "Certified Bug Bounty Hunter",
     level: "Intermediate",
     duration: "4 weeks",
     seatsLeft: 6,
     shortDescription: "Hands-on labs on XSS, SQLi and real-world exploitation patterns.",
-    image: "/cass.png",
-    path: "cass"
+    image: "/cbbt.png",
+    path: "cbbt"
   },
   {
     id: "c3",
-    title: "Certified Cloud Security Analyst",
-    level: "Beginner",
+    title: "Certified Bug Bounty Expert",
+    level: "Advanced",
     duration: "6 weeks",
-    seatsLeft: 20,
+    seatsLeft: 8,
     shortDescription: "Logs, alerts, SIEM basics and incident triage using free tools.",
-    image: "/ccsa.png",
-    path: "jbbh"
+    image: "/cbbe.png",
+    path: "cbbe"
   },
 ];
 

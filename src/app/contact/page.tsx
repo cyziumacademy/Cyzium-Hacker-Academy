@@ -59,12 +59,14 @@ export default function Contact() {
   ];
 
   // -----------------------------
-  //  FORM SUBMIT HANDLER ADDED
+  //  FORM SUBMIT HANDLER FIXED (no any)
   // -----------------------------
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
-    const form = new FormData(e.target);
+    const form = new FormData(e.currentTarget);
 
     const data = {
       name: form.get("name"),
@@ -82,7 +84,7 @@ export default function Contact() {
 
     if (res.ok) {
       alert("Message sent! Our team will contact you soon.");
-      e.target.reset();
+      e.currentTarget.reset();
     } else {
       alert("Failed to send. Please try again.");
     }
@@ -256,10 +258,10 @@ export default function Contact() {
             </h2>
 
             <p className="text-lg md:text-xl leading-relaxed">
-              Learn hands-on hacking with real labs and live projects —
-              practical skills you can use on day one. Get mentorship from
-              experienced security pros, practice on realistic targets, and
-              move from learning to doing.
+              Learn hands-on hacking with real labs and live projects — practical
+              skills you can use on day one. Get mentorship from experienced
+              security pros, practice on realistic targets, and move from learning
+              to doing.
             </p>
             <p className="text-lg mt-8 font-semibold text-white">
               Fill the form and let us help you get started today!
