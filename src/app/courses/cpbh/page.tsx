@@ -265,7 +265,6 @@ const tools = [
   { name: "Prowler", logo: "/prowler.png", size: "100px" },
   { name: "Guardrails Ai", logo: "/Guardrails.png", size: "99px" },
   { name: "Promptfoo", logo: "/promptfoo.png", size: "205px" },
-  { name: "Owasp zap", logo: "/owasp.png", size: "150px" },
   { name: "Trivy", logo: "/trivy.png", size: "160px" },
   { name: "Scout", logo: "/scout.png", size: "160px" },
   { name: "Shodan", logo: "/shodan.png", size: "85px" },
@@ -556,11 +555,6 @@ return (
   </motion.div>
 </Section>
 
-
-
-
-
-
 {/* --- Curriculum --- */}
 <Section id="curriculum">
   <motion.div
@@ -575,23 +569,34 @@ return (
     </h2>
 
     {/* --- Module Buttons --- */}
-    <div className="w-full flex flex-col items-center mb-10">
-      <div className="grid grid-cols-8 gap-3 sm:gap-4 w-full max-w-6xl">
-        {curriculumModules.map((module, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveModule(module)}
-            className={`py-2 sm:py-3 text-xs sm:text-sm font-bold rounded-2xl transition-colors text-center ${
-              activeModule.title === module.title
-                ? "bg-red-600 text-white"
-                : "text-gray-200 hover:bg-white/10 cursor-pointer"
-            }`}
-          >
-            Module {String(i + 1).padStart(2, "0")}
-          </button>
-        ))}
-      </div>
-    </div>
+<div className="
+  grid 
+  grid-cols-4 
+  sm:grid-cols-6 
+  lg:grid-cols-8 
+  gap-3 sm:gap-4 
+  w-full max-w-6xl
+">
+  {curriculumModules.map((module, i) => (
+    <button
+      key={i}
+      onClick={() => setActiveModule(module)}
+      className={`
+        py-2 sm:py-3 
+        text-[11px] sm:text-sm font-bold 
+        rounded-2xl transition-colors text-center 
+        ${
+          activeModule.title === module.title
+            ? "bg-red-600 text-white"
+            : "text-gray-200 hover:bg-white/10 cursor-pointer"
+        }
+      `}
+    >
+      Module {String(i + 1).padStart(2, "0")}
+    </button>
+  ))}
+</div>
+
 
     {/* --- Active Module Content --- */}
     <div className="relative min-h-[260px] sm:min-h-[300px] bg-black/20 p-8 sm:p-12 rounded-[30px] sm:rounded-[40px] border border-white/15 flex items-center justify-center w-full max-w-4xl mx-auto">
