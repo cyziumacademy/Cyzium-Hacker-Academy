@@ -61,32 +61,33 @@ export default function Contact() {
   // -----------------------------
   //  FORM SUBMIT HANDLER ADDED
   // -----------------------------
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const form = new FormData(e.target);
+  const form = new FormData(e.currentTarget);
 
-    const data = {
-      name: form.get("name"),
-      email_phone: form.get("email_phone"),
-      qualification: form.get("qualification"),
-      course: form.get("course"),
-      message: form.get("message"),
-    };
-
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (res.ok) {
-      alert("Message sent! Our team will contact you soon.");
-      e.target.reset();
-    } else {
-      alert("Failed to send. Please try again.");
-    }
+  const data = {
+    name: form.get("name"),
+    email_phone: form.get("email_phone"),
+    qualification: form.get("qualification"),
+    course: form.get("course"),
+    message: form.get("message"),
   };
+
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (res.ok) {
+    alert("Message sent! Our team will contact you soon.");
+    e.currentTarget.reset();
+  } else {
+    alert("Failed to send. Please try again.");
+  }
+};
+
 
   return (
     <section
