@@ -4,8 +4,8 @@ export const batches = [
   {
     image: "/jbbh.png",
     title: "Certified Junior Bug Bounty Hunter",
-    startDate: "Nov 15, 2025",
-    duration: "2 Months",
+    startDate: "Dec 5, 2025",
+    duration: "1 Months & 15 Days",
     includes: "Live Sessions + Labs",
     price: "₹2,000",
     cashback: "Cashback!",
@@ -14,7 +14,7 @@ export const batches = [
   {
     image: "/cbbt.png",
     title: "Certified Bug Bounty Hunter",
-    startDate: "Nov 15, 2025",
+    startDate: "Dec 15, 2025",
     duration: "2 Months",
     includes: "Live Sessions + Labs",
     price: "₹4,000",
