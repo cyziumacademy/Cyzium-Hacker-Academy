@@ -194,7 +194,6 @@ export default function CoursesPage(): React.JSX.Element {
         </div>
     );
 })}
-
                             </div>
                         </div>
                     </section>
