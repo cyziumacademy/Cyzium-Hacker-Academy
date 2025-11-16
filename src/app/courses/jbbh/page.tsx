@@ -57,53 +57,50 @@ interface FaqCardProps {
 }
 
 // --- FAQ CARD COMPONENT ---
+
 const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleFlip = () => setIsFlipped(!isFlipped);
-
-  return (
+  const toggleFlip = () => setIsFlipped((prev) => !prev);
+  
+   return (
     <motion.div
-      className="w-full h-64 sm:h-72 rounded-2xl cursor-pointer select-none"
+      className="w-full h-64 sm:h-72 rounded-2xl cursor-pointer select-none relative"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay }}
       viewport={{ once: true }}
+      onPointerDown={toggleFlip}   // ✅ instant flip on tap
       style={{ perspective: "1000px" }}
-      onHoverStart={() => setIsFlipped(true)}
-      onHoverEnd={() => setIsFlipped(false)}
-      onClick={handleFlip}
-      onTouchStart={handleFlip}
     >
       <motion.div
-        className="relative w-full h-full transition-transform duration-500"
-        style={{
-          transformStyle: "preserve-3d",
-          transform: `rotateY(${isFlipped ? 180 : 0}deg)`,
-        }}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6 }}
+        className="relative w-full h-full"
+        style={{ transformStyle: "preserve-3d" }}
       >
         {/* FRONT */}
         <div
-          className="absolute w-full h-full bg-black/30 backdrop-blur-xl border border-white/20 rounded-[50px] p-4 sm:p-6 flex flex-col justify-center items-center text-center"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-          }}
+          className="absolute w-full h-full bg-black/30 backdrop-blur-xl 
+                     border border-white/20 rounded-[50px] flex flex-col 
+                     justify-center items-center p-6"
+          style={{ backfaceVisibility: "hidden" }}
         >
-          <HelpCircle size={28} className="text-blue-500 mb-3 sm:mb-4" />
-          <h3 className="text-lg sm:text-xl font-bold text-white">{question}</h3>
+          <HelpCircle size={28} className="text-blue-500 mb-4" />
+          <h3 className="text-xl font-bold text-white">{question}</h3>
         </div>
 
         {/* BACK */}
         <div
-          className="absolute w-full h-full bg-red-600/10 backdrop-blur-xl border border-red-500/50 rounded-[50px] p-4 sm:p-6 flex items-center justify-center text-center"
+          className="absolute w-full h-full bg-red-600/10 backdrop-blur-xl 
+                     border border-red-500/50 rounded-[50px] flex 
+                     items-center justify-center p-6 text-center"
           style={{
-            transform: "rotateY(180deg)",
             backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
           }}
         >
-          <p className="text-sm sm:text-base text-white leading-relaxed">{answer}</p>
+          <p className="text-base text-white leading-relaxed">{answer}</p>
         </div>
       </motion.div>
     </motion.div>
@@ -225,7 +222,6 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
           }}
         ></div>
       </div>
-
 <div
   aria-hidden
   className="fixed left-1/2 top-[98%] -translate-x-1/2 -translate-y-1/2 opacity-18 mix-blend-overlay z-10 pointer-events-none"
@@ -240,8 +236,6 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
     priority
   />
 </div>
-
-
 
       {/* --- Page Content --- */}
       <main className="relative z-10">
@@ -525,6 +519,7 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
           </Section>
 
           {/* --- FAQs --- */}
+
           <Section id="faqs">
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-10 sm:mb-12">Frequently Asked Questions</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">

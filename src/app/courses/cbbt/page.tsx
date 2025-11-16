@@ -56,40 +56,50 @@ const Section: React.FC<SectionProps> = ({ children, id, className = "" }) => (
 
 
 // --- FAQ CARD COMPONENT ---
+
 const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  return (
+  const toggleFlip = () => setIsFlipped((prev) => !prev);
+  
+   return (
     <motion.div
-      className="w-full h-64 sm:h-72 rounded-2xl cursor-pointer"
+      className="w-full h-64 sm:h-72 rounded-2xl cursor-pointer select-none relative"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay }}
       viewport={{ once: true }}
-      style={{ perspective: 1000 }}
-      onHoverStart={() => setIsFlipped(true)}
-      onHoverEnd={() => setIsFlipped(false)}
+      onPointerDown={toggleFlip}   // ✅ instant flip on tap
+      style={{ perspective: "1000px" }}
     >
       <motion.div
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6 }}
         className="relative w-full h-full"
         style={{ transformStyle: "preserve-3d" }}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
       >
-        {/* Front of the card */}
+        {/* FRONT */}
         <div
-          className="absolute w-full h-full bg-black/30 backdrop-blur-xl border border-white/20 rounded-[50px] p-4 sm:p-6 flex flex-col justify-center items-center text-center"
+          className="absolute w-full h-full bg-black/30 backdrop-blur-xl 
+                     border border-white/20 rounded-[50px] flex flex-col 
+                     justify-center items-center p-6"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <HelpCircle size={28} className="text-red-500 mb-3 sm:mb-4" />
-          <h3 className="text-lg sm:text-xl font-bold text-white">{question}</h3>
+          <HelpCircle size={28} className="text-blue-500 mb-4" />
+          <h3 className="text-xl font-bold text-white">{question}</h3>
         </div>
-        {/* Back of the card */}
+
+        {/* BACK */}
         <div
-          className="absolute w-full h-full bg--600/10 backdrop-blur-xl border border-red-500/50 rounded-2xl p-4 sm:p-6 flex items-center justify-center text-center"
-          style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+          className="absolute w-full h-full bg-red-600/10 backdrop-blur-xl 
+                     border border-red-500/50 rounded-[50px] flex 
+                     items-center justify-center p-6 text-center"
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
         >
-          <p className="text-sm sm:text-base text-white leading-relaxed">{answer}</p>
+          <p className="text-base text-white leading-relaxed">{answer}</p>
         </div>
       </motion.div>
     </motion.div>
