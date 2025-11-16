@@ -55,26 +55,57 @@ export default function Contact() {
     "CPBH (Certified Professional Bug Hunter)",
     "CNA (Certified Network Associate)",
     "CCSA (Certified Cloud Security Analyst)",
-    "CASS (Certified Ai Security Specialist)"              
+    "CASS (Certified Ai Security Specialist)",
   ];
 
+  // -----------------------------
+  //  FORM SUBMIT HANDLER ADDED
+  // -----------------------------
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const form = new FormData(e.target);
+
+    const data = {
+      name: form.get("name"),
+      email_phone: form.get("email_phone"),
+      qualification: form.get("qualification"),
+      course: form.get("course"),
+      message: form.get("message"),
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.ok) {
+      alert("Message sent! Our team will contact you soon.");
+      e.target.reset();
+    } else {
+      alert("Failed to send. Please try again.");
+    }
+  };
+
   return (
-    <section id="contact" className="relative min-h-screen w-full text-white font-sans overflow-hidden">
+    <section
+      id="contact"
+      className="relative min-h-screen w-full text-white font-sans overflow-hidden"
+    >
       {/* Background Video Layer */}
-<div className="absolute inset-0 -z-10 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="w-full h-full object-cover filter blur-xs"
-    poster="/bg1-poster.jpg"
-  >
-    <source src="/bg1.mp4" type="video/mp4" />
-  </video>
-</div>
-
-
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover filter blur-xs"
+          poster="/bg1-poster.jpg"
+        >
+          <source src="/bg1.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       {/* Navbar */}
       <div className="relative z-20">
@@ -114,7 +145,10 @@ export default function Contact() {
             </motion.div>
 
             {/* Form */}
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              onSubmit={handleSubmit}
+            >
               <FormInput
                 icon={<User />}
                 type="text"
@@ -213,19 +247,19 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-<h2 className="text-4xl mt-10 md:text-7xl font-extrabold mb-3 text-gray-100 leading-snug max-w-1xl">
-  Build your{" "}
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
-    Future
-  </span>
-  {" "}Now
-</h2>
-
+            <h2 className="text-4xl mt-10 md:text-7xl font-extrabold mb-3 text-gray-100 leading-snug max-w-1xl">
+              Build your{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
+                Future
+              </span>{" "}
+              Now
+            </h2>
 
             <p className="text-lg md:text-xl leading-relaxed">
-Learn hands‑on hacking with real labs and live projects — 
-practical skills you can use on day one. Get mentorship from experienced security pros, practice on realistic targets, 
-and move from learning to doing.
+              Learn hands-on hacking with real labs and live projects —
+              practical skills you can use on day one. Get mentorship from
+              experienced security pros, practice on realistic targets, and
+              move from learning to doing.
             </p>
             <p className="text-lg mt-8 font-semibold text-white">
               Fill the form and let us help you get started today!
@@ -234,8 +268,7 @@ and move from learning to doing.
         </div>
       </main>
 
-        <Float />
-
+      <Float />
 
       {/* Footer */}
       <div className="relative z-30 mt-12">
