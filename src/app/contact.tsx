@@ -2,11 +2,51 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Phone, Send, Mail, X } from "lucide-react";
+import { User, Phone, Send, Mail, X, Book } from "lucide-react";
 
 interface ContactCardProps {
   onClose: () => void;
   isOpen: boolean;
+}
+
+type FormInputProps = {
+  icon: React.ReactNode;
+  type: string;
+  placeholder: string;
+  name: string;
+  delay: number;
+  fullWidth?: boolean;
+};
+
+function FormInput({
+  icon,
+  type,
+  placeholder,
+  name,
+  delay,
+  fullWidth = false,
+}: FormInputProps) {
+  return (
+    <motion.div
+      className={`relative ${fullWidth ? "col-span-2" : ""}`}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay }}
+    >
+      <div className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400">
+        {icon}
+      </div>
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        className="w-full h-12 bg-gray-800/70 border border-white/20 rounded-lg 
+                   pl-10 pr-3 text-white placeholder-gray-400 text-sm
+                   focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
+        required
+      />
+    </motion.div>
+  );
 }
 
 export default function ContactCard({ onClose, isOpen }: ContactCardProps) {
@@ -36,11 +76,10 @@ export default function ContactCard({ onClose, isOpen }: ContactCardProps) {
             "
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close (X) Button */}
+            {/* Close Button */}
             <button
               onClick={onClose}
               className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors cursor-pointer"
-              aria-label="Close"
             >
               <X size={22} />
             </button>
@@ -53,64 +92,103 @@ export default function ContactCard({ onClose, isOpen }: ContactCardProps) {
               Have questions or ready to enroll? Fill out the form below, and our admissions team will get back to you shortly.
             </p>
 
-            {/* Form */}
-            <form className="space-y-4 w-full flex flex-col gap-4 flex-grow">
-              {/* Name & Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                <div className="relative w-full">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className="w-full rounded-lg px-10 py-3 text-sm bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  />
-                </div>
-                <div className="relative w-full">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="w-full rounded-lg px-10 py-3 text-sm bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                  />
-                </div>
-              </div>
+            {/* Updated Form */}
+            <form
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full flex-grow"
+              onSubmit={async (e) => {
+                e.preventDefault();
 
-              {/* Email */}
-              <div className="relative w-full">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                <input
-                  type="text"
-                  placeholder="Email (Optional)"
-                  className="w-full rounded-lg px-10 py-3 text-sm bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                />
-              </div>
+                const formData = new FormData(e.currentTarget);
+                const data = Object.fromEntries(formData.entries());
+
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  body: JSON.stringify(data),
+                });
+
+                const result = await res.json();
+
+                if (result.success) {
+                  alert("Your enquiry has been sent successfully!");
+                  e.currentTarget.reset();
+                  onClose();
+                } else {
+                  alert(result.error || "Failed to send message. Please try again.");
+                }
+              }}
+            >
+
+              <FormInput
+                icon={<User size={18} />}
+                type="text"
+                placeholder="Full Name"
+                name="name"
+                delay={0.2}
+              />
+
+              <FormInput
+                icon={<Phone size={18} />}
+                type="tel"
+                placeholder="Phone Number"
+                name="email_phone"
+                delay={0.3}
+              />
+
+              <FormInput
+                icon={<Book size={18} />}
+                type="text"
+                placeholder="Qualification"
+                name="qualification"
+                delay={0.4}
+                fullWidth
+              />
 
               {/* Course Select */}
-              <select className="w-full rounded-lg px-4 py-3 text-sm bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-cyan-500">
-                <option>Select a Course of Interest</option>
-                <option>JBBH (Certified Junior Bug Bounty Hunter)</option>
-                <option>CBBH (Certified Bug Bounty Hunter)</option>
-                <option>CBBE (Certified Bug Bounty Expert)</option>
-                <option>CPBH (Certified Professional Bug Hunter)</option>
-                <option>CNA (Certified Network Associate)</option>
-                <option>CCSA (Certified Cloud Security Analyst)</option>
-                <option>CASS (Certified Ai Security Specialist)</option>
-              </select>
+              <motion.div
+                className="relative col-span-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+              >
+                <select
+                  name="course"
+                  className="w-full h-12 bg-gray-800/70 border border-white/20 rounded-lg 
+                             px-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 appearance-none"
+                >
+                  <option value="">Select a Course of Interest</option>
+                  <option>JBBH (Certified Junior Bug Bounty Hunter)</option>
+                  <option>CBBT (Certified Bug Bounty Hunter)</option>
+                  <option>CBBE (Certified Bug Bounty Expert)</option>
+                  <option>CPBH (Certified Professional Bug Hunter)</option>
+                  <option>CNA (Certified Network Associate)</option>
+                  <option>CCSA (Certified Cloud Security Analyst)</option>
+                  <option>CASS (Certified Ai Security Specialist)</option>
+                </select>
+              </motion.div>
 
               {/* Message */}
-              <textarea
+              <motion.textarea
                 rows={4}
+                name="message"
                 placeholder="Your message or question..."
-                className="w-full rounded-lg px-4 py-3 text-sm bg-gray-800/70 focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none"
+                className="col-span-2 w-full rounded-lg px-4 py-3 text-sm bg-gray-800/70 
+                           focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-none"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.6 }}
               />
 
               {/* Submit Button */}
-              <button
+              <motion.button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 py-3 rounded-lg font-semibold text-white flex items-center justify-center gap-2 cursor-pointer"
+                className="col-span-2 w-full bg-red-600 hover:bg-red-700 py-3 rounded-lg font-semibold 
+                           text-white flex items-center justify-center gap-2 cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.7 }}
               >
                 <Send size={18} /> Enquire Now
-              </button>
+              </motion.button>
             </form>
 
             <p className="text-gray-400 text-xs text-center -mt-2">

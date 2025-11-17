@@ -62,6 +62,7 @@ function ContactCard() {
       }}
     >
       <main className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen p-4 md:p-8 gap-10 md:gap-12">
+
         {/* Form Card */}
         <motion.div
           className="relative w-full max-w-4xl bg-black/30 backdrop-blur-xl 
@@ -90,8 +91,20 @@ function ContactCard() {
 
           {/* Form */}
           <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormInput icon={<User />} type="text" placeholder="Full Name" name="name" />
-            <FormInput icon={<Phone />} type="text" placeholder="Phone Number" name="email_phone" />
+            <FormInput 
+              icon={<User />} 
+              type="text" 
+              placeholder="Full Name" 
+              name="name" 
+            />
+
+            <FormInput 
+              icon={<Phone />} 
+              type="text" 
+              placeholder="Phone Number" 
+              name="email_phone" 
+            />
+
             <FormInput
               icon={<Book />}
               type="text"
@@ -163,7 +176,7 @@ function ContactCard() {
           </motion.p>
         </motion.div>
 
-        {/* Right side paragraph */}
+        {/* Right Section */}
         <motion.div
           className="max-w-md text-gray-300"
           initial={{ opacity: 0, x: 50 }}
@@ -183,6 +196,7 @@ function ContactCard() {
             Get guidance from experts who’ve been in the trenches of cybersecurity.  
             Don’t just study — build, break, defend, and level up your career.
           </p>
+
           <p className="text-base sm:text-lg md:text-xl mt-6 font-semibold text-white">
             Fill the form and let us help you get started today!
           </p>
