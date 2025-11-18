@@ -429,68 +429,66 @@ return (
 
     <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8">
       {[
-        { name: "Beginner", img: "/jbbh.png", link: "/courses/jbbh" },
-        { name: "Intermediate", img: "/cbbt.png", link: "/courses/cbbt" },
-        { name: "Advanced", img: "/cbbe.png", link: "/courses/cbbe" },
-        { name: "Pro", img: "/cpbh.png" }, // no link
-      ].map((step, i, arr) => (
-        <motion.div
-          key={step.name}
-          className="relative"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: i * 0.2 }}
-          viewport={{ once: true }}
+  { name: "Beginner", img: "/jbbh.png", link: "/courses/jbbh" },
+  { name: "Intermediate", img: "/cbbt.png", link: "/courses/cbbt" },
+  { name: "Advanced", img: "/cbbe.png", link: "/courses/cbbe" },
+  { name: "Professional", img: "/cpbh.png", pro: true }, 
+].map((step, i, arr) => (
+  <motion.div
+    key={step.name}
+    className="relative"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: i * 0.2 }}
+    viewport={{ once: true }}
+  >
+    {step.link ? (
+      <Link href={step.link}>
+        <div
+          className={`group relative text-center rounded-[40px] overflow-hidden cursor-pointer ${
+            step.pro
+              ? "w-60 h-60 sm:w-72 sm:h-72 border-4 border-red-500 animate-pulse shadow-[0_0_30px_#f87171]"
+              : "w-48 h-48 sm:w-56 sm:h-56 border border-white/20"
+          }`}
         >
-          {step.link ? (
-            // Clickable for Beginner, Intermediate, Advanced
-            <Link href={step.link}>
-              <div
-                className={`group relative text-center rounded-[40px] overflow-hidden cursor-pointer ${
-                  step.name === "Pro"
-                    ? "w-60 h-60 sm:w-72 sm:h-72 border-4 border-red-500 animate-pulse shadow-[0_0_30px_#f87171]"
-                    : "w-48 h-48 sm:w-56 sm:h-56 border border-white/20"
-                }`}
-              >
-                <Image
-    src={step.img}
-    alt={step.name}
-    fill
-    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-    sizes="100vw"
-  />
-                <h3 className="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm sm:text-xl font-bold bg-black/60 px-2 sm:px-4 py-1 rounded-lg">
-                  {step.name}
-                </h3>
-              </div>
-            </Link>
-          ) : (
-            // Not clickable for Pro
-            <div
-              className={`group relative text-center rounded-[40px] overflow-hidden ${
-                step.name === "Pro"
-                  ? "w-60 h-60 sm:w-72 sm:h-72 border-4 border-red-500 animate-pulse shadow-[0_0_30px_#f87171] cursor-default"
-                  : "w-48 h-48 sm:w-56 sm:h-56 border border-white/20 cursor-pointer"
-              }`}
-            >
-               <Image
-    src={step.img}
-    alt={step.name}
-    fill
-    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-    sizes="100vw"
-  />
-              <h3 className="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm sm:text-xl font-bold bg-black/60 px-2 sm:px-4 py-1 rounded-lg">
-                {step.name}
-              </h3>
-            </div>
-          )}
+          <Image
+            src={step.img}
+            alt={step.name}
+            fill
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+            sizes="100vw"
+          />
+          <h3 className="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm sm:text-xl font-bold bg-black/60 px-2 sm:px-4 py-1 rounded-lg">
+            {step.name}
+          </h3>
+        </div>
+      </Link>
+    ) : (
+      <div
+        className={`group relative text-center rounded-[40px] overflow-hidden ${
+          step.pro
+            ? "w-60 h-60 sm:w-72 sm:h-72 border-4 border-red-500 animate-pulse shadow-[0_0_30px_#f87171] cursor-default"
+            : "w-48 h-48 sm:w-56 sm:h-56 border border-white/20 cursor-pointer"
+        }`}
+      >
+        <Image
+          src={step.img}
+          alt={step.name}
+          fill
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+          sizes="100vw"
+        />
+        <h3 className="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm sm:text-xl font-bold bg-black/60 px-2 sm:px-4 py-1 rounded-lg">
+          {step.name}
+        </h3>
+      </div>
+    )}
 
-          {i < arr.length - 1 && (
-            <ChevronRight className="hidden sm:block absolute -right-8 sm:-right-10 top-1/2 -translate-y-1/2 text-red-500" />
-          )}
-        </motion.div>
-      ))}
+    {i < arr.length - 1 && (
+      <ChevronRight className="hidden sm:block absolute -right-8 sm:-right-10 top-1/2 -translate-y-1/2 text-red-500" />
+    )}
+  </motion.div>
+))}
     </div>
   </div>
 </section>

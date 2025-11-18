@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { User, Send, Phone, Book } from "lucide-react";
 
@@ -42,6 +42,9 @@ function FormInput({
 }
 
 function ContactCard() {
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+
   const courses = [
     "JBBH (Certified Junior Bug Bounty Hunter )",
     "CBBT (Certified Bug Bounty Hunter )",
@@ -49,8 +52,43 @@ function ContactCard() {
     "CPBH (Certified Professional Bug Hunter)",
     "CNA (Certified Network Associate)",
     "CCSA (Certified Cloud Security Analyst)",
-    "CASS (Certified Ai Security Specialist)"
+    "CASS (Certified Ai Security Specialist)",
   ];
+
+  // 🚀 SEND FORM DATA
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setLoading(true);
+
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+
+  const data = {
+    name: formData.get("name"),
+    email_phone: formData.get("email_phone"),
+    qualification: formData.get("qualification"),
+    course: formData.get("course"),
+    message: formData.get("message"),
+  };
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      setSent(true);
+      form.reset();
+    }
+  } catch (err) {
+    console.error("Form submit error:", err);
+  }
+
+  setLoading(false);
+};
 
   return (
     <section
@@ -90,19 +128,22 @@ function ContactCard() {
           </motion.div>
 
           {/* Form */}
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormInput 
-              icon={<User />} 
-              type="text" 
-              placeholder="Full Name" 
-              name="name" 
+          <form
+            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            onSubmit={handleSubmit}
+          >
+            <FormInput
+              icon={<User />}
+              type="text"
+              placeholder="Full Name"
+              name="name"
             />
 
-            <FormInput 
-              icon={<Phone />} 
-              type="text" 
-              placeholder="Phone Number" 
-              name="email_phone" 
+            <FormInput
+              icon={<Phone />}
+              type="text"
+              placeholder="Phone Number"
+              name="email_phone"
             />
 
             <FormInput
@@ -126,15 +167,16 @@ function ContactCard() {
                 className="w-full h-12 bg-black/90 border border-white/20 rounded-lg 
                            px-3 text-white text-base sm:text-sm
                            focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all appearance-none"
+                required
               >
                 <option value="" disabled>
                   Select a Course of Interest
                 </option>
-                {courses.map((course) => (
-                  <option key={course} value={course}>
-                    {course}
-                  </option>
-                ))}
+                {courses.map((course: string) => (
+  <option key={course} value={course}>
+    {course}
+  </option>
+))}
               </select>
             </motion.div>
 
@@ -156,24 +198,21 @@ function ContactCard() {
 
             <motion.button
               type="submit"
-              className="md:col-span-2 w-full flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3 rounded-[15px] hover:bg-red-700 transition-all duration-300 text-base active:scale-95 cursor-pointer"
+              disabled={loading}
+              className="md:col-span-2 w-full flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3 rounded-[15px] hover:bg-red-700 transition-all duration-300 text-base active:scale-95 cursor-pointer disabled:opacity-50"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Send size={18} />
-              Contact Admissions
+              {loading ? "Sending..." : <><Send size={18} /> Contact Admissions</>}
             </motion.button>
           </form>
 
-          <motion.p
-            className="text-center text-xs text-gray-400 pt-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-          >
-            Note: Our team will review your submission and contact you within 24 hours.
-          </motion.p>
+          {sent && (
+            <p className="text-center text-green-400 font-semibold mt-4">
+              ✔ Message Sent Successfully! We&apos;ll contact you soon.
+            </p>
+          )}
         </motion.div>
 
         {/* Right Section */}
@@ -194,7 +233,7 @@ function ContactCard() {
           <p className="text-base sm:text-lg md:text-xl mt-4 leading-relaxed">
             Learn practical hacking skills with real-world labs and live projects.  
             Get guidance from experts who’ve been in the trenches of cybersecurity.  
-            Don’t just study — build, break, defend, and level up your career.
+            Don&rsquo;t just study — build, break, defend, and level up your career.
           </p>
 
           <p className="text-base sm:text-lg md:text-xl mt-6 font-semibold text-white">

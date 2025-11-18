@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { User, Phone, Send, Mail, X, Book } from "lucide-react";
+import { User, Phone, Send, X, Book } from "lucide-react";
 
 interface ContactCardProps {
   onClose: () => void;
