@@ -69,47 +69,48 @@ const TestimonialsPage: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  const testimonials: Testimonial[] = [
-    {
-      name: "Priya Singh",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop",
-      quote:
-        "The hands-on labs on XSS and SQLi were incredible. I use these skills daily.",
-      gradientClass: "from-purple-500/20 to-transparent",
-    },
-    {
-      name: "Aarav Sharma",
-      image:
-        "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop",
-      quote:
-        "The practical labs and interview prep helped me land my first SOC role in 3 months.",
-      gradientClass: "from-purple-500/20 to-transparent",
-    },
-    {
-      name: "Rohan Verma",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop",
-      quote: "The mentors are actual industry pros. Their insights are invaluable.",
-      gradientClass: "from-purple-500/20 to-transparent",
-    },
-    {
-      name: "Anika Gupta",
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
-      quote:
-        "The community is amazing. Always someone to help you out in the Discord channels.",
-      gradientClass: "from-purple-500/20 to-transparent",
-    },
-    {
-      name: "Isha Patel",
-      image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop",
-      quote:
-        "The cloud security module was top-notch and directly relevant to my current role.",
-      gradientClass: "from-purple-500/20 to-transparent",
-    },
-  ];
+const testimonials: Testimonial[] = [
+  {
+    name: "Keerthana Chandran",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop",
+    quote:
+      "JBBH completely changed the way I look at bug bounty. The step-by-step workflow and real examples made everything finally click for me.",
+    gradientClass: "from-purple-500/20 to-transparent",
+  },
+  {
+    name: "Adithyan A S",
+    image:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop",
+    quote:
+      "CBBT was intense but worth every minute. The real-time guidance helped me understand exactly how professionals approach live targets.",
+    gradientClass: "from-purple-500/20 to-transparent",
+  },
+  {
+    name: "Rohan s nair",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop",
+    quote:
+      "CBBE pushed me beyond basics. The hands-on advanced exploitation sessions gave me confidence to work on high-reward programs.",
+    gradientClass: "from-purple-500/20 to-transparent",
+  },
+  {
+    name: "Rahul A",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
+    quote:
+      "CPBH was the best decision I made. Everything—from structured modules to practical labs—felt designed to make us industry ready.",
+    gradientClass: "from-purple-500/20 to-transparent",
+  },
+  {
+    name: "Vishnu S",
+    image:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop",
+    quote:
+      "I joined CPBH after struggling alone for months. The clarity, mentorship and weekly tasks helped me consistently improve and stay motivated.",
+    gradientClass: "from-purple-500/20 to-transparent",
+  },
+];
 
 
   // Automatic sliding logic

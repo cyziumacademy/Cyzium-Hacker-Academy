@@ -107,89 +107,132 @@ const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({}) => {
     const [showContact, setShowContact] = useState(false);
 
 const curriculumModules = [
-  {
-    title: "Advanced Reconnaissance & Asset Discovery",
-    content:
-      "Master advanced techniques for recon, footprinting, and asset discovery to identify potential targets and attack surfaces effectively.",
-  },
-  {
-    title: "Web Application Deep Dive",
-    content:
-      "Gain in-depth understanding of web applications, their components, and architecture to spot weak points and potential vulnerabilities.",
-  },
-  {
-    title: "Vulnerability Exploitation & Chaining",
-    content:
-      "Learn how to exploit vulnerabilities individually and chain them together for more impactful results in real bug bounty scenarios.",
-  },
-  {
-    title: "API & Mobile Bug Hunting",
-    content:
-      "Explore testing methodologies for APIs and mobile applications, including common vulnerabilities, tools, and hands-on exploitation.",
-  },
-  {
-    title: "Automation & AI in Bug Hunting",
-    content:
-      "Discover how to leverage automation and AI tools to enhance reconnaissance, scanning, and vulnerability discovery efficiently.",
-  },
-  {
-    title: "Advanced Tools Mastery",
-    content:
-      "Become proficient with advanced bug bounty tools for scanning, exploitation, fuzzing, and other essential phases of ethical hacking.",
-  },
-  {
-    title: "Reporting, Communication & Responsible Disclosure",
-    content:
-      "Learn how to write professional bug reports, communicate with program owners, and follow responsible disclosure practices.",
-  },
-  {
-    title: "Live Hunting Sprint & Final Project",
-    content:
-      "Apply everything in a live bug hunting sprint and final project, simulating real-world scenarios to solidify your bug bounty skills.",
-  },
+  // JBBH MODULES
+     {
+      title: "Introduction to Bug Bounty Hunting",
+      content:
+        "Understand what bug bounty hunting is, how platforms like Bugcrowd and HackerOne work, and the overall process of finding and reporting vulnerabilities ethically.",
+    },
+    {
+      title: "Networking Fundamentals",
+      content:
+        "Learn essential networking concepts such as TCP/IP, DNS, HTTP, and ports — the backbone knowledge required to understand how data travels across the web.",
+    },
+    {
+      title: "Linux & Kali Essentials for Bug Bounty",
+      content:
+        "Get hands-on with Linux commands, terminal operations, and Kali Linux tools that are crucial for recon, scanning, and exploitation during bug bounty testing.",
+    },
+    {
+      title: "Web Application Concepts for Hackers",
+      content:
+        "Dive into how web applications work — from requests, responses, and cookies to APIs and authentication — to build a hacker’s understanding of web architecture.",
+    },
+    {
+      title: "Web Security Vulnerabilities",
+      content:
+        "Explore common and critical web vulnerabilities such as XSS, SQL Injection, CSRF, SSRF, IDOR, and learn how to identify and exploit them in real targets.",
+    },
+    {
+      title: "Introduction to AI-Powered Bug Hunting",
+      content:
+        "Discover how AI tools can assist bug hunters in automation, recon, and vulnerability discovery, and how to integrate them into your bug bounty workflow.",
+    },
+    {
+      title: "Real World Bug Hunting",
+      content:
+        "Apply all your learning in real-world scenarios, analyze live bug bounty programs, report valid vulnerabilities, and learn how to write impactful submissions.",
+    },
+  // CBBT MODULES
+ {
+            title: "Advanced Reconnaissance & Asset Discovery",
+            content:
+                "Master advanced techniques for recon, footprinting, and asset discovery to identify potential targets and attack surfaces effectively.",
+        },
+        {
+            title: "Web Application Deep Dive",
+            content:
+                "Gain in-depth understanding of web applications, their components, and architecture to spot weak points and potential vulnerabilities.",
+        },
+        {
+            title: "Vulnerability Exploitation & Chaining",
+            content:
+                "Learn how to exploit vulnerabilities individually and chain them together for more impactful results in real bug bounty scenarios.",
+        },
+        {
+            title: "API & Mobile Bug Hunting",
+            content:
+                "Explore testing methodologies for APIs and mobile applications, including common vulnerabilities, tools, and hands-on exploitation.",
+        },
+        {
+            title: "Automation & AI in Bug Hunting",
+            content:
+                "Discover how to leverage automation and AI tools to enhance reconnaissance, scanning, and vulnerability discovery efficiently.",
+        },
+        {
+            title: "Advanced Tools Mastery",
+            content:
+                "Become proficient with advanced bug bounty tools for scanning, exploitation, fuzzing, and other essential phases of ethical hacking.",
+        },
+        {
+            title: "Reporting, Communication & Responsible Disclosure",
+            content:
+                "Learn how to write professional bug reports, communicate with program owners, and follow responsible disclosure practices.",
+        },
+        {
+            title: "Live Hunting Sprint",
+            content:
+                "Apply everything in a live bug hunting sprint and final project, simulating real-world scenarios to solidify your bug bounty skills.",
+        },
+        // CBBE MODULES
 
-  // --- New Modules Below ---
-  {
-    title: "Bypassing WAFs & Security Filters",
+        {
+    title: "Advanced Asset Intelligence & Discovery Automation",
     content:
-      "Understand how Web Application Firewalls operate and master evasion techniques to uncover vulnerabilities hidden behind filtering systems.",
+      "Learn advanced automation techniques to discover hidden assets, enumerate subdomains, identify misconfigured endpoints, and map enterprise-scale infrastructures using intelligent reconnaissance methods.",
   },
   {
-    title: "Privilege Escalation & Post Exploitation",
+    title: "Deep Web & Enterprise Reconnaissance",
     content:
-      "Explore methods to escalate privileges, pivot access, and maintain control post-exploitation in legal, educational environments.",
+      "Explore the deep and dark web to gather intelligence, perform organization-wide reconnaissance, and uncover assets, credentials, and vulnerabilities across enterprise environments.",
   },
   {
-    title: "Advanced Authentication & Session Attacks",
+    title: "Cloud Security & Cloud-Native Testing",
     content:
-      "Dive into session management flaws, token manipulation, and authentication bypass techniques used in advanced bug bounty hunting.",
+      "Master the fundamentals of cloud hacking by identifying misconfigurations, exploiting cloud services, and testing cloud-native applications across AWS, Azure, and GCP platforms.",
   },
   {
-    title: "Source Code Analysis & Hidden Vulnerabilities",
+    title: "AI & LLM Vulnerabilities",
     content:
-      "Learn how to review source code for logic flaws, hardcoded secrets, and overlooked vulnerabilities in open or leaked repositories.",
+      "Dive deep into the emerging field of AI security by learning how to identify and exploit vulnerabilities in AI models, prompt injections, and large language model (LLM)-based systems.",
   },
   {
-    title: "Subdomain Takeover & DNS Exploitation",
+    title: "Advanced Exploitation & Chaining (Real Targets)",
     content:
-      "Discover how to identify and exploit misconfigured DNS and abandoned subdomains to claim ownership or execute controlled attacks.",
+      "Perform real-world exploitation and chaining of vulnerabilities to achieve high-impact findings. Work on actual targets and learn to combine multiple bugs for maximum impact.",
   },
   {
-    title: "Real-World Vulnerability Case Studies",
+    title: "Automation, Bots & Custom Frameworks",
     content:
-      "Analyze real bug reports and disclosures from top hackers to understand real-world exploitation chains and advanced reporting styles.",
+      "Build your own automation tools, bots, and frameworks to speed up reconnaissance, exploitation, and reporting. Learn Python and AI-based automation for efficient hunting.",
   },
   {
-    title: "Operational Security (OpSec) for Hunters",
+    title: "Responsible AI-Powered Bug Reporting & Research",
     content:
-      "Learn how to protect your identity, maintain privacy, and stay compliant while performing ethical hacking and bug bounty testing.",
+      "Master the art of professional, AI-assisted bug reporting. Use AI to write, analyze, and organize findings while maintaining ethical standards and responsible disclosure practices.",
   },
   {
-    title: "Career Growth & Industry Insights",
+    title: "Professional-Level Live Hunting & Portfolio Building",
     content:
-      "Get guidance on building your hacker brand, joining private programs, and turning bug bounty hunting into a long-term cybersecurity career.",
+      "Put your skills to the test through live hunting sessions and advanced projects. Build your public portfolio and prepare to stand out as a professional bug bounty hunter.",
   },
+{
+  title: "Career, Branding & Industry Readiness",
+  content:
+    "Learn how to build a powerful personal brand, prepare a standout bug bounty resume, create high-value writeups, optimize your online presence, and position yourself for collaborations, private programs, and real-world security opportunities.",
+}
 ];
+
 
 const faqs = [
   {
@@ -556,7 +599,15 @@ return (
 {/* --- Curriculum --- */}
 <Section id="curriculum">
   <motion.div
-    className="backdrop-blur-xl border border-white/20 rounded-[30px] sm:rounded-[60px] p-6 sm:p-20"
+    className="
+      backdrop-blur-xl 
+      border border-white/20 
+      rounded-[30px] sm:rounded-[60px] 
+      p-6 sm:p-20 
+      w-full 
+      max-w-7xl 
+      mx-auto
+    "
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 1, ease: "easeOut" }}
@@ -567,37 +618,57 @@ return (
     </h2>
 
     {/* --- Module Buttons --- */}
-<div className="
-  grid 
-  grid-cols-4 
-  sm:grid-cols-6 
-  lg:grid-cols-8 
-  gap-3 sm:gap-4 
-  w-full max-w-6xl
-">
-  {curriculumModules.map((module, i) => (
-    <button
-      key={i}
-      onClick={() => setActiveModule(module)}
-      className={`
-        py-2 sm:py-3 
-        text-[11px] sm:text-sm font-bold 
-        rounded-2xl transition-colors text-center 
-        ${
-          activeModule.title === module.title
-            ? "bg-red-600 text-white"
-            : "text-gray-200 hover:bg-white/10 cursor-pointer"
-        }
-      `}
+    <div
+      className="
+        grid 
+        grid-cols-3 
+        sm:grid-cols-4 
+        md:grid-cols-6 
+        lg:grid-cols-8
+        gap-3 sm:gap-4 
+        w-full 
+        max-w-5xl 
+        mx-auto 
+        justify-items-center
+      "
     >
-      Module {String(i + 1).padStart(2, "0")}
-    </button>
-  ))}
-</div>
-
+      {curriculumModules.map((module, i) => (
+        <button
+          key={i}
+          onClick={() => setActiveModule(module)}
+          className={`
+            w-full
+            py-2 sm:py-3 
+            text-[11px] sm:text-sm font-bold 
+            rounded-2xl transition-colors text-center 
+            ${
+              activeModule.title === module.title
+                ? "bg-red-600 text-white"
+                : "text-gray-200 hover:bg-white/10 cursor-pointer"
+            }
+          `}
+        >
+          Module {String(i + 1).padStart(2, "0")}
+        </button>
+      ))}
+    </div>
 
     {/* --- Active Module Content --- */}
-    <div className="relative min-h-[260px] sm:min-h-[300px] bg-black/20 p-8 sm:p-12 rounded-[30px] sm:rounded-[40px] border border-white/15 flex items-center justify-center w-full max-w-4xl mx-auto">
+    <div
+      className="
+        relative 
+        min-h-[260px] sm:min-h-[300px] 
+        bg-black/20 
+        p-8 sm:p-12 
+        rounded-[30px] sm:rounded-[40px] 
+        border border-white/15 
+        flex items-center justify-center 
+        w-full 
+        max-w-3xl 
+        mx-auto 
+        mt-10
+      "
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={activeModule.title}

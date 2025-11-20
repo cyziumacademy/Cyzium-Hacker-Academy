@@ -57,7 +57,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://discord.gg/yourdiscordlink"
+                href="https://discord.gg/Z5MfgNuD"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-indigo-500 transition-colors"
@@ -66,7 +66,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://t.me/yourtelegramlink"
+                href="https://t.me/+FieV7BaIhUhkYTBl"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-sky-500 transition-colors"
