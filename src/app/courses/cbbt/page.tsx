@@ -154,11 +154,11 @@ const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ }) => {
     ];
 
    const faqs = [
-    {
-      title: "What are the prerequisites for this course?",
-      content:
-        "No prior experience is required! This course starts from the basics — anyone with curiosity and interest in cybersecurity can join. Basic computer and internet knowledge is enough.",
-    },
+ {
+  title: "What are the prerequisites for this course?",
+  content:
+    "You should have basic knowledge of how websites work, common internet concepts, and general networking fundamentals. You don’t need deep cybersecurity experience — the course starts from beginner-friendly concepts and builds your skills step by step.",
+},
     {
       title: "Can a younger student do real bug hunting?",
       content:
