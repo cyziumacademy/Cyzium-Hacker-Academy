@@ -159,11 +159,12 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
       content:
         "Yes, absolutely — with parent approval! If you are under 14, you can legally test websites through Vulnerability Disclosure Programs (VDPs) under parental supervision.",
     },
-    {
-      title: "Is this course focused on a specific platform?",
-      content:
-        "No, JBBH covers a variety of real-world platforms including web applications, mobile apps, and APIs, so you can practice bug hunting across different environments.",
-    },
+{
+  title: "Is this course focused on a specific platform?",
+  content:
+    "Yes, JBBH is fully focused on web applications. You will learn beginner-friendly web bug hunting with AI-powered guidance to help you understand and practice real-world web vulnerabilities easily.",
+},
+
   ];
 
   const [activeModule, setActiveModule] = useState(curriculumModules[0]);
