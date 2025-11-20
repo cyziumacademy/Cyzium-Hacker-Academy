@@ -143,6 +143,7 @@ const CBBECoursePage: React.FC = () => {
       "Put your skills to the test through live hunting sessions and advanced projects. Build your public portfolio and prepare to stand out as a professional bug bounty hunter.",
   },
 ];
+
 const faqs = [
   {
     title: "What prior knowledge is expected for CBBE?",

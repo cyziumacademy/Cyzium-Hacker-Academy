@@ -112,7 +112,7 @@ const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ }) => {
 
     const curriculumModules = [
         {
-            title: "Module 01 - Advanced Reconnaissance & Asset Discovery",
+            title: "Advanced Reconnaissance & Asset Discovery",
             content:
                 "Master advanced techniques for recon, footprinting, and asset discovery to identify potential targets and attack surfaces effectively.",
         },
