@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { User } from "lucide-react"; // <-- ADDED THIS
 
 // Type for individual testimonial
 interface Testimonial {
@@ -47,18 +47,14 @@ function TestimonialOrb({
         className={`absolute inset-0 rounded-full bg-gradient-to-br ${gradientClass} opacity-50`}
       ></div>
       <div className="relative z-10 flex flex-col items-center px-4">
-        <Image
-          src={image || "/default-avatar.png"}
-          alt={name}
-          width={80}
-          height={80}
-          priority
-          className="rounded-full border-4 border-white/20 object-cover mb-3"
-        />
+
+        {/* 🔥 REPLACED IMAGE WITH USER ICON — ONLY CHANGE */}
+        <User className="w-20 h-20 text-white/80 mb-3" />
+
         <h3 className="text-xl font-bold text-white">{name}</h3>
         <p className="text-xs text-gray-300 leading-relaxed italic mt-2">
-  &quot;{quote}&quot;
-</p>
+          &quot;{quote}&quot;
+        </p>
       </div>
     </motion.div>
   );
@@ -69,49 +65,43 @@ const TestimonialsPage: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-const testimonials: Testimonial[] = [
-  {
-    name: "Keerthana Chandran",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop",
-    quote:
-      "JBBH completely changed the way I look at bug bounty. The step-by-step workflow and real examples made everything finally click for me.",
-    gradientClass: "from-purple-500/20 to-transparent",
-  },
-  {
-    name: "Adithyan A S",
-    image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop",
-    quote:
-      "CBBT was intense but worth every minute. The real-time guidance helped me understand exactly how professionals approach live targets.",
-    gradientClass: "from-purple-500/20 to-transparent",
-  },
-  {
-    name: "Rohan s nair",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop",
-    quote:
-      "CBBE pushed me beyond basics. The hands-on advanced exploitation sessions gave me confidence to work on high-reward programs.",
-    gradientClass: "from-purple-500/20 to-transparent",
-  },
-  {
-    name: "Rahul A",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
-    quote:
-      "CPBH was the best decision I made. Everything—from structured modules to practical labs—felt designed to make us industry ready.",
-    gradientClass: "from-purple-500/20 to-transparent",
-  },
-  {
-    name: "Vishnu S",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop",
-    quote:
-      "I joined CPBH after struggling alone for months. The clarity, mentorship and weekly tasks helped me consistently improve and stay motivated.",
-    gradientClass: "from-purple-500/20 to-transparent",
-  },
-];
-
+  const testimonials: Testimonial[] = [
+    {
+      name: "Keerthana Chandran",
+      image: "",
+      quote:
+        "JBBH completely changed the way I look at bug bounty. The step-by-step workflow and real examples made everything finally click for me.",
+      gradientClass: "from-purple-500/20 to-transparent",
+    },
+    {
+      name: "Adithyan A S",
+      image: "",
+      quote:
+        "CBBT was intense but worth every minute. The real-time guidance helped me understand exactly how professionals approach live targets.",
+      gradientClass: "from-purple-500/20 to-transparent",
+    },
+    {
+      name: "Rohan s nair",
+      image: "",
+      quote:
+        "CBBE pushed me beyond basics. The hands-on advanced exploitation sessions gave me confidence to work on high-reward programs.",
+      gradientClass: "from-purple-500/20 to-transparent",
+    },
+    {
+      name: "Rahul A",
+      image: "",
+      quote:
+        "CPBH was the best decision I made. Everything—from structured modules to practical labs—felt designed to make us industry ready.",
+      gradientClass: "from-purple-500/20 to-transparent",
+    },
+    {
+      name: "Vishnu S",
+      image: "",
+      quote:
+        "I joined CPBH after struggling alone for months. The clarity, mentorship and weekly tasks helped me consistently improve and stay motivated.",
+      gradientClass: "from-purple-500/20 to-transparent",
+    },
+  ];
 
   // Automatic sliding logic
   useEffect(() => {
@@ -124,18 +114,26 @@ const testimonials: Testimonial[] = [
 
   // Orb positioning
   const getOrbStyle = (orbIndex: number) => {
-    const offset = (orbIndex - activeIndex + testimonials.length) % testimonials.length;
+    const offset =
+      (orbIndex - activeIndex + testimonials.length) % testimonials.length;
     if (offset === 0) return { x: "0%", scale: 1.1, zIndex: 3, opacity: 1 };
     if (offset === 1) return { x: "75%", scale: 0.8, zIndex: 2, opacity: 1 };
-    if (offset === testimonials.length - 1) return { x: "-75%", scale: 0.8, zIndex: 2, opacity: 1 };
-    return { scale: 0.5, zIndex: 1, opacity: 0, x: offset > testimonials.length / 2 ? "-150%" : "150%" };
+    if (offset === testimonials.length - 1)
+      return { x: "-75%", scale: 0.8, zIndex: 2, opacity: 1 };
+    return {
+      scale: 0.5,
+      zIndex: 1,
+      opacity: 0,
+      x: offset > testimonials.length / 2 ? "-150%" : "150%",
+    };
   };
 
   return (
     <div
       className="relative min-h-screen w-full text-white font-sans"
       style={{
-        backgroundImage: "url('https://www.transparenttextures.com/patterns/subtle-prism.png')",
+        backgroundImage:
+          "url('https://www.transparenttextures.com/patterns/subtle-prism.png')",
       }}
     >
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen py-16 overflow-hidden">
@@ -155,7 +153,8 @@ const testimonials: Testimonial[] = [
             Say
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-300">
-            Real stories from students who transformed their careers with Cyzium.
+            Real stories from students who transformed their careers with
+            Cyzium.
           </p>
         </motion.div>
 
