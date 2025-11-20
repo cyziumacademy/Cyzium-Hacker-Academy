@@ -371,7 +371,7 @@ export default function CoursesPage(): React.JSX.Element {
           closeCareerModal(); // close the modal
           router.push(`/contact`); // navigate to your contact page
         }}
-        className="w-full py-3 mt-3 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-semibold transition text-sm sm:text-base"
+        className="w-full py-3 mt-3 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-semibold transition text-sm sm:text-base cursor-pointer"
       >
         Start Learning
       </button>
