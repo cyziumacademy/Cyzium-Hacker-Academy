@@ -405,9 +405,9 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
               {[
                 "Understand the fundamentals of bug bounty hunting from scratch.",
-                "Learn how web applications, APIs, and mobile apps work.",
+                "Learn how web applications works.",
                 "Identify and exploit common vulnerabilities like XSS, SQLi, and CSRF.",
-                "Use real-world tools like Burp Suite, OWASP ZAP, Nmap, and Wireshark.",
+                "Use real-world tools like Burp Suite, Nmap and Wireshark.",
                 "Perform recon and enumeration to discover targets legally.",
                 "Report valid vulnerabilities professionally to live bug bounty programs.",
                 "Gain confidence to participate in VDP programs even as a beginner.",
@@ -453,10 +453,14 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You&apos;ll Achieve</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
               {[
-                "Develop custom exploits for complex vulnerabilities.",
-                "Reverse engineer applications to find logical flaws.",
-                "Master advanced mobile hacking techniques on iOS and Android.",
-                "Build and execute sophisticated fuzzing campaigns.",
+"Learn to create simple payloads for basic web vulnerabilities like XSS.",
+
+"Understand how to check websites for common logical mistakes.",
+
+"Learn how login systems, sessions, and user roles work— and how to test them safely.",
+
+"Practice finding beginner-friendly web bugs on real websites.",
+
               ].map((item, i) => (
                 <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
                   <CheckCircle size={20} className="text-blue-500 flex-shrink-0" />
