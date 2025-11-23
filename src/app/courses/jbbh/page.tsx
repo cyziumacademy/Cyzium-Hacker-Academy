@@ -292,7 +292,7 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
             <section className="py-4 sm:py-8">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10">
                 <div className="text-center">
-                  <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">2 Months</p>
+                  <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">1.5 Months</p>
                   <p className="text-gray-400 text-sm sm:text-base">Duration</p>
                 </div>
                 <div className="text-center">
