@@ -217,7 +217,10 @@ export default function CoursesPage(): React.JSX.Element {
                 <div className="relative">
                     <main className="container mx-auto px-6 py-24">
                         <div className="text-center mb-12 animate-fade-down">
-                            <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-500">Our Individual Courses</h1>
+                    <h1 className="font-playfair text-5xl md:text-7xl font-bold mb-4 text-white tracking-tight leading-tight">
+  Our Individual Courses
+</h1>
+
                             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">These courses form the building blocks of our career paths.</p>
                         </div>
 

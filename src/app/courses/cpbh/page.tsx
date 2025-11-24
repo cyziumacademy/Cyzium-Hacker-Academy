@@ -440,7 +440,7 @@ return (
     <section className="py-4 sm:py-8">
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10">
         <div className="text-center">
-          <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">2 Months</p>
+          <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">6 Months</p>
           <p className="text-gray-400 text-sm sm:text-base">Duration</p>
         </div>
 <div className="text-center">
@@ -588,10 +588,7 @@ return (
       <h3 className="text-2xl sm:text-3xl font-bold text-white">
         The Certified Edge
       </h3>
-      <p className="mt-3 text-gray-200 text-sm sm:text-base">
-        The CBBT is recognized by leading bug bounty platforms and security firms worldwide. Gain the{" "}
-        <strong>credibility and deep technical skills</strong> required to stand out in the competitive field of offensive security.
-      </p>
+<p className="mt-3 text-gray-200 text-sm sm:text-base"> The CPBH is globally recognized by leading cybersecurity communities and bug bounty platforms. Gain the{" "} <strong>core practical skills and strong foundational knowledge</strong> needed to begin your journey in ethical hacking with confidence. </p>
     </div>
   </motion.div>
 </Section>
