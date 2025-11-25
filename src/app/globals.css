@@ -148,3 +148,12 @@ select option {
   background-color: #001022; /* dark blue */
   color: white;
 }
+
+@keyframes slow-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-slow-blink {
+  animation: slow-blink 2s ease-in-out infinite;
+}

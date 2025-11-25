@@ -184,16 +184,13 @@ function UpcomingBatchCard() {
           </div>
 
 {/* Right Side */}
-<div className="md:w-1/2 w-full flex flex-col text-center md:text-left 
-  items-center md:items-start justify-center">
-<h3 className="text-[28px] md:text-[35px] font-bold">
-  Upcoming{" "}
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-red-500">
-    Batch
-  </span>
-</h3>
-
-
+<div
+  className="md:w-1/2 w-full flex flex-col text-center md:text-left 
+  items-center md:items-start justify-center"
+>
+  <h3 className="text-[28px] md:text-[35px] font-bold text-white">
+    Upcoming Batch
+  </h3>
 
 
   <div className="flex-grow flex flex-col justify-center space-y-4 text-base text-gray-200 border-t border-b border-white/10 my-6 py-2">
@@ -209,10 +206,10 @@ function UpcomingBatchCard() {
       <Laptop size={18} className="text-white" />
       <strong>Includes:</strong> {currentBatch.includes}
     </p>
-    <p className="flex items-center justify-center md:justify-start gap-2 text-red-500">
-      <AlertTriangle size={18} className="text-white" />
-      <strong> Limited Seats Only!</strong>
-    </p>
+<p className="flex items-center justify-center md:justify-start gap-2 text-red-500">
+  <AlertTriangle size={20} className="text-white" />
+  <strong className="animate-slow-blink">Limited Seats Only!</strong>
+</p>
   </div>
 
   <div className="text-center mb-4">
