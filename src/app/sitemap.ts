@@ -1,30 +1,45 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Ensure this matches your live site exactly (with or without www)
+  const baseUrl = "https://cyziumacademy.com";
+
   return [
     {
-      url: "https://cyziumacademy.com/",
+      url: baseUrl,
       lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
     },
     {
-      url: "https://cyziumacademy.com/about",
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
-      url: "https://cyziumacademy.com/courses",
+      url: `${baseUrl}/courses`,
       lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
-      url: "https://cyziumacademy.com/blogs",
+      url: `${baseUrl}/hackathon`,
       lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
     },
     {
-      url: "https://cyziumacademy.com/hackathon",
+      url: `${baseUrl}/blogs`,
       lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
     {
-      url: "https://cyziumacademy.com/contact",
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }
