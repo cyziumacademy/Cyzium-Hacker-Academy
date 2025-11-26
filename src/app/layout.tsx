@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,35 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full overflow-x-hidden bg-[#0a192f] text-white`}
-        style={{ touchAction: "pan-y" }}
+        style={{ touchAction: "pan-y" }} // prevents horizontal slide on mobile
       >
-        {children}
-
-        {/* === Sitelinks / Navigation Schema === */}
-        <Script
-          id="sitelinks-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Cyzium Hacker Academy",
-              "url": "https://cyziumacademy.com",
-              "sameAs": [
-                "https://www.instagram.com/cyziumacademy",
-                "https://www.linkedin.com/company/cyziumacademy"
-              ],
-              "potentialAction": [
-                { "@type": "ReadAction", "target": "https://cyziumacademy.com/about" },
-                { "@type": "ReadAction", "target": "https://cyziumacademy.com/courses" },
-                { "@type": "ReadAction", "target": "https://cyziumacademy.com/blogs" },
-                { "@type": "ReadAction", "target": "https://cyziumacademy.com/hackathon" },
-                { "@type": "ReadAction", "target": "https://cyziumacademy.com/contact" }
-              ]
-            })
-          }}
-        />
-
+        {children} {/* Page content will render here */}
       </body>
     </html>
   );
