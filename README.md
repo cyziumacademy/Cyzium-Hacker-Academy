@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Let's begin
 
 
-![Alt text](public/logo2.png)
+![Alt text](public/logo.png)
 
 First, run the development server:
 
