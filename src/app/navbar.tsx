@@ -58,7 +58,7 @@ export default function Navbar() {
         >
           <Link href="/" className={baseClasses}>
             <Image
-              src="/logo2.png"
+              src="/logo1.png"
               alt="Cyzium Logo"
               width={250}
               height={40}
