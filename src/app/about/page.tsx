@@ -43,7 +43,7 @@ function MissionSection() {
         <div className="grid md:grid-cols-2 gap-8 sm:gap-1 items-start">
           <div className="flex flex-col gap-6 sm:gap-1">
             <motion.img
-              src="/logo.png"
+              src="/logo2.png"
               alt="Cyzium Hacker Academy Logo"
               className="w-full max-w-xs sm:max-w-md h-auto object-contain self-start mx-auto md:mx-0"
               initial={{ opacity: 0, scale: 0.9 }}

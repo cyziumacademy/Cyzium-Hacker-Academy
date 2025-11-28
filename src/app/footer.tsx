@@ -28,7 +28,7 @@ export default function Footer() {
   transition={{ duration: 0.6, delay: 0.2 }}
 >
   <Image
-    src="/logo.png"            // path inside your public folder
+    src="/logo2.png"            // path inside your public folder
     alt="Cyzium Academy Logo"
     width={320}                // required
     height={100}               // required
