@@ -26,7 +26,6 @@ interface TestimonialOrbProps extends Testimonial {
 // TestimonialOrb Component
 function TestimonialOrb({
   name,
-  image,
   quote,
   gradientClass,
   animate,
