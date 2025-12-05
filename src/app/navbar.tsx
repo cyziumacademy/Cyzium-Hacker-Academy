@@ -205,11 +205,11 @@ export default function Navbar() {
         Courses
       </Link>
       <Link
-        href="/events"
+        href="/hackathon"
         onClick={() => setMobileMenuOpen(false)}
-        className={`${baseClasses} ${pathname === "/events" ? activeClasses : ""}`}
+        className={`${baseClasses} ${pathname === "/hackathon" ? activeClasses : ""}`}
       >
-        Events
+        Hackathon
       </Link>
       <Link
         href="/about"
