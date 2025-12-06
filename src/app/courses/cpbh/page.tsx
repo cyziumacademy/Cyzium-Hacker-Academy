@@ -366,7 +366,7 @@ return (
   transform: "translate(-50%, -50%)",
 }}>
   <Image
-    src="/logo2.PNG"
+    src="/logo.png"
     alt="Logo"
     fill
     className="object-contain opacity-35 mix-blend-overlay"

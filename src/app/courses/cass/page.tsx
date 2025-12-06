@@ -227,7 +227,7 @@ return (
     </div>
     
 <Image
-  src="/logo2.PNG"
+  src="/logo.png"
   alt="Logo"
   width={2000}
   height={1000} // approximate, maintain aspect ratio

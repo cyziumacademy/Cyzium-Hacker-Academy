@@ -229,7 +229,7 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
   style={{ width: "2200px" }} // ✅ explicit physical width
 >
   <Image
-    src="/logo2.PNG"
+    src="/logo.png"
     alt="Logo"
     width={2500}
     height={1300}
