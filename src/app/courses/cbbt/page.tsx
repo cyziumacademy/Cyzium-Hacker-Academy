@@ -343,11 +343,9 @@ return (
 
   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
 <p className="text-base sm:text-xl text-gray-300 leading-relaxed md:w-[70%]">
-  The Certified Bug Bounty Hunter (CBBT) is a comprehensive program designed for anyone starting their journey in cybersecurity, even with no prior experience. 
-  In this course, you will learn how to identify and report security vulnerabilities in websites, applications, and APIs safely and legally. 
-  We focus on building your foundational skills step by step — from understanding how web applications work, to using essential tools like Kali Linux, Burp Suite, and Nmap, to discovering common vulnerabilities like XSS and SQL Injection. 
-  As you progress, you will gain practical experience in real-world bug hunting scenarios, preparing you to report valid security issues confidently and professionally. 
-  By the end of the course, you will have the skills, knowledge, and mindset to begin your journey as an ethical hacker and bug bounty hunter.
+  The Certified Bug Bounty Hunter (CBBT) is an advanced cybersecurity program designed to build deep expertise in Web, Mobile, and API Penetration Testing. 
+  This course dives into real-world security testing methods, teaching you how to uncover complex vulnerabilities in modern applications, analyze critical security flaws, and understand how attackers exploit them.
+  You’ll explore advanced topics such as business logic abuse, authentication and authorization bypasses, API exploitation techniques, mobile app security weaknesses, and multi-step attack chains. By the end, you’ll be equipped with the knowledge, practical skillset, and professional approach needed to perform high-impact ethical hacking and confidently participate in bug bounty programs.
 </p>
 
 
