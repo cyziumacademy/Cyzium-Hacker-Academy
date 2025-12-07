@@ -19,12 +19,12 @@ import AgeSection from "@/app/age";
 function Hero() {
   return (
     <section className="relative text-white">
-      <div className="relative max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
+      <div className="relative max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="flex-1 text-center md:text-left">
           <motion.h2
             className="text-[36px] sm:text-[48px] md:text-[94px] font-extrabold leading-tight 
-                       -mt-4 md:-mt-8 md:-ml-40"
+                       -mt-4 md:-mt-8 md:-ml-25"
             initial={{ opacity: 0.5, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -36,7 +36,7 @@ function Hero() {
 
           <motion.p
             className="mt-4 sm:mt-6 text-base sm:text-lg md:text-[21px] font-semibold 
-                       md:ml-[-155px] max-w-1xl mx-auto md:mx-0 px-2"
+                       md:ml-[-100px] max-w-1xl mx-auto md:mx-0 px-2"
             initial={{ opacity: 0.5, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
@@ -51,7 +51,7 @@ function Hero() {
               whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0,255,255,0.4)" }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center justify-center rounded-[15px] border px-6 py-4 font-semibold transition-all duration-200
-                         md:relative md:-left-36"
+                         md:relative md:-left-24"
             >
               Find Courses
             </motion.a>
@@ -61,7 +61,7 @@ function Hero() {
               whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0,255,255,0.4)" }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center justify-center rounded-[15px] border px-6 py-3 transition-all duration-200
-                         md:relative md:-left-35"
+                         md:relative md:-left-24"
             >
               Contact Admissions
             </motion.a>
@@ -69,7 +69,7 @@ function Hero() {
         </div>
 
         {/* Right Side Card */}
-        <div className="w-full md:w-auto flex justify-center md:justify-end mt-10 md:mt-0">
+        <div className="w-full md:w-auto flex justify-center md:justify-end mt-10 mr-15 md:mt-0">
           <UpcomingBatchCard />
         </div>
       </div>
