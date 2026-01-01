@@ -95,7 +95,7 @@ const sampleCourses: Course[] = [
     level: "Professional",
     duration: "5 months",
     seatsLeft: 12,
-    shortDescription: "Fundamentals of pentesting, recon, and common vulnerabilities.",
+    shortDescription: "Build professional bug hunting skills for real-world impact",
     image: "/cpbh.png",
     path: "cpbh"
   },
@@ -103,21 +103,21 @@ const sampleCourses: Course[] = [
     id: "c2",
     title: "Certified Bug Bounty Hunter",
     level: "Intermediate",
-    duration: "4 weeks",
-    seatsLeft: 6,
-    shortDescription: "Hands-on labs on XSS, SQLi and real-world exploitation patterns.",
+    duration: "8 weeks",
+    seatsLeft: 9,
+    shortDescription: "Take your bug bounty skills to the next level with hands-on training and real reporting practice.",
     image: "/cbbt.png",
     path: "cbbt"
   },
   {
     id: "c3",
-    title: "Certified Bug Bounty Expert",
-    level: "Advanced",
+    title: "Certified Junior Bug Bounty Hunter",
+    level: "Beginner",
     duration: "6 weeks",
-    seatsLeft: 8,
-    shortDescription: "Logs, alerts, SIEM basics and incident triage using free tools.",
-    image: "/cbbe.png",
-    path: "cbbe"
+       seatsLeft: 6,
+    shortDescription: "Learn how to find real bugs on real websites, starting from zero.",
+    image: "/jbbh.png",
+    path: "jbbh"
   },
 ];
 
