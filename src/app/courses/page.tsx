@@ -48,19 +48,19 @@ const courses: Course[] = [
     description: "Advance your bug hunting skills with in-depth web, API, and mobile testing techniques.", 
     image: "/cbbt.png" 
   },
+    { 
+    title: "Certified Professional Bug Hunter", 
+    path: "cpbh", 
+    category: "Bug Bounty Hunter", 
+    description: "Achieve professional mastery in bug bounty hunting with advanced real-world simulations.", 
+    image: "/cpbh.png" 
+  },
   { 
     title: "Certified Bug Bounty Expert", 
     path: "cbbe", 
     category: "Bug Bounty Hunter", 
     description: "Master advanced exploitation in web, AI, and cloud environments for expert-level hunting.", 
     image: "/cbbe.png" 
-  },
-  { 
-    title: "Certified Professional Bug Hunter", 
-    path: "cpbh", 
-    category: "Bug Bounty Hunter", 
-    description: "Achieve professional mastery in bug bounty hunting with advanced real-world simulations.", 
-    image: "/cpbh.png" 
   },
   { 
     title: "Certified Cloud Security Analyst", 
@@ -263,7 +263,7 @@ export default function CoursesPage(): React.JSX.Element {
                                         <h3 className="text-2xl font-bold mb-2 text-gray-100 flex-grow">{course.title}</h3>
                                         <p className="text-gray-400 mb-6">{course.description}</p>
                                        <div className="flex justify-center">
-  {["ccsa", "cna", "cass"].includes(course.path) ? (
+  {["ccsa", "cna", "cass", "cbbe"].includes(course.path) ? (
     <div className="w-60 mt-auto bg-gray-700 text-gray-300 font-semibold py-3 px-4 rounded-[20px] text-center cursor-not-allowed">
       Coming Soon
     </div>
