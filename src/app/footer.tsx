@@ -118,14 +118,36 @@ export default function Footer() {
           >
             <h4 className="text-lg font-semibold text-gray-200 mb-4">Contact Info</h4>
             <ul className="space-y-3">
-              <li className="flex items-start">
-                <Phone className="w-5 h-5 mr-3 mt-1 text-red-500" />
-                <span>+91 9567190676</span>
-              </li>
-              <li className="flex items-start">
-                <Mail className="w-5 h-5 mr-3 mt-1 text-red-500" />
-                <span>info@cyziumacademy.com</span>
-              </li>
+<li className="flex items-start">
+  <Phone className="w-5 h-5 mr-3 mt-1 text-red-500" />
+  <span>
+    <a
+      href="tel:+919567190676"
+      className="hover:text-blue-500 transition-colors"
+    >
+      +91 9567190676
+    </a>
+    {" , "}
+    <a
+      href="tel:+917994345782"
+      className="hover:text-blue-500 transition-colors"
+    >
+      +91 7994345782
+    </a>
+  </span>
+</li>
+             <li className="flex items-start">
+  <Mail className="w-5 h-5 mr-3 mt-1 text-red-500" />
+  <span>
+    <a
+      href="mailto:info@cyziumacademy.com"
+      className="hover:text-blue-500 transition-colors"
+    >
+      info@cyziumacademy.com
+    </a>
+  </span>
+</li>
+
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 mt-1 text-red-500" />
                 <span>Trivandrum, Kerala</span>
