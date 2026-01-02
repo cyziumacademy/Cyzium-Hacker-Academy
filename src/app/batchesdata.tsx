@@ -19,6 +19,6 @@ export const batches = [
     includes: "Live Sessions + Labs",
     price: "₹4,000",
     cashback: "Cashback!",
-    targetDate: "2025-12-15T00:00:00Z",
+    targetDate: "2026-02-01T00:00:00Z",
   },
 ];
