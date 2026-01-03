@@ -474,7 +474,7 @@ return (
       {[
   { name: "Beginner", img: "/jbbh.png", link: "/courses/jbbh" },
   { name: "Intermediate", img: "/cbbt.png", link: "/courses/cbbt" },
-  { name: "Advanced", img: "/cbbe.png", link: "/courses/cbbe" },
+  { name: "Advanced", img: "/cbbe.png", link: "" },
   { name: "Professional", img: "/cpbh.png", pro: true }, 
 ].map((step, i, arr) => (
   <motion.div
