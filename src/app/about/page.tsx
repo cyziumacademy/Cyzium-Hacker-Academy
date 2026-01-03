@@ -184,15 +184,40 @@ function CommunityNetworkSection() {
             viewport={{ once: false, amount: 0.2 }}
             className="w-full h-[250px] sm:h-[400px] rounded-[30px] sm:rounded-[40px] overflow-hidden opacity-70"
           >
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15544639.293287896!2d78.9629!3d20.5937!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDM1JzM3LjMiTiA3OMKwNTcnNDYuNCJF!5e0!3m2!1sen!2sin!4v1733860000000!5m2!1sen!2sin"
-  width="100%"
-  height="450"
-  style={{ border: 0 }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-></iframe>
+<div
+  style={{
+    position: "relative",
+    width: "100%",
+    height: "450px",
+    borderRadius: "12px",
+    overflow: "hidden",
+  }}
+>
+  {/* Google Map */}
+  <iframe
+    src="https://www.google.com/maps?q=Thiruvananthapuram,Kerala,India&z=14&output=embed"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+
+  {/* 📍 Pointer (overlay) */}
+  <div
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -100%)",
+      fontSize: "40px",
+      pointerEvents: "none",
+    }}
+  >
+    📍
+  </div>
+</div>
+
 
           </motion.div>
         </div>
