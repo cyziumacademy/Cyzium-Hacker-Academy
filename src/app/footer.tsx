@@ -164,6 +164,9 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <p>&copy; {new Date().getFullYear()} Cyzium Hacker Academy. All Rights Reserved.</p>
+<p className="text-s text-gray-500 text-center mt-1">
+  Registered under MSME, Government of India
+</p>
         </motion.div>
       </div>
     </motion.footer>

@@ -9,6 +9,7 @@ type FormInputProps = {
   placeholder: string;
   name: string;
   fullWidth?: boolean;
+  required?: boolean; // 👈 add this
 };
 
 function FormInput({
@@ -17,6 +18,7 @@ function FormInput({
   placeholder,
   name,
   fullWidth = false,
+  required = false, // 👈 default false
 }: FormInputProps) {
   return (
     <motion.div
@@ -32,14 +34,15 @@ function FormInput({
         type={type}
         name={name}
         placeholder={placeholder}
+        required={required} // 👈 controlled
         className="w-full h-12 bg-black/20 md:bg-black/30 border border-white/20 rounded-lg 
                    pl-10 pr-3 text-white placeholder-gray-400 text-base
                    focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
-        required
       />
     </motion.div>
   );
 }
+
 
 function ContactCard() {
   const [loading, setLoading] = useState(false);
