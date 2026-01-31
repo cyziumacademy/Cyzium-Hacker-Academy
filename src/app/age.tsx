@@ -15,7 +15,7 @@ export default function AgeSection() {
             viewport={{ once: true }}
             className="text-4xl md:text-[53px] font-bold mb-6"
           >
-            Age is Just a Number
+            Age is Just a Number!
           </motion.h2>
 
           <motion.p
