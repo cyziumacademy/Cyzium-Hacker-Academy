@@ -16,6 +16,7 @@ type FormInputProps = {
   name: string;
   delay: number;
   fullWidth?: boolean;
+  required?: boolean;
 };
 
 function FormInput({
@@ -25,6 +26,7 @@ function FormInput({
   name,
   delay,
   fullWidth = false,
+  required = true,
 }: FormInputProps) {
   return (
     <motion.div
@@ -43,7 +45,7 @@ function FormInput({
         className="w-full h-12 bg-gray-800/70 border border-white/20 rounded-lg 
                    pl-10 pr-3 text-white placeholder-gray-400 text-sm
                    focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
-        required
+        required={required}
       />
     </motion.div>
   );
@@ -141,6 +143,7 @@ export default function ContactCard({ onClose, isOpen }: ContactCardProps) {
                 name="qualification"
                 delay={0.4}
                 fullWidth
+                required={false}
               />
 
               {/* Course Select */}

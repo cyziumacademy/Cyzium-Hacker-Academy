@@ -9,7 +9,7 @@ type FormInputProps = {
   placeholder: string;
   name: string;
   fullWidth?: boolean;
-  required?: boolean; // 👈 add this
+  required?: boolean;
 };
 
 function FormInput({
@@ -18,7 +18,7 @@ function FormInput({
   placeholder,
   name,
   fullWidth = false,
-  required = false, // 👈 default false
+  required = true,
 }: FormInputProps) {
   return (
     <motion.div
@@ -34,7 +34,7 @@ function FormInput({
         type={type}
         name={name}
         placeholder={placeholder}
-        required={required} // 👈 controlled
+        required={required}
         className="w-full h-12 bg-black/20 md:bg-black/30 border border-white/20 rounded-lg 
                    pl-10 pr-3 text-white placeholder-gray-400 text-base
                    focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
@@ -59,39 +59,39 @@ function ContactCard() {
   ];
 
   // 🚀 SEND FORM DATA
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setLoading(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
 
-  const form = e.target as HTMLFormElement;
-  const formData = new FormData(form);
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
 
-  const data = {
-    name: formData.get("name"),
-    email_phone: formData.get("email_phone"),
-    qualification: formData.get("qualification"),
-    course: formData.get("course"),
-    message: formData.get("message"),
-  };
+    const data = {
+      name: formData.get("name"),
+      email_phone: formData.get("email_phone"),
+      qualification: formData.get("qualification"),
+      course: formData.get("course"),
+      message: formData.get("message"),
+    };
 
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    const result = await res.json();
-    if (result.success) {
-      setSent(true);
-      form.reset();
+      const result = await res.json();
+      if (result.success) {
+        setSent(true);
+        form.reset();
+      }
+    } catch (err) {
+      console.error("Form submit error:", err);
     }
-  } catch (err) {
-    console.error("Form submit error:", err);
-  }
 
-  setLoading(false);
-};
+    setLoading(false);
+  };
 
   return (
     <section
@@ -155,6 +155,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               placeholder="Qualification"
               name="qualification"
               fullWidth
+              required={false}
             />
 
             {/* Dropdown */}
@@ -176,10 +177,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   Select a Course of Interest
                 </option>
                 {courses.map((course: string) => (
-  <option key={course} value={course}>
-    {course}
-  </option>
-))}
+                  <option key={course} value={course}>
+                    {course}
+                  </option>
+                ))}
               </select>
             </motion.div>
 
@@ -234,8 +235,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl mt-4 leading-relaxed">
-            Learn practical hacking skills with real-world labs and live projects.  
-            Get guidance from experts who’ve been in the trenches of cybersecurity.  
+            Learn practical hacking skills with real-world labs and live projects.
+            Get guidance from experts who’ve been in the trenches of cybersecurity.
             Don&rsquo;t just study — build, break, defend, and level up your career.
           </p>
 

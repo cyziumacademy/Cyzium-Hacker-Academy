@@ -13,6 +13,7 @@ type FormInputProps = {
   name: string;
   delay: number;
   fullWidth?: boolean;
+  required?: boolean;
 };
 
 function FormInput({
@@ -22,6 +23,7 @@ function FormInput({
   name,
   delay,
   fullWidth = false,
+  required = true,
 }: FormInputProps) {
   return (
     <motion.div
@@ -41,7 +43,7 @@ function FormInput({
         className="w-full h-12 bg-black/30 border border-white/20 rounded-lg 
                    pl-10 pr-3 text-white placeholder-gray-500 text-base
                    focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
-        required
+        required={required}
       />
     </motion.div>
   );
@@ -61,32 +63,32 @@ export default function Contact() {
   // -----------------------------
   //  FORM SUBMIT HANDLER ADDED
   // -----------------------------
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const form = new FormData(e.currentTarget);
+    const form = new FormData(e.currentTarget);
 
-  const data = {
-    name: form.get("name"),
-    email_phone: form.get("email_phone"),
-    qualification: form.get("qualification"),
-    course: form.get("course"),
-    message: form.get("message"),
+    const data = {
+      name: form.get("name"),
+      email_phone: form.get("email_phone"),
+      qualification: form.get("qualification"),
+      course: form.get("course"),
+      message: form.get("message"),
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.ok) {
+      alert("Message sent! Our team will contact you soon.");
+      e.currentTarget.reset();
+    } else {
+      alert("Failed to send. Please try again.");
+    }
   };
-
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json" },
-  });
-
-  if (res.ok) {
-    alert("Message sent! Our team will contact you soon.");
-    e.currentTarget.reset();
-  } else {
-    alert("Failed to send. Please try again.");
-  }
-};
 
 
   return (
@@ -171,6 +173,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 name="qualification"
                 delay={0.5}
                 fullWidth
+                required={false}
               />
 
               <motion.div
