@@ -11,7 +11,7 @@ export async function POST(request) {
       await request.json();
 
     // Basic validation
-    if (!name || !email_phone || !qualification || !course || !message) {
+    if (!name || !email_phone || !course) {
       return NextResponse.json(
         { success: false, error: "All fields are required" },
         { status: 400 }
@@ -35,7 +35,7 @@ export async function POST(request) {
       text: `
 Name: ${name}
 Phone/Email: ${email_phone}
-Qualification: ${qualification}
+Qualification: ${qualification || "Not Provided"}
 Course: ${course}
 
 Message:
