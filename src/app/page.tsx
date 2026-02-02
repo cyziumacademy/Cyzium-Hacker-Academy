@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import Navbar from "@/app/navbar";
 import { motion } from "framer-motion";
-import UpcomingBatchCard from "@/app/upcomingbatch"; 
+import UpcomingBatchCard from "@/app/upcomingbatch";
 import WhyChooseUsPage from "@/app/why";
 import Testimonials from "@/app/testimonial";
 import ContactCard from "@/app/contactcard";
@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import EndSection from "@/app/end";
 import TeachingSection from "@/app/teaching";
-import Footer from "../app/footer"; 
+import Footer from "../app/footer";
 import Float from "@/app/float";
 import AgeSection from "@/app/age";
 
@@ -24,7 +24,7 @@ function Hero() {
         <div className="flex-1 text-center md:text-left">
           <motion.h2
             className="text-[36px] sm:text-[48px] md:text-[94px] font-extrabold leading-tight 
-                       -mt-4 md:-mt-8 md:-ml-25"
+                       -mt-4 md:-mt-8"
             initial={{ opacity: 0.5, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -36,7 +36,7 @@ function Hero() {
 
           <motion.p
             className="mt-4 sm:mt-6 text-base sm:text-lg md:text-[21px] font-semibold 
-                       md:ml-[-100px] max-w-1xl mx-auto md:mx-0 px-2"
+                       max-w-1xl mx-auto md:mx-0 px-2"
             initial={{ opacity: 0.5, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
@@ -50,8 +50,7 @@ function Hero() {
               href="/courses"
               whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0,255,255,0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center rounded-[15px] border px-6 py-4 font-semibold transition-all duration-200
-                         md:relative md:-left-24"
+              className="inline-flex items-center justify-center rounded-[15px] border px-6 py-4 font-semibold transition-all duration-200"
             >
               Find Courses
             </motion.a>
@@ -60,8 +59,7 @@ function Hero() {
               href="/contact"
               whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0,255,255,0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center rounded-[15px] border px-6 py-3 transition-all duration-200
-                         md:relative md:-left-24"
+              className="inline-flex items-center justify-center rounded-[15px] border px-6 py-3 transition-all duration-200"
             >
               Contact Admissions
             </motion.a>
@@ -69,7 +67,7 @@ function Hero() {
         </div>
 
         {/* Right Side Card */}
-        <div className="w-full md:w-auto flex justify-center md:justify-end mt-10 mr-15 md:mt-0">
+        <div className="w-full md:w-auto flex justify-center md:justify-end mt-10 md:mt-0">
           <UpcomingBatchCard />
         </div>
       </div>
@@ -114,7 +112,7 @@ const sampleCourses: Course[] = [
     title: "Certified Junior Bug Bounty Hunter",
     level: "Beginner",
     duration: "6 weeks",
-       seatsLeft: 6,
+    seatsLeft: 6,
     shortDescription: "Learn how to find real bugs on real websites, starting from zero.",
     image: "/jbbh.png",
     path: "jbbh"
@@ -224,7 +222,7 @@ export default function LandingPage() {
         />
       </Head>
 
-<Float />
+      <Float />
 
       <video
         autoPlay

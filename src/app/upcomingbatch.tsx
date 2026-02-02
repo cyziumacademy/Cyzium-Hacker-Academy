@@ -43,7 +43,7 @@ function UpcomingBatchCard() {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    
+
     return () => clearInterval(timer);
   }, [calculateTimeLeft]);
 
@@ -100,9 +100,8 @@ function UpcomingBatchCard() {
   return (
     <>
       <motion.div
-  className="relative -mt-9 md:-mr-40 w-[700px] h-[550px] rounded-[80px] p-8 border-2 border-white/20 bg-black/0 shadow-[inset_-3px_-1px_9px_rgba(255,255,255,0.5),_inset_10px_10px_20px_rgba(0,0,0,0.2),_0_4px_30px_rgba(0,0,0,0.1)] 
-  flex text-white overflow-hidden md:flex-row flex-col 
-  md:w-[700px] md:h-[550px] w-full h-auto md:rounded-[80px] rounded-[30px] md:p-8 p-4 mx-auto"
+        className="relative -mt-9 w-full max-w-[700px] md:h-[550px] h-auto rounded-[30px] md:rounded-[80px] p-4 md:p-8 border-2 border-white/20 bg-black/0 shadow-[inset_-3px_-1px_9px_rgba(255,255,255,0.5),_inset_10px_10px_20px_rgba(0,0,0,0.2),_0_4px_30px_rgba(0,0,0,0.1)] 
+  flex text-white overflow-hidden md:flex-row flex-col mx-auto"
 
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -121,11 +120,10 @@ function UpcomingBatchCard() {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex([index, 1])}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentIndex === index
-                      ? "bg-white scale-125"
-                      : "bg-white/50 hover:bg-white/80"
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index
+                    ? "bg-white scale-125"
+                    : "bg-white/50 hover:bg-white/80"
+                    }`}
                 />
               ))}
             </div>
@@ -140,13 +138,13 @@ function UpcomingBatchCard() {
                 exit="exit"
                 className="w-full text-center"
               >
-               <Image
-  src={currentBatch.image}
-  alt="Batch Image"
-  width={800} // approximate width
-  height={240} // approximate height
-  className="w-full h-60 object-cover rounded-[40px] border-2 border-white/20 shadow-lg md:h-60 sm:h-48"
-/>
+                <Image
+                  src={currentBatch.image}
+                  alt="Batch Image"
+                  width={800} // approximate width
+                  height={240} // approximate height
+                  className="w-full h-60 object-cover rounded-[40px] border-2 border-white/20 shadow-lg md:h-60 sm:h-48"
+                />
                 <p className="text-md text-gray-300 mt-2">{currentBatch.title}</p>
               </motion.div>
             </AnimatePresence>
@@ -183,64 +181,64 @@ function UpcomingBatchCard() {
             </div>
           </div>
 
-{/* Right Side */}
-<div
-  className="md:w-1/2 w-full flex flex-col text-center md:text-left 
+          {/* Right Side */}
+          <div
+            className="md:w-1/2 w-full flex flex-col text-center md:text-left 
   items-center md:items-start justify-center"
->
-  <h3 className="text-[28px] md:text-[35px] font-bold text-white">
-    Upcoming Batch
-  </h3>
+          >
+            <h3 className="text-[28px] md:text-[35px] font-bold text-white">
+              Upcoming Batch
+            </h3>
 
 
-  <div className="flex-grow flex flex-col justify-center space-y-4 text-base text-gray-200 border-t border-b border-white/10 my-6 py-2">
-    <p className="flex items-center justify-center md:justify-start gap-2">
-      <Calendar size={18} className="text-white" />
-      <strong>Start Date:</strong> {currentBatch.startDate}
-    </p>
-    <p className="flex items-center justify-center md:justify-start gap-2">
-      <Clock size={18} className="text-white" />
-      <strong>Duration:</strong> {currentBatch.duration}
-    </p>
-    <p className="flex items-center justify-center md:justify-start gap-2">
-      <Laptop size={18} className="text-white" />
-      <strong>Includes:</strong> {currentBatch.includes}
-    </p>
-<p className="flex items-center justify-center md:justify-start gap-2 text-red-500">
-  <AlertTriangle size={20} className="text-white" />
-  <strong className="animate-slow-blink">Limited Seats Only!</strong>
-</p>
-  </div>
+            <div className="flex-grow flex flex-col justify-center space-y-4 text-base text-gray-200 border-t border-b border-white/10 my-6 py-2">
+              <p className="flex items-center justify-center md:justify-start gap-2">
+                <Calendar size={18} className="text-white" />
+                <strong>Start Date:</strong> {currentBatch.startDate}
+              </p>
+              <p className="flex items-center justify-center md:justify-start gap-2">
+                <Clock size={18} className="text-white" />
+                <strong>Duration:</strong> {currentBatch.duration}
+              </p>
+              <p className="flex items-center justify-center md:justify-start gap-2">
+                <Laptop size={18} className="text-white" />
+                <strong>Includes:</strong> {currentBatch.includes}
+              </p>
+              <p className="flex items-center justify-center md:justify-start gap-2 text-red-500">
+                <AlertTriangle size={20} className="text-white" />
+                <strong className="animate-slow-blink">Limited Seats Only!</strong>
+              </p>
+            </div>
 
-  <div className="text-center mb-4">
-    <h5 className="text-sm font-semibold mb-2 text-cyan-300 uppercase">
-      Offer Ends In
-    </h5>
-    <div className="flex justify-center space-x-2 text-white font-mono">
-      {["DAYS", "HRS", "MIN", "SEC"].map((label, i) => (
-        <div key={label} className="bg-black/30 p-2 rounded-md text-center w-16">
-          <div className="text-3xl font-bold">
-            {padZero([timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.seconds][i])}
-          </div>
-          <div className="text-xs">{label}</div>
-        </div>
-      ))}
-    </div>
-  </div>
+            <div className="text-center mb-4">
+              <h5 className="text-sm font-semibold mb-2 text-cyan-300 uppercase">
+                Offer Ends In
+              </h5>
+              <div className="flex justify-center space-x-2 text-white font-mono">
+                {["DAYS", "HRS", "MIN", "SEC"].map((label, i) => (
+                  <div key={label} className="bg-black/30 p-2 rounded-md text-center w-16">
+                    <div className="text-3xl font-bold">
+                      {padZero([timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.seconds][i])}
+                    </div>
+                    <div className="text-xs">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-<div className="flex justify-center md:justify-start">
-  <button
-    className="relative w-[180px] bg-red-600 text-white font-bold py-3 rounded-3xl 
+            <div className="flex justify-center md:justify-start">
+              <button
+                className="relative w-[180px] bg-red-600 text-white font-bold py-3 rounded-3xl 
     hover:bg-blue-600 transition-all duration-300 text-lg active:scale-95 
     overflow-hidden cursor-pointer 
     md:ml-10 md:mt-4"
-    onClick={onReserveClick}
-  >
-    Enroll now
-  </button>
-</div>
+                onClick={onReserveClick}
+              >
+                Enroll now
+              </button>
+            </div>
 
-</div>
+          </div>
 
         </div>
       </motion.div>
