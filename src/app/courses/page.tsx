@@ -56,6 +56,13 @@ const courses: Course[] = [
     description: "Achieve professional mastery in bug bounty hunting with advanced real-world simulations.", 
     image: "/cpbh.png" 
   },
+        { 
+    title: "Certified Cyber Intelligence Analyst", 
+    path: "ccia", 
+    category: "AI Security", 
+    description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
+    image: "/ccia.png" 
+  },
   { 
     title: "Certified Bug Bounty Expert", 
     path: "cbbe", 
@@ -83,13 +90,6 @@ const courses: Course[] = [
     category: "Networking", 
     description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
     image: "/cna.png" 
-  },
-      { 
-    title: "Certified Cyber Intelligence Analyst", 
-    path: "ccia", 
-    category: "AI Security", 
-    description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
-    image: "/ccia.png" 
   },
 ];
 
