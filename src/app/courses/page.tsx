@@ -102,7 +102,7 @@ const careerPaths: CareerPath[] = [
         title: "Bug Bounty Hunter", 
         description: "Hunt for vulnerabilities in real-world applications and get rewarded for your findings. Master web and mobile security testing.", 
         certifications: [
-            { name: "Junior Bug Bounty Hunter", image: "/jbbh.png" },
+            { name: "Junior Bug Bounty Hunter", image: "/jbbt.png" },
             { name: "Certified Bug Bounty Hunter", image: "/cbbt.png" },
             { name: "Certified Bug Bounty Expert", image: "/cbbe.png" },
             { name: "Certified Professional Bug Hunter", image: "/cpbh.png" }
