@@ -104,7 +104,6 @@ const careerPaths: CareerPath[] = [
         certifications: [
             { name: "Junior Bug Bounty Hunter", image: "/jbbt.png" },
             { name: "Certified Bug Bounty Hunter", image: "/cbbt.png" },
-            { name: "Certified Bug Bounty Expert", image: "/cbbe.png" },
             { name: "Certified Professional Bug Hunter", image: "/cpbh.png" }
         ], 
         roles: ["Bug Bounty Hunter", "Application Security Engineer", "Security Researcher", "Vulnerability Analyst"], 
