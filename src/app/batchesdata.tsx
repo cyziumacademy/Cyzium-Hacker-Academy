@@ -9,7 +9,7 @@ export const batches = [
     includes: "Live Sessions + Labs",
     price: "₹5,000",
     cashback: "Cashback!",
-    targetDate: "2026-02-15T00:00:00Z",
+    targetDate: "2026-04-15T00:00:00Z",
   },
   {
     image: "/cbbt.png",
@@ -19,6 +19,6 @@ export const batches = [
     includes: "Live Sessions + Labs",
     price: "₹4,000",
     cashback: "Cashback!",
-    targetDate: "2026-02-01T00:00:00Z",
+    targetDate: "2026-04-01T40:00:00Z",
   },
 ];
