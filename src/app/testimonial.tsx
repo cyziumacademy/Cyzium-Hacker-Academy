@@ -69,7 +69,7 @@ const TestimonialsPage: React.FC = () => {
       name: "Keerthana Chandran",
       image: "",
       quote:
-        "JBBH completely changed the way I look at bug bounty. The step-by-step workflow and real examples made everything finally click for me.",
+        "JBBT completely changed the way I look at bug bounty. The step-by-step workflow and real examples made everything finally click for me.",
       gradientClass: "from-purple-500/20 to-transparent",
     },
     {

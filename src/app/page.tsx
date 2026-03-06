@@ -116,8 +116,8 @@ const sampleCourses: Course[] = [
     duration: "6 weeks",
        seatsLeft: 6,
     shortDescription: "Learn how to find real bugs on real websites, starting from zero.",
-    image: "/jbbh.png",
-    path: "jbbh"
+    image: "/jbbt.png",
+    path: "jbbt"
   },
 ];
 

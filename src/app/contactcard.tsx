@@ -49,13 +49,13 @@ function ContactCard() {
   const [sent, setSent] = useState(false);
 
   const courses = [
-    "JBBH (Certified Junior Bug Bounty Hunter )",
+    "JBBT (Certified Junior Bug Bounty Hunter )",
     "CBBT (Certified Bug Bounty Hunter )",
-    "CBBE (Certified Bug Bounty Expert )",
     "CPBH (Certified Professional Bug Hunter)",
-    "CNA (Certified Network Associate)",
+    "CCIA (Certified Cyber Intelligence Analyst)",
     "CCSA (Certified Cloud Security Analyst)",
     "CASS (Certified Ai Security Specialist)",
+    "CNA (Certified Network Associate)",
   ];
 
   // 🚀 SEND FORM DATA

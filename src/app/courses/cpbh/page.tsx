@@ -107,7 +107,7 @@ const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({}) => {
     const [showContact, setShowContact] = useState(false);
 
 const curriculumModules = [
-  // JBBH MODULES
+  // T MODULES
      {
       title: "Introduction to Bug Bounty Hunting",
       content:
@@ -298,19 +298,16 @@ const tools = [
   { name: "Nmap", logo: "/nmap.png", size: "145px" },
   { name: "Censys", logo: "/censys.webp", size: "70px" },
   { name: "Metasploit", logo: "/metasploit.png", size: "110px" },
-  { name: "Sqlmap", logo: "/sqlmap.png", size: "100px" },
   { name: "Exploit Database", logo: "/exploit.png", size: "70px" },
   { name: "Nessus", logo: "/nessus.png", size: "205px" },
   { name: "Owasp zap", logo: "/owasp.png", size: "150px" },
   { name: "Postman", logo: "/postman.png", size: "160px" },
   { name: "Frida", logo: "/frida.png", size: "160px" },
-  { name: "Textattack", logo: "/text.png", size: "85px" },
   { name: "Prowler", logo: "/prowler.png", size: "100px" },
   { name: "Guardrails Ai", logo: "/Guardrails.png", size: "99px" },
   { name: "Promptfoo", logo: "/promptfoo.png", size: "205px" },
   { name: "Trivy", logo: "/trivy.png", size: "160px" },
   { name: "Scout", logo: "/scout.png", size: "160px" },
-  { name: "Shodan", logo: "/shodan.png", size: "85px" },
 
   
 ];
@@ -472,9 +469,8 @@ return (
 
     <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-8">
       {[
-  { name: "Beginner", img: "/jbbh.png", link: "/courses/jbbh" },
+  { name: "Beginner", img: "/jbbt.png", link: "/courses/jbbt" },
   { name: "Intermediate", img: "/cbbt.png", link: "/courses/cbbt" },
-  { name: "Advanced", img: "/cbbe.png", link: "" },
   { name: "Professional", img: "/cpbh.png", pro: true }, 
 ].map((step, i, arr) => (
   <motion.div
@@ -544,8 +540,8 @@ return (
 
   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
 <p className="text-base sm:text-xl text-gray-300 leading-relaxed md:w-[70%]">
- The Certified Professional Bug Bounty Hunter (CPBH) is our flagship certification program that takes you from beginner to expert in ethical hacking. It includes the complete learning path from our Junior (JBBH), Certified (CBBT), and Expert (CBBE) Bug Bounty Hunter courses — covering everything from foundational concepts to advanced, real-world bug hunting. 
- This program trains you to identify and report vulnerabilities across Web, API, Mobile, AI, and Cloud platforms through practical, hands-on learning. By the end, you’ll earn the prestigious CPBH certification, equipped with the skills, confidence, 
+ The Certified Professional Bug Bounty Hunter (CPBH) is our flagship certification program that takes you from beginner to expert in ethical hacking. It includes the complete learning path from our Junior (JBBT) & Certified (CBBT) courses — covering everything from foundational concepts to advanced, real-world bug hunting. 
+ This program trains you to identify and report vulnerabilities across Web, Mobile, AI platforms through practical, hands-on learning. By the end, you’ll earn the prestigious CPBH certification, equipped with the skills, confidence, 
  and professional mindset to hunt bugs responsibly and effectively across any modern technology stack.
 </p>
 
@@ -820,7 +816,7 @@ return (
   <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
   <Image
                  src="/cpbh.png"
-                 alt="JBBH Motivation"
+                 alt="JBBT Motivation"
                  width={150}
                  height={150}
                  className="object-cover rounded-md"

@@ -51,10 +51,10 @@ function FormInput({
 
 export default function Contact() {
   const courses = [
-    "JBBH (Certified Junior Bug Bounty Hunter)",
+    "JBBT (Certified Junior Bug Bounty Hunter)",
     "CBBT (Certified Bug Bounty Hunter)",
-    "CBBE (Certified Bug Bounty Expert)",
     "CPBH (Certified Professional Bug Hunter)",
+    "CCIA (Certified Cyber Intelligence Analyst)",
     "CNA (Certified Network Associate)",
     "CCSA (Certified Cloud Security Analyst)",
     "CASS (Certified Ai Security Specialist)",

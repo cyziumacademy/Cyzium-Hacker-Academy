@@ -10,7 +10,6 @@ import ContactCard from "@/app/contact";
 import { X } from 'lucide-react';
 
 
-
 // ================== TypeScript Interfaces ==================
 interface Certification {
     name: string;
@@ -37,10 +36,10 @@ interface CareerPath {
 const courses: Course[] = [
   { 
     title: "Junior Bug Bounty Hunter", 
-    path: "jbbh", 
+    path: "jbbt", 
     category: "Bug Bounty Hunting", 
     description: "Begin your ethical hacking journey and learn real-world bug bounty fundamentals.", 
-    image: "/jbbh.png" 
+    image: "/jbbt.png" 
   },
   { 
     title: "Certified Bug Bounty Hunter", 
@@ -62,13 +61,6 @@ const courses: Course[] = [
     category: "AI Security", 
     description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
     image: "/ccia.png" 
-  },
-  { 
-    title: "Certified Bug Bounty Expert", 
-    path: "cbbe", 
-    category: "Bug Bounty Hunting", 
-    description: "Master advanced exploitation in web, AI, and cloud environments for expert-level hunting.", 
-    image: "/cbbe.png" 
   },
   { 
     title: "Certified Cloud Security Analyst", 
@@ -248,8 +240,6 @@ export default function CoursesPage(): React.JSX.Element {
     </button>
   ))}
 </div>
-
-
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {filteredCourses.map((course: Course) => (
                                 <div key={course.path} className={`${glassEffect} overflow-hidden hover:shadow-red-500/40 transition-all duration-500 transform hover:-translate-y-2 animate-slide-up`}>
@@ -264,7 +254,7 @@ export default function CoursesPage(): React.JSX.Element {
                                         <h3 className="text-2xl font-bold mb-2 text-gray-100 flex-grow">{course.title}</h3>
                                         <p className="text-gray-400 mb-6">{course.description}</p>
                                        <div className="flex justify-center">
-  {["ccsa", "cna", "cass", "cbbe", "ccia"].includes(course.path) ? (
+  {["ccsa", "cna", "cass", "ccia"].includes(course.path) ? (
     <div className="w-60 mt-auto bg-gray-700 text-gray-300 font-semibold py-3 px-4 rounded-[20px] text-center cursor-not-allowed">
       Coming Soon
     </div>

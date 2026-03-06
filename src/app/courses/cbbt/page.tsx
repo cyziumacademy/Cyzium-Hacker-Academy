@@ -347,7 +347,7 @@ return (
   This course dives into real-world security testing methods, teaching you how to uncover complex vulnerabilities in modern applications, analyze critical security flaws, and understand how attackers exploit them.
   You’ll explore advanced topics such as business logic abuse, authentication and authorization bypasses, API exploitation techniques, mobile app security weaknesses, and multi-step attack chains. By the end, you’ll be equipped with the knowledge, practical skillset, and professional approach needed to perform high-impact ethical hacking and confidently participate in bug bounty programs.
 </p>
-
+   
 
 <Image
   src="/cbbt.png"
@@ -566,7 +566,7 @@ return (
   <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
               <Image
                 src="/cbbt.png"
-                alt="JBBH Motivation"
+                alt="CBBT Motivation"
                 width={150}
                 height={150}
                 className="object-cover rounded-md"

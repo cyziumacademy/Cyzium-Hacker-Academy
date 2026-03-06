@@ -2,7 +2,7 @@
 
 export const batches = [
   {
-    image: "/jbbh.png",
+    image: "/jbbt.png",
     title: "Certified Junior Bug Bounty Hunter",
     startDate: "Apr 5, 2026",
     duration: "1.5 Months",

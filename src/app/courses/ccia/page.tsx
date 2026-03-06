@@ -32,7 +32,7 @@ interface FaqCardProps {
   delay?: number;
 }
 
-interface JBBHCoursePageProps {
+interface CCIACoursePageProps {
   onBack?: () => void;
 }
 
@@ -108,7 +108,7 @@ const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
 };
 
 // --- MAIN COMPONENT ---
-const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
+const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
   const [showContact, setShowContact] = useState(false);
   const curriculumModules = [
     {
@@ -247,8 +247,8 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white mt-12">
-                Certified Junior Bug Bounty <span className="text-blue-600">Hunter</span>
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mt-12">
+                Certified Cyber Intelligence <span className="text-blue-600">Analyst</span>
               </h1>
               <p className="mt-6 sm:mt-8 max-w-6xl mx-auto text-lg sm:text-2xl text-gray-300">
                 Start your journey in ethical hacking with practical, hands-on learning. Understand how websites and applications work, spot vulnerabilities safely, and gain confidence using essential cybersecurity tools. Build the skills needed to responsibly uncover security issues in real environments.
@@ -321,7 +321,7 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
               </p>
 
               <Image
-                src="/jbbh.png"
+                src="/ccia.png"
                 alt="Bug Bounty Course"
                 width={400}
                 height={300}
@@ -351,7 +351,7 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">The Certified Edge</h3>
                 <p className="mt-3 text-gray-200 text-sm sm:text-base">
-                  The JBBH is recognized by leading bug bounty platforms and security firms worldwide. Gain the <strong>credibility and deep technical skills</strong> required to stand out in the competitive field of offensive security.
+                  The CCIA is recognized by leading bug bounty platforms and security firms worldwide. Gain the <strong>credibility and deep technical skills</strong> required to stand out in the competitive field of offensive security.
                 </p>
               </div>
             </motion.div>
@@ -507,8 +507,8 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">You Don’t Need Experience — We’ll Build You from Scratch</h2>
             <div className="p-6 sm:p-8 rounded-lg flex flex-col sm:flex-row items-center gap-6 sm:gap-8 max-w-4xl mx-auto text-center sm:text-left">
               <Image
-                src="/jbbh.png"
-                alt="JBBH Motivation"
+                src="/ccia.png"
+                alt="CCIA Motivation"
                 width={150}
                 height={150}
                 className="object-cover rounded-md"
@@ -517,7 +517,7 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
                 <h3 className="text-2xl sm:text-3xl font-bold">Start from Zero, Grow to a Bug Hunter</h3>
                 <p className="text-base sm:text-lg text-red-500 font-semibold">No Prior Knowledge Needed</p>
                 <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
-                  In JBBH, you don’t need to know a single thing about hacking or coding. We’ll take you step by step — from beginner level to finding your first real-world bug. This isn’t just a course; it’s your launchpad into ethical hacking.
+                  In CCIA, you don’t need to know a single thing about hacking or coding. We’ll take you step by step — from beginner level to finding your first real-world bug. This isn’t just a course; it’s your launchpad into ethical hacking.
                 </p>
               </div>
             </div>
@@ -564,4 +564,4 @@ const JBBHCoursePage: React.FC<JBBHCoursePageProps> = ({}) => {
   );
 };
 
-export default JBBHCoursePage;
+export default CCIACoursePage;

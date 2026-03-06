@@ -159,13 +159,13 @@ export default function ContactCard({ onClose, isOpen }: ContactCardProps) {
                              px-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 appearance-none"
                 >
                   <option value="">Select a Course of Interest</option>
-                  <option>JBBH (Certified Junior Bug Bounty Hunter)</option>
+                  <option>JBBT (Certified Junior Bug Bounty Hunter)</option>
                   <option>CBBT (Certified Bug Bounty Hunter)</option>
-                  <option>CBBE (Certified Bug Bounty Expert)</option>
                   <option>CPBH (Certified Professional Bug Hunter)</option>
-                  <option>CNA (Certified Network Associate)</option>
+                  <option>CCIA (Certified Cyber Intelligence Analyst)</option>
                   <option>CCSA (Certified Cloud Security Analyst)</option>
                   <option>CASS (Certified Ai Security Specialist)</option>
+                  <option>CNA (Certified Network Associate)</option>
                 </select>
               </motion.div>
 
