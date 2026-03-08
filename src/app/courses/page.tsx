@@ -48,6 +48,13 @@ const courses: Course[] = [
     description: "Advance your bug hunting skills with in-depth web, API, and mobile testing techniques.", 
     image: "/cbbt.png" 
   },
+  { 
+    title: "Certified Cyber Intelligence Analyst", 
+    path: "ccia", 
+    category: "AI Security", 
+    description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
+    image: "/ccia.png" 
+  },
     { 
     title: "Certified Professional Bug Hunter", 
     path: "cpbh", 
@@ -55,13 +62,7 @@ const courses: Course[] = [
     description: "Achieve professional mastery in bug bounty hunting with advanced real-world simulations.", 
     image: "/cpbh.png" 
   },
-        { 
-    title: "Certified Cyber Intelligence Analyst", 
-    path: "ccia", 
-    category: "AI Security", 
-    description: "Build a strong foundation in networking, protocols, and secure infrastructure design.", 
-    image: "/ccia.png" 
-  },
+      
   { 
     title: "Certified Cloud Security Analyst", 
     path: "ccsa", 
