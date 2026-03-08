@@ -127,9 +127,9 @@ const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ }) => {
                 "Learn how to exploit vulnerabilities individually and chain them together for more impactful results in real bug bounty scenarios.",
         },
         {
-            title: "API & Mobile Bug Hunting",
+            title: "Mobile Application Bug Hunting",
             content:
-                "Explore testing methodologies for APIs and mobile applications, including common vulnerabilities, tools, and hands-on exploitation.",
+                "Explore security testing methodologies for mobile applications, covering common vulnerabilities, mobile pentesting tools, and hands-on exploitation techniquesLearn mobile application security testing methodologies, identify common vulnerabilities, use professional tools, and perform hands-on exploitation in real-world scenarios.",
         },
         {
             title: "Automation & AI in Bug Hunting",
@@ -167,7 +167,7 @@ const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ }) => {
     {
       title: "Is this course focused on a specific platform?",
       content:
-        "No, CBBT covers a variety of real-world platforms including web applications, mobile apps, and APIs, so you can practice bug hunting across different environments.",
+        "No, CBBT covers a variety of real-world platforms including web applications and mobile apps, so you can practice bug hunting across different environments.",
     },
   ];
 
@@ -177,7 +177,7 @@ const CBBTCoursePage: React.FC<CBBTCoursePageProps> = ({ }) => {
 const careerOpportunities = [
   { title: "Bug Bounty Hunter", icon: Bug },
   { title: "Web Application Security Tester", icon: GlobeLock },
-  { title: "API & Mobile Security Tester", icon: Smartphone },
+  { title: "Mobile Application Pentester", icon: Smartphone },
   { title: "AI-assisted Security Researcher", icon: Cpu }, // reflects AI automation in bug hunting
   { title: "Vulnerability Researcher", icon: FlaskConical },
   { title: "Security Consultant / Penetration Tester", icon: ShieldCheck },
@@ -343,9 +343,9 @@ return (
 
   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
 <p className="text-base sm:text-xl text-gray-300 leading-relaxed md:w-[70%]">
-  The Certified Bug Bounty Hunter (CBBT) is an advanced cybersecurity program designed to build deep expertise in Web, Mobile, and API Penetration Testing. 
+  The Certified Bug Bounty Hunter (CBBT) is an advanced cybersecurity program designed to build deep expertise in Web and Mobile Application Penetration Testing. 
   This course dives into real-world security testing methods, teaching you how to uncover complex vulnerabilities in modern applications, analyze critical security flaws, and understand how attackers exploit them.
-  You’ll explore advanced topics such as business logic abuse, authentication and authorization bypasses, API exploitation techniques, mobile app security weaknesses, and multi-step attack chains. By the end, you’ll be equipped with the knowledge, practical skillset, and professional approach needed to perform high-impact ethical hacking and confidently participate in bug bounty programs.
+  You’ll explore advanced topics such as business logic abuse, authentication and authorization bypasses, mobile application security weaknesses, and multi-step attack chains. By the end, you’ll be equipped with the knowledge, practical skillset, and professional approach needed to perform high-impact ethical hacking and confidently participate in bug bounty programs.
 </p>
    
 
@@ -459,7 +459,7 @@ return (
       "Perform advanced reconnaissance and asset discovery to prioritise high-value targets.",
       "Deeply understand web application architecture to identify and exploit complex vulnerabilities.",
       "Exploit and chain vulnerabilities for higher impact and realistic attack simulation.",
-      "Discover and attack API and mobile-specific weaknesses on both iOS and Android.",
+      "Discover and attack mobile-specific weaknesses on both iOS and Android.",
       "Automate recon and scanning workflows and leverage AI to speed up vulnerability discovery.",
       "Master professional tools for fuzzing, scanning, exploitation and post-exploitation workflows.",
       "Write high-quality reports, communicate with program owners, and follow responsible disclosure.",
@@ -509,7 +509,7 @@ return (
   <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You&apos;ll Achieve</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
     {[
-      "Gain advanced skills in web, API, and mobile bug hunting.",
+      "Gain advanced skills in web and mobile bug hunting.",
       "Master reconnaissance, exploitation, and chaining of complex vulnerabilities.",
       "Leverage automation and AI tools to optimize bug discovery.",
       "Learn professional reporting, communication, and responsible disclosure practices.",

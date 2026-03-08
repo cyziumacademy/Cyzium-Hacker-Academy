@@ -14,11 +14,11 @@ export const batches = [
   {
     image: "/cbbt.png",
     title: "Certified Bug Bounty Hunter",
-    startDate: "Apr 15, 2026",
+    startDate: "May 15, 2026",
     duration: "2 Months",
     includes: "Live Sessions + Labs",
     price: "₹4,000",
     cashback: "Cashback!",
-    targetDate: "2026-04-01T40:00:00Z",
+    targetDate: "2026-05-15T00:00:00Z",
   },
 ];

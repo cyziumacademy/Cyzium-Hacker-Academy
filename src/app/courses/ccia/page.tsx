@@ -10,6 +10,8 @@ import {
   Shield,
   GraduationCap,
   HelpCircle,
+  LifeBuoy, Headset,  Network,  Activity,
+  Server,  Radar,  LockKeyhole, Search, ShieldCheck 
 } from "lucide-react";
 import Navbar from "@/app/navbar";
 import Footer from "@/app/footer";
@@ -110,93 +112,140 @@ const FaqCard: React.FC<FaqCardProps> = ({ question, answer, delay = 0 }) => {
 // --- MAIN COMPONENT ---
 const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
   const [showContact, setShowContact] = useState(false);
-  const curriculumModules = [
-    {
-      title: "Introduction to Bug Bounty Hunting",
-      content:
-        "Understand what bug bounty hunting is, how platforms like Bugcrowd and HackerOne work, and the overall process of finding and reporting vulnerabilities ethically.",
-    },
-    {
-      title: "Networking Fundamentals",
-      content:
-        "Learn essential networking concepts such as TCP/IP, DNS, HTTP, and ports — the backbone knowledge required to understand how data travels across the web.",
-    },
-    {
-      title: "Linux & Kali Essentials for Bug Bounty",
-      content:
-        "Get hands-on with Linux commands, terminal operations, and Kali Linux tools that are crucial for recon, scanning, and exploitation during bug bounty testing.",
-    },
-    {
-      title: "Web Application Concepts for Hackers",
-      content:
-        "Dive into how web applications work — from requests, responses, and cookies to APIs and authentication — to build a hacker’s understanding of web architecture.",
-    },
-    {
-      title: "Web Security Vulnerabilities",
-      content:
-        "Explore common and critical web vulnerabilities such as XSS, SQL Injection, CSRF, SSRF, IDOR, and learn how to identify and exploit them in real targets.",
-    },
-    {
-      title: "Introduction to AI-Powered Bug Hunting",
-      content:
-        "Discover how AI tools can assist bug hunters in automation, recon, and vulnerability discovery, and how to integrate them into your bug bounty workflow.",
-    },
-    {
-      title: "Real World Bug Hunting",
-      content:
-        "Apply all your learning in real-world scenarios, analyze live bug bounty programs, report valid vulnerabilities, and learn how to write impactful submissions.",
-    },
-  ];
+const curriculumModules = [
+  {
+    title: "Cyber Intelligence & Networking Foundations",
+    content:
+      "Learn the fundamentals of networking and cyber intelligence, including how attackers operate, intelligence lifecycles, and frameworks like MITRE ATT&CK used to analyze real cyber threats.",
+  },
+  {
+    title: "OSINT & Digital Footprint Analysis",
+    content:
+      "Understand how to gather intelligence from open sources by analyzing domains, IPs, emails, and social media to uncover digital footprints and exposed infrastructure.",
+  },
+  {
+    title: "Network Traffic & Log Analysis",
+    content:
+      "Learn how to analyze network traffic and system logs to detect suspicious activities, investigate attacker behavior, and identify potential security incidents.",
+  },
+  {
+    title: "Threat Intelligence & Malware Analysis",
+    content:
+      "Explore how threat intelligence teams track attackers, analyze malware samples, extract indicators of compromise (IOCs), and map attacks using frameworks like MITRE ATT&CK.",
+  },
+  {
+    title: "Vulnerability & Exploit Intelligence",
+    content:
+      "Understand how security teams monitor vulnerabilities, analyze CVEs and exploits, and assess their real-world impact on organizations and systems.",
+  },
+  {
+    title: "SIEM & SOC Operations",
+    content:
+      "Discover how Security Operations Centers monitor networks using SIEM tools, investigate alerts, detect attacks, and respond to security incidents in real time.",
+  },
+  {
+    title: "Incident Response & Digital Investigation",
+    content:
+      "Learn the incident response process, including evidence collection, forensic analysis, and timeline reconstruction to investigate cyber attacks effectively.",
+  },
+  {
+    title: "Dark Web & Data Leak Analysis",
+    content:
+      "Understand how threat actors operate on the dark web, track ransomware leaks, analyze breach data, and monitor underground cybercrime communities.",
+  },
+  {
+    title: "Cloud Security & Cloud Intelligence",
+    content:
+      "Learn how cloud environments work and how security teams identify misconfigurations, exposed storage, and threats targeting modern cloud infrastructure.",
+  },
+  {
+    title: "AI in Cyber Security",
+    content:
+      "Explore how artificial intelligence is transforming cybersecurity through automated threat detection, log analysis, and intelligent security investigations.",
+  },
+  {
+    title: "Security Reporting & Visualization",
+    content:
+      "Develop the ability to create professional threat intelligence reports, visualize attack data, and communicate security findings clearly to technical and executive teams.",
+  },
+  {
+    title: "Real-World Attack Case Studies",
+    content:
+      "Analyze real cyber attacks including ransomware, phishing campaigns, and data breaches to understand how attackers operate and how organizations respond.",
+  },
+  {
+    title: "Capstone Project: Cyber Intelligence Investigation",
+    content:
+      "Apply everything you’ve learned by conducting a full cyber intelligence investigation including OSINT research, log analysis, threat mapping, and professional reporting.",
+  },
+];
 
-  const faqs = [
-    {
-      title: "What are the prerequisites for this course?",
-      content:
-        "No prior experience is required! This course starts from the basics — anyone with curiosity and interest in cybersecurity can join. Basic computer and internet knowledge is enough.",
-    },
-    {
-      title: "Can a younger student do real bug hunting?",
-      content:
-        "Yes, absolutely — with parent approval! If you are under 14, you can legally test websites through Vulnerability Disclosure Programs (VDPs) under parental supervision.",
-    },
-{
-  title: "Is this course focused on a specific platform?",
-  content:
-    "Yes, JBBH is fully focused on web applications. You will learn beginner-friendly web bug hunting with AI-powered guidance to help you understand and practice real-world web vulnerabilities easily.",
-},
+const faqs = [
+  {
+    title: "What are the prerequisites for this course?",
+    content:
+      "No prior experience is required. CCIA is designed for complete beginners who want to start a career in cybersecurity. The course begins with networking and security fundamentals before moving into advanced cybersecurity and cyber intelligence topics.",
+  },
+  {
+    title: "Will this course help me start a cybersecurity career?",
+    content:
+      "Yes. CCIA is structured to help students build practical cybersecurity skills used in real industry roles such as SOC Analyst, Cybersecurity Analyst, and Threat Intelligence Analyst. You will gain hands-on experience with security tools and real-world scenarios.",
+  },
+  {
+    title: "Will there be practical labs?",
+    content:
+      "Yes. CCIA is highly practical. Students will work on hands-on labs including network monitoring, log analysis, threat detection, cyber intelligence research, and security investigations to simulate real-world cybersecurity environments.",
+  },
+];
 
-  ];
+  const [activeModule, setActiveModule] = useState(curriculumModules[0]); 
 
-  const [activeModule, setActiveModule] = useState(curriculumModules[0]);
-
-  const careerOpportunities = [
-    { title: "Junior Bug Bounty Hunter", icon: Bug },
-    { title: "Web Security Tester", icon: GlobeLock },
-    { title: "Cybersecurity Intern", icon: GraduationCap },
-    { title: "Security Research Assistant", icon: FlaskConical },
-    { title: "Vulnerability Analyst", icon: Shield },
-  ];
+const careerOpportunities = [
+  { title: "Network Support Engineer", icon: Network },
+  { title: "Junior System Administrator", icon: Server },
+  { title: "SOC Analyst (Level 1)", icon: Activity },
+  { title: "SOC Analyst (Level 2)", icon: ShieldCheck },
+  { title: "Cybersecurity Analyst", icon: Shield },
+  { title: "Vulnerability Management Analyst", icon: Bug },
+  { title: "Threat Intelligence Analyst", icon: Radar },
+  { title: "Digital Forensics Analyst", icon: Search },
+  { title: "Security Operations Engineer", icon: LockKeyhole },
+    { title: "Help Desk Technician", icon: LifeBuoy },
+];
 
   const tools = [
-    { name: "Kali Linux", logo: "/kali.png", size: "80px" },
-    { name: "Burp Suite", logo: "/burp.png", size: "230px" },
+    { name: "Tor", logo: "/tor.png", size: "80px" },
+    { name: "wazuh", logo: "/wazuh.png", size: "80px" },
+    { name: "splunk", logo: "/splunk.png", size: "230px" },
     { name: "Wireshark", logo: "/wire.png", size: "60px" },
-    { name: "Nmap", logo: "/nmap.png", size: "145px" },
-    { name: "Shodan", logo: "/shodan.png", size: "85px" },
-    { name: "Metasploit", logo: "/metasploit.png", size: "110px" },
-    { name: "Sqlmap", logo: "/sqlmap.png", size: "100px" },
-    { name: "Exploit Database", logo: "/exploit.png", size: "70px" },
+    { name: "Maltego", logo: "/maltego.png", size: "145px" },
+    { name: "Scout", logo: "/scout.png", size: "85px" },
+    { name: "Elk-Stack", logo: "/elk.png", size: "110px" },
+    { name: "Virustotal", logo: "/virustotal.png", size: "100px" },
   ];
 
-  return (
-    <div className="relative text-white font-sans overflow-x-hidden">
-      {/* --- Cyber Gradient Background --- */}
-      <div className="fixed top-0 left-0 w-full h-full z-0">
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#001F3F] via-[#0A0A2A] to-[#450000]" />
+return (
+  <div className="relative text-white font-sans overflow-x-hidden">
 
-        {/* Overlay red-blue glow */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 via-transparent to-red-800/40 mix-blend-overlay" />
+    {/* --- Cyber Gradient Background (Fallback) --- */}
+    <div className="fixed top-0 left-0 w-full h-full z-0">
+      
+      {/* Base gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001F3F] via-[#0A0A2A] to-[#450000]" />
+
+      {/* Overlay red-blue glow */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 mix-blend-overlay" />
+
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-15 blur-sm"
+      >
+        <source src="/bg1.mp4" type="video/mp4" />
+      </video>
 
       {/* 💠 Tech grid lines (visible now) */}
       <div
@@ -250,9 +299,9 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mt-12">
                 Certified Cyber Intelligence <span className="text-blue-600">Analyst</span>
               </h1>
-              <p className="mt-6 sm:mt-8 max-w-6xl mx-auto text-lg sm:text-2xl text-gray-300">
-                Start your journey in ethical hacking with practical, hands-on learning. Understand how websites and applications work, spot vulnerabilities safely, and gain confidence using essential cybersecurity tools. Build the skills needed to responsibly uncover security issues in real environments.
-              </p>
+           <p className="mt-6 sm:mt-8 max-w-6xl mx-auto text-lg sm:text-2xl text-gray-300">
+Start your career in cyber intelligence by learning how to detect, analyze, and respond to modern cyber threats. Gain hands-on experience with real-world tools, investigate security incidents, and understand how Security Operations Centers (SOC) monitor and defend organizations from cyber attacks.
+</p>
 
               <div className="mt-15 flex flex-col sm:flex-row items-center justify-center gap-4">
                 {/* Enroll Now Button */}
@@ -292,15 +341,15 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
             <section className="py-4 sm:py-8">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10">
                 <div className="text-center">
-                  <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">1.5 Months</p>
+                  <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">3 Months</p>
                   <p className="text-gray-400 text-sm sm:text-base">Duration</p>
                 </div>
+<div className="text-center">
+  <p className="text-2xl sm:text-3xl font-bold text-green-400">Cyber Intelligence</p>
+  <p className="text-gray-400 text-sm sm:text-base">Specialization</p>
+</div>
                 <div className="text-center">
-                  <p className="text-2xl sm:text-4xl font-bold text-green-400">Beginner</p>
-                  <p className="text-gray-400 text-sm sm:text-base">Skill Level</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-2xl sm:text-4xl text-blue-500 font-bold">20+</p>
+                  <p className="text-2xl sm:text-4xl text-blue-500 font-bold">30+</p>
                   <p className="text-gray-400 text-sm sm:text-base">Lab Hours</p>
                 </div>
                 <div className="text-center">
@@ -317,12 +366,13 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
 
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-8">
               <p className="text-base sm:text-xl text-gray-300 leading-relaxed md:w-[70%]">
-                The Certified Junior Bug Bounty Hunter (JBBH) is a comprehensive program designed for anyone starting their journey in cybersecurity, even with no prior experience. In this course, you will learn how to identify and report security vulnerabilities in websites safely and legally. We focus on building your foundational skills step by step — from understanding how web applications work, to using essential tools like Kali Linux, Burp Suite, and Nmap, to discovering common vulnerabilities like XSS and SQL Injection. As you progress, you will gain practical experience in real-world bug hunting scenarios, preparing you to report valid security issues confidently and professionally. By the end of the course, you will have the skills, knowledge, and mindset to begin your journey as an ethical hacker and junior bug bounty hunter.
+                The Certified Cyber Intelligence Analyst (CCIA) program covers essential areas of modern cybersecurity including network security, security operations (SOC), threat intelligence, dark web investigations, 
+                digital forensics fundamentals, and AI-driven security techniques. Through hands-on labs, real-world tools, and practical investigations, students gain the operational skills needed to analyze threats, monitor security incidents, and understand how cyber intelligence is used to defend organizations against modern cyber attacks.
               </p>
 
               <Image
                 src="/ccia.png"
-                alt="Bug Bounty Course"
+                alt="Ai security Course"
                 width={400}
                 height={300}
                 className="rounded-[35px] sm:rounded-[45px] w-full max-w-[280px] sm:max-w-[320px] mx-auto md:mx-0 shadow-[0_20px_60px_rgba(0,0,0,0.8)] transition-all duration-500 ease-out hover:scale-105 hover:shadow-[0_30px_80px_rgba(0,128,255,0.4)]"
@@ -347,13 +397,12 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
               <motion.div whileHover={{ rotate: 15, scale: 1.1 }} transition={{ type: "spring", stiffness: 250, damping: 12 }}>
                 <Award size={60} className="text-yellow-400 flex-shrink-0" />
               </motion.div>
-
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">The Certified Edge</h3>
-                <p className="mt-3 text-gray-200 text-sm sm:text-base">
-                  The CCIA is recognized by leading bug bounty platforms and security firms worldwide. Gain the <strong>credibility and deep technical skills</strong> required to stand out in the competitive field of offensive security.
-                </p>
-              </div>
+<p className="mt-3 text-gray-200 text-sm sm:text-base">
+  This program prepares you for real-world cyber intelligence and security operations roles. Develop the <strong>analytical skills and practical experience</strong> needed to monitor threats, investigate security incidents, and support modern Security Operations Centers (SOC).
+</p>
+             </div>
             </motion.div>
           </Section>
 
@@ -401,26 +450,26 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
           </Section>
 
           {/* --- What You Will Learn --- */}
-          <Section id="what-you-will-learn">
-            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">Key Proficiencies Gained</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
-              {[
-                "Understand the fundamentals of bug bounty hunting from scratch.",
-                "Learn how web applications works.",
-                "Identify and exploit common vulnerabilities like XSS, SQLi, and CSRF.",
-                "Use real-world tools like Burp Suite, Nmap and Wireshark.",
-                "Perform recon and enumeration to discover targets legally.",
-                "Report valid vulnerabilities professionally to live bug bounty programs.",
-                "Gain confidence to participate in VDP programs even as a beginner.",
-                "Understand how AI tools can assist in bug hunting effectively.",
-              ].map((item, i) => (
-                <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
-                  <CheckCircle size={20} className="text-blue-500 flex-shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </Section>
+<Section id="what-you-will-learn">
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">Key Proficiencies Gained</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
+    {[
+      "Understand the foundations of cybersecurity, networking, and modern threat landscapes.",
+      "Learn how Security Operations Centers (SOC) monitor and respond to cyber threats.",
+      "Analyze security logs and investigate suspicious activities in real-world scenarios.",
+      "Perform threat intelligence gathering and understand attacker techniques and tactics.",
+      "Explore dark web monitoring and learn how cyber intelligence teams track threats.",
+      "Understand incident detection, response workflows, and security monitoring tools.",
+      "Learn how AI can assist in threat detection, analysis, and automated security operations.",
+      "Understand cloud security fundamentals and how threats impact modern cloud environments.",
+    ].map((item, i) => (
+      <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
+        <CheckCircle size={20} className="text-blue-500 flex-shrink-0" />
+        <span>{item}</span>
+      </div>
+    ))}
+  </div>
+</Section>
 
           {/* --- Tools Section with Logos --- */}
           <Section id="tools">
@@ -450,17 +499,24 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
           </Section>
 
           {/* --- Achievements --- */}
-          <Section id="what-youll-achieve">
-            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You&apos;ll Achieve</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
-              {[
-"Learn to create simple payloads for basic web vulnerabilities like XSS.",
+<Section id="what-youll-achieve">
+  <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
+    What You&apos;ll Achieve
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
+    {[
+      "Build a strong foundation in networking, operating systems, and cybersecurity fundamentals.",
 
-"Understand how to check websites for common logical mistakes.",
+      "Understand how modern cyber attacks work and how security teams detect and analyze them.",
 
-"Learn how login systems, sessions, and user roles work— and how to test them safely.",
+      "Learn to monitor security events using real SOC tools and analyze logs for suspicious activity.",
 
-"Practice finding beginner-friendly web bugs on real websites.",
+      "Gain practical experience with threat intelligence, dark web research, and digital investigation.",
+
+      "Use modern cybersecurity tools for vulnerability analysis, network monitoring, and incident response.",
+
+      "Develop the mindset and skills required to start a career in cybersecurity or advanced security domains."
+    
 
               ].map((item, i) => (
                 <div key={i} className="flex items-start sm:items-center gap-3 sm:gap-4 p-2 sm:p-4">
@@ -513,13 +569,21 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
                 height={150}
                 className="object-cover rounded-md"
               />
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold">Start from Zero, Grow to a Bug Hunter</h3>
-                <p className="text-base sm:text-lg text-red-500 font-semibold">No Prior Knowledge Needed</p>
-                <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
-                  In CCIA, you don’t need to know a single thing about hacking or coding. We’ll take you step by step — from beginner level to finding your first real-world bug. This isn’t just a course; it’s your launchpad into ethical hacking.
-                </p>
-              </div>
+<div>
+  <h3 className="text-2xl sm:text-3xl font-bold">
+    Start from Zero, Grow into a Cybersecurity Professional
+  </h3>
+  <p className="text-base sm:text-lg text-red-500 font-semibold">
+    No Prior Knowledge Required
+  </p>
+  <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
+    CCIA is designed for absolute beginners who want to enter the world of cybersecurity. 
+    Starting from networking fundamentals, you will gradually move into cyber intelligence, 
+    security operations, threat detection, and modern security technologies. By the end 
+    of the program, you will have the practical skills needed to analyze threats, work with 
+    real security tools, and build a strong foundation for a professional cybersecurity career.
+  </p>
+</div>
             </div>
           </Section>
 
@@ -539,7 +603,7 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
         <section className="relative z-20 bg-gradient-to-r from-blue-900 to-red-800 text-white py-16 sm:py-20 px-6 sm:px-8 text-center overflow-hidden">
           <div className="max-w-screen-xl mx-auto relative z-20">
             <h2 className="text-4xl sm:text-5xl font-extrabold">Ready to Join the Elite?</h2>
-            <p className="text-lg sm:text-xl mt-4 max-w-2xl mx-auto">Enroll in the Certified Junior Bug Bounty Hunter program and establish yourself as a leader in offensive security.</p>
+            <p className="text-lg sm:text-xl mt-4 max-w-2xl mx-auto">Enroll in the Certified cyber Intelligence Analyst program and establish yourself as a leader in Defensive security.</p>
 
             <motion.button
               onClick={() => setShowContact(true)}

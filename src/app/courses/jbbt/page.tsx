@@ -196,7 +196,7 @@ const JBBTCoursePage: React.FC<JBBTCoursePageProps> = ({}) => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#001F3F] via-[#0A0A2A] to-[#450000]" />
 
         {/* Overlay red-blue glow */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 via-transparent to-red-800/40 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80  mix-blend-overlay" />
 
       {/* 💠 Tech grid lines (visible now) */}
       <div

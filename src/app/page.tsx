@@ -91,13 +91,13 @@ type Course = {
 const sampleCourses: Course[] = [
   {
     id: "c1",
-    title: "Certified Professional Bug Hunter",
+    title: "Certified Cyber Intelligence Analyst",
     level: "Professional",
-    duration: "5 months",
-    seatsLeft: 12,
-    shortDescription: "Build professional bug hunting skills for real-world impact",
-    image: "/cpbh.png",
-    path: "cpbh"
+    duration: "3 months",
+    seatsLeft: 9,
+    shortDescription: "Master cybersecurity, cloud security, and incident analysis for modern security operations",
+    image: "/ccia.png",
+    path: "ccia"
   },
   {
     id: "c2",

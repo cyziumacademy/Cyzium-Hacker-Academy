@@ -98,17 +98,22 @@ const careerPaths: CareerPath[] = [
         roles: ["SOC Analyst Tier 1/2", "Cybersecurity Analyst", "Incident Responder", "Threat Hunter"], 
         themeColor: "blue" 
     },
-    { 
-        title: "Bug Bounty Hunter", 
-        description: "Hunt for vulnerabilities in real-world applications and get rewarded for your findings. Master web and mobile security testing.", 
-        certifications: [
-            { name: "Junior Bug Bounty Hunter", image: "/jbbt.png" },
-            { name: "Certified Bug Bounty Hunter", image: "/cbbt.png" },
-            { name: "Certified Professional Bug Hunter", image: "/cpbh.png" }
-        ], 
-        roles: ["Bug Bounty Hunter", "Application Security Engineer", "Security Researcher", "Vulnerability Analyst"], 
-        themeColor: "purple" 
-    },
+{ 
+    title: "Bug Bounty Hunter", 
+    description: "Hunt for vulnerabilities in real-world applications and get rewarded for your findings. Master web and mobile security testing.", 
+    certifications: [
+        { name: "Junior Bug Bounty Hunter", image: "/jbbt.png" },
+        { name: "Certified Bug Bounty Hunter", image: "/cbbt.png" },
+        { name: "Certified Professional Bug Hunter", image: "/cpbh.png" }
+    ], 
+    roles: [
+        "Bug Bounty Hunter",
+        "Application Security Engineer",
+        "Security Researcher",
+        "Vulnerability Analyst"
+    ], 
+    themeColor: "purple"
+},
     { 
         title: "Penetration Tester", 
         description: "Master the art of ethical hacking. Learn to find, exploit, and report security vulnerabilities in systems and applications just like a real-world attacker.", 
@@ -125,7 +130,6 @@ const careerPaths: CareerPath[] = [
 
 // ================== COMPONENT ==================
 export default function CoursesPage(): React.JSX.Element {
-    const [searchTerm, setSearchTerm] = useState<string>('');
     const [filter, setFilter] = useState<string>('All');
     const [isCareerModalOpen, setIsCareerModalOpen] = useState<boolean>(false);
     const [selectedPath, setSelectedPath] = useState<CareerPath | null>(null);
@@ -253,7 +257,7 @@ export default function CoursesPage(): React.JSX.Element {
                                         <h3 className="text-2xl font-bold mb-2 text-gray-100 flex-grow">{course.title}</h3>
                                         <p className="text-gray-400 mb-6">{course.description}</p>
                                        <div className="flex justify-center">
-  {["ccsa", "cna", "cass", "ccia"].includes(course.path) ? (
+  {["ccsa", "cna", "cass"].includes(course.path) ? (
     <div className="w-60 mt-auto bg-gray-700 text-gray-300 font-semibold py-3 px-4 rounded-[20px] text-center cursor-not-allowed">
       Coming Soon
     </div>
@@ -341,7 +345,6 @@ export default function CoursesPage(): React.JSX.Element {
 
             {idx === 2 && (
               <div className="rounded-lg h-20 sm:h-28 flex items-center justify-center text-white font-bold text-4xl sm:text-5xl">
-                =
               </div>
             )}
           </React.Fragment>
