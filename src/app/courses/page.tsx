@@ -45,7 +45,7 @@ const courses: Course[] = [
     title: "Certified Bug Bounty Hunter", 
     path: "cbbt", 
     category: "Bug Bounty Hunting", 
-    description: "Advance your bug hunting skills with in-depth web, API, and mobile testing techniques.", 
+    description: "Advance your bug hunting skills with in-depth web and mobile testing techniques.", 
     image: "/cbbt.png" 
   },
   { 

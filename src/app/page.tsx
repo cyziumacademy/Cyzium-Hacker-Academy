@@ -166,7 +166,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
           className="mt-6 w-full rounded-md bg-red-600 py-2 font-semibold hover:bg-red-700 active:bg-red-800 transition-colors duration-300 cursor-pointer"
         >
-          View Details
+          Enroll Now
         </motion.button>
       </div>
     </motion.div>

@@ -126,7 +126,7 @@ const curriculumModules = [
     {
       title: "Web Application Concepts for Hackers",
       content:
-        "Dive into how web applications work — from requests, responses, and cookies to APIs and authentication — to build a hacker’s understanding of web architecture.",
+        "Dive into how web applications work — from requests, responses, cookies and authentication — to build a hacker’s understanding of web architecture.",
     },
     {
       title: "Web Security Vulnerabilities",
@@ -160,9 +160,9 @@ const curriculumModules = [
                 "Learn how to exploit vulnerabilities individually and chain them together for more impactful results in real bug bounty scenarios.",
         },
         {
-            title: "API & Mobile Bug Hunting",
+            title: "Mobile Bug Hunting",
             content:
-                "Explore testing methodologies for APIs and mobile applications, including common vulnerabilities, tools, and hands-on exploitation.",
+               "Explore testing methodologies for mobile applications, including common vulnerabilities, tools, and hands-on exploitation",
         },
         {
             title: "Automation & AI in Bug Hunting",
@@ -243,7 +243,7 @@ const faqs = [
   {
     title: "Do I need hacking or programming knowledge before joining?",
     content:
-      "Not at all. CPBH starts from the foundations and gradually builds you up to professional-level bug hunting. We’ll teach you everything — from understanding web and API behavior to exploiting and reporting complex vulnerabilities with confidence.",
+      "Not at all. CPBH starts from the foundations and gradually builds you up to professional-level bug hunting. We’ll teach you everything — from understanding web  behavior to exploiting and reporting complex vulnerabilities with confidence.",
   },
   {
     title: "What makes CPBH different from other bug bounty courses?",
@@ -276,7 +276,7 @@ const careerOpportunities = [
   { title: "Advanced Bug Bounty Specialist", icon: Cpu }, // AI-driven bug hunting expertise
   { title: "Web Application Security Tester", icon: GlobeLock }, // Web security testing
   { title: "Cloud Security Tester", icon: Cloud }, // Focused on cloud platform security
-  { title: "API & Mobile Security Specialist", icon: Smartphone }, // API/mobile app security
+  { title: "Mobile Security Specialist", icon: Smartphone }, // mobile app security
   { title: "AI & ML Security Researcher", icon: Cpu }, // AI/ML exploitation & safety
   { title: "Vulnerability Researcher", icon: FlaskConical }, // Deep dive into vulnerabilities
   { title: "Security Consultant / Penetration Tester", icon: ShieldCheck }, // Professional consulting
@@ -693,9 +693,9 @@ return (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
     {[
       "Perform in-depth reconnaissance and smart asset discovery to identify high-value targets efficiently.",
-      "Understand modern web, cloud, and API architectures to pinpoint complex security flaws.",
+      "Understand modern web, cloud architectures to pinpoint complex security flaws.",
       "Exploit and chain multi-step vulnerabilities for real-world, high-impact scenarios.",
-      "Hunt and exploit API, mobile (Android & iOS), and cloud-based vulnerabilities with precision.",
+      "Hunt and exploit  mobile (Android & iOS), and cloud-based vulnerabilities with precision.",
       "Use AI and automation tools to enhance recon, vulnerability analysis, and report generation.",
       "Master advanced bug bounty tools for reconnaissance, scanning, exploitation, and automation.",
       "Identify logic flaws, business logic abuse, and access control misconfigurations effectively.",
@@ -750,7 +750,7 @@ return (
   <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">What You&apos;ll Achieve</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 text-base sm:text-lg">
 {[
-  "Gain expert-level skills in Web, Cloud, API, Mobile, and AI-driven bug hunting.",
+  "Gain expert-level skills in Web, Cloud, Mobile, and AI-driven bug hunting.",
   "Master reconnaissance, exploitation, and vulnerability chaining across real-world targets.",
   "Use automation and AI-powered tools to accelerate recon, testing, and reporting workflows.",
   "Understand cloud-specific attack surfaces and advanced web application exploitation techniques.",
@@ -831,7 +831,6 @@ return (
   <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base">
     In CPBH, we’ll guide you to master real-world bug bounty hunting across 
     <span className="text-white font-medium"> Web, AI, Cloud, Mobile,</span> and 
-    <span className="text-white font-medium"> API</span> environments. 
     You’ll uncover complex vulnerabilities, automate your recon with AI, and learn to think like a professional security researcher. 
     This program isn’t just training — it’s your pathway to becoming an elite ethical hacker.
   </p>
