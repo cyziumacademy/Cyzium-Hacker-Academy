@@ -114,69 +114,74 @@ const CCIACoursePage: React.FC<CCIACoursePageProps> = ({}) => {
   const [showContact, setShowContact] = useState(false);
 const curriculumModules = [
   {
-    title: "Cyber Intelligence & Networking Foundations",
+    title: "Cyber Intelligence & Warfare Foundations",
     content:
-      "Learn the fundamentals of networking and cyber intelligence, including how attackers operate, intelligence lifecycles, and frameworks like MITRE ATT&CK used to analyze real cyber threats.",
+      "Build the mindset of a cyber intelligence analyst by understanding modern cyber warfare, attacker methodologies, intelligence lifecycles, and globally used frameworks such as MITRE ATT&CK for analyzing real-world threats.",
+  },
+{
+  title: "Network Architecture & Security Foundations",
+  content:
+    "Build a clear and confident understanding of how modern networks operate and how they are protected in real-world environments. This module establishes the essential technical foundation that helps students smoothly progress into advanced cyber intelligence, threat detection, and security investigation skills.",
+},
+  {
+    title: "OSINT & Digital Footprint Intelligence",
+    content:
+      "Master the art of open-source intelligence gathering by uncovering hidden digital footprints, exposed infrastructure, and publicly available data that can reveal potential security risks.",
   },
   {
-    title: "OSINT & Digital Footprint Analysis",
+    title: "Network Traffic & Log Intelligence",
     content:
-      "Understand how to gather intelligence from open sources by analyzing domains, IPs, emails, and social media to uncover digital footprints and exposed infrastructure.",
+      "Learn how security analysts detect threats by analyzing network traffic, firewall logs, DNS activity, and system events to uncover attacker behavior and prevent security incidents.",
   },
   {
-    title: "Network Traffic & Log Analysis",
+    title: "Threat Intelligence & Malware Campaign Analysis",
     content:
-      "Learn how to analyze network traffic and system logs to detect suspicious activities, investigate attacker behavior, and identify potential security incidents.",
-  },
-  {
-    title: "Threat Intelligence & Malware Analysis",
-    content:
-      "Explore how threat intelligence teams track attackers, analyze malware samples, extract indicators of compromise (IOCs), and map attacks using frameworks like MITRE ATT&CK.",
+      "Understand how threat intelligence teams track cybercriminal groups, analyze malware campaigns, extract indicators of compromise (IOCs), and connect attack patterns across global incidents.",
   },
   {
     title: "Vulnerability & Exploit Intelligence",
     content:
-      "Understand how security teams monitor vulnerabilities, analyze CVEs and exploits, and assess their real-world impact on organizations and systems.",
+      "Gain insight into how organizations monitor emerging vulnerabilities, analyze exploit trends, and assess the real-world risk of security flaws before they are weaponized by attackers.",
   },
   {
-    title: "SIEM & SOC Operations",
+    title: "SIEM, SOC & Detection Engineering",
     content:
-      "Discover how Security Operations Centers monitor networks using SIEM tools, investigate alerts, detect attacks, and respond to security incidents in real time.",
+      "Explore how modern Security Operations Centers use SIEM platforms to monitor threats, correlate security events, engineer detections, and respond to attacks in real time.",
   },
   {
-    title: "Incident Response & Digital Investigation",
+    title: "Incident Response & Digital Forensic Intelligence",
     content:
-      "Learn the incident response process, including evidence collection, forensic analysis, and timeline reconstruction to investigate cyber attacks effectively.",
+      "Learn how cyber incidents are investigated professionally through evidence collection, forensic analysis, attack timeline reconstruction, and coordinated response strategies.",
   },
   {
-    title: "Dark Web & Data Leak Analysis",
+    title: "Cloud Security Intelligence",
     content:
-      "Understand how threat actors operate on the dark web, track ransomware leaks, analyze breach data, and monitor underground cybercrime communities.",
+      "Understand modern cloud threat landscapes by learning how analysts detect misconfigurations, exposed storage systems, identity abuse, and advanced attacks targeting cloud environments.",
   },
   {
-    title: "Cloud Security & Cloud Intelligence",
+    title: "Dark Web & Data Leak Intelligence",
     content:
-      "Learn how cloud environments work and how security teams identify misconfigurations, exposed storage, and threats targeting modern cloud infrastructure.",
+      "Discover how intelligence analysts monitor ransomware leak portals, underground forums, and breach marketplaces to track emerging threats and protect organizational data.",
   },
   {
-    title: "AI in Cyber Security",
+    title: "AI Security & Adversarial Intelligence",
     content:
-      "Explore how artificial intelligence is transforming cybersecurity through automated threat detection, log analysis, and intelligent security investigations.",
+      "Explore the emerging risks surrounding artificial intelligence, including prompt injection, deepfake-driven attacks, adversarial machine learning, and techniques to secure AI-powered systems.",
   },
   {
-    title: "Security Reporting & Visualization",
+    title: "Intelligence Reporting & Security Visualization",
     content:
-      "Develop the ability to create professional threat intelligence reports, visualize attack data, and communicate security findings clearly to technical and executive teams.",
+      "Develop professional reporting skills by transforming complex investigations into clear intelligence briefings, risk assessments, and visual dashboards for both technical and executive audiences.",
   },
   {
-    title: "Real-World Attack Case Studies",
+    title: "Real-World Cyber Attack Case Studies",
     content:
-      "Analyze real cyber attacks including ransomware, phishing campaigns, and data breaches to understand how attackers operate and how organizations respond.",
+      "Analyze real cyber incidents such as ransomware operations, phishing infrastructures, and data breaches to understand attacker strategies and defensive intelligence responses.",
   },
   {
-    title: "Capstone Project: Cyber Intelligence Investigation",
+    title: "Capstone Project: Full Cyber Intelligence Investigation",
     content:
-      "Apply everything you’ve learned by conducting a full cyber intelligence investigation including OSINT research, log analysis, threat mapping, and professional reporting.",
+      "Demonstrate your analyst skills by performing an end-to-end cyber intelligence investigation involving OSINT research, threat mapping, log analysis, cloud attack evaluation, and executive-level reporting.",
   },
 ];
 
