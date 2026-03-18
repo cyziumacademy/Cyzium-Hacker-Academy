@@ -346,12 +346,12 @@ Start your career in cyber intelligence by learning how to detect, analyze, and 
             <section className="py-4 sm:py-8">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10">
                 <div className="text-center">
-                  <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">3 Months</p>
+                  <p className="text-2xl sm:text-4xl text-yellow-400 font-bold">3.5 Months</p>
                   <p className="text-gray-400 text-sm sm:text-base">Duration</p>
                 </div>
 <div className="text-center">
-  <p className="text-2xl sm:text-3xl font-bold text-green-400">Cyber Intelligence</p>
-  <p className="text-gray-400 text-sm sm:text-base">Specialization</p>
+  <p className="text-2xl sm:text-3xl font-bold text-green-400">1 Month</p>
+  <p className="text-gray-400 text-sm sm:text-base">Internship Program</p>
 </div>
                 <div className="text-center">
                   <p className="text-2xl sm:text-4xl text-blue-500 font-bold">30+</p>
