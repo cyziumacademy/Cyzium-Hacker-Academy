@@ -12,10 +12,10 @@ export const batches = [
     targetDate: "2026-04-15T00:00:00Z",
   },
   {
-    image: "/cbbt.png",
-    title: "Certified Bug Bounty Hunter",
+    image: "/ccia.png",
+    title: "Certified Cyber Intelligence Analyst",
     startDate: "May 15, 2026",
-    duration: "2 Months",
+    duration: "3.5 Months",
     includes: "Live Sessions + Labs",
     price: "₹4,000",
     cashback: "Cashback!",
