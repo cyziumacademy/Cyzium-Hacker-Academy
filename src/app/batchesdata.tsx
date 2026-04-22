@@ -15,7 +15,7 @@ export const batches = [
     image: "/ccia.png",
     title: "Certified Cyber Intelligence Analyst",
     startDate: "May 15, 2026",
-    duration: "3.5 Months",
+    duration: "4 Months",
     includes: "Live Sessions + Labs",
     price: "₹4,000",
     cashback: "Cashback!",
